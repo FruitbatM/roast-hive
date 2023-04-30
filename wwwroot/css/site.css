@@ -1,6 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 html {
-  font-size: 14px;
+  scroll-behavior: smooth;
+  height: 100%;
 }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  width: auto;
+  margin-bottom: 60px;
+}
+
+/* Navbar */
+.brand-logo {
+  width: 7.5rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #000;
+}
+
+.nav-link:hover {
+  border-bottom: 0.15rem solid #439B94;
+  padding-bottom: 0.15rem;
+}
+
+.active-nav-link {
+  color: #439B94 !important;
+  font-weight: bold;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color:#daf7f7;
+}
+
+.list-inline {
+  padding-left: 6rem;
+}
+
+input[name='q']::placeholder {
+  color: #aab7c4;
+}
+
 
 @media (min-width: 768px) {
   html {
@@ -15,8 +61,4 @@ html {
 html {
   position: relative;
   min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
 }
