@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "RoastHiveMvc/1.0.0": {
+        "runtime": {
+          "RoastHiveMvc.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RoastHiveMvc/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
