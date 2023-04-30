@@ -37,8 +37,11 @@
     </div>
 
     <footer class="border-top footer text-muted">
+        <!-- Output the current year on the website -->
         <div class="container">
-            &copy; 2023 - RoastHiveMvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy;
+            <script>document.write(new Date().getFullYear());</script>
+            RoastHive
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
