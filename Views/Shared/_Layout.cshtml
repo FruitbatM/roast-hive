@@ -3,30 +3,166 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RoastHiveMvc</title>
+    <title>@ViewData["Title"] - RoastHive</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RoastHiveMvc.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 </head>
 <body>
+    <!-- Navigation -->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RoastHiveMvc</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        <div class="container-fluid d-none d-lg-flex mt-1">
+            <div class="container">
+                <div class="row bg-white">
+                    <div class="col-lg-4 my-auto py-lg-0 text-lg-left">
+                        <a class="navbar-brand mx-auto" href="#">
+                            <img src="/images/logo.png" alt="Logo" class="brand-logo" loading="lazy">
+                        </a>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-lg-4 my-auto py-1 py-lg-0">
+            <form method="GET" action="#" class="search-input-mob">
+                <div class="input-group border-black">
+                    <input class="form-control" type="text" name="q" placeholder="Search Products" maxlength="50">
+                    <div class="input-group-button">
+                        <button class="form-control" type="submit" aria-label="submit keyword">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- My Acccount -->
+        <div class="col-lg-4 my-auto py-1 py-lg-0">
+            <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                <li class="list-inline-item dropdown">
+                    <a class="nav-link text-black" href="#" id="user-options" data-bs-toggle="dropdown" 
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="bi bi-person-fill"></i>
+                        <br>
+                        ACCOUNT
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options"></div>
+                </li>
+                <li class="list-inline-item">
+                    <!-- Shopping Cart -->
+                    <a class="text-success-cart font-weight-boldtext-black nav-link" href="#">
+                        <div class="text-center">
+                            <div>
+                                <i class="bi bi-cup-hot-fill"></i>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light py-lg-0">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="nav-link d-lg-none d-md-flex" href="#">
+                <img src="#" alt="Logo" class="brand-logo" loading="lazy">
+            </a>
+            <!-- Shopping Cart -->
+            <a href="#" class="nav-link d-lg-none d-xl-none cart-link-mob">
+                <div class="text-center">
+                    <div><i class="bi bi-cup-hot-fill"></i></div>
+                </div>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mr-2">
+                    <li class="nav-item active dropdown pe-5">
+                        <a class="nav-link dropdown-toggle" 
+                            aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            HOME
+                        </a>
+                    <li class="nav-item pe-5">
+                        <a class="nav-link dropdown-toggle" 
+                            href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SHOP
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
+                            <li><a class="dropdown-item" href="?category=">SINGLE ORIGIN</a></li>
+                            <li><a class="dropdown-item" href="?category=">BLEND</a></li>
+                            <li><a class="dropdown-item" href="?category=">ESPRESSO</a></li>
+                            <li><a class="dropdown-item" href="?category=">DECAF</a></li>
+                            <li><a class="dropdown-item" href="">ALL PRODUCTS</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pe-5">
+                        <a class="nav-link active-nav-link" href="#">
+                            SUBSCRIPTION
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown pe-5">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            ABOUT US
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">OUR STORY</a></li>
+                            <li><a class="dropdown-item" href="#">OUR TEAM</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item pe-5">
+                        <a class="nav-link active-nav-link" 
+                            href="#">
+                            CONTACT
+                        </a>
+                    </li>
+                    <li><hr class="d-lg-none"></li>
+                    <!-- NAV account links -->
+                    <li class="top-nav-links d-lg-none">
+                        <ul class="navbar-nav mr-auto pl-0">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <li>
+                                <a class="dropdown-item nav-link" href="{% url 'add_product' %}">PRODUCT MANAGEMENT</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item nav-link" href="{% url 'add_holiday' %}">HOLIDAY MANAGEMENT</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item nav-link" href="{% url 'add_blog' %}">ADD NEW BLOG</a>
+                            </li>
+                            <li>
+                                <div class="line d-lg-none"></div>
+                            </li>
+                            {% endif %}
+                            <li>
+                                <a class="dropdown-item nav-link" href="{% url 'profile' %}">MY PROFILE</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item nav-link" href="{% url 'account_logout' %}">LOGOUT</a>
+                            </li>
+                        {% else %}
+                        <li>
+                            <a class="dropdown-item nav-link" href="{% url 'account_signup' %}">REGISTER</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item nav-link" href="{% url 'account_login' %}">LOGIN</a>
+                        </li>
+                        {% endif %}
+                        </ul>
+                    </li>
+                    <li class="search-mob">
+                        <form method="GET" action="#" class="search-input-mob">
+                            <div class="input-group border-black">
+                                <input class="form-control" type="text" name="q" placeholder="Search Products" maxlength="50">
+                                <div class="input-group-button">
+                                    <button class="form-control" type="submit" aria-label="submit keyword">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -42,6 +178,7 @@
             &copy;
             <script>document.write(new Date().getFullYear());</script>
             RoastHive
+            <a asp-area="" asp-controller="Home" asp-action="Index"></a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
