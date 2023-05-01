@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\images\\hero-image2_r.jpg",
+      "PackagePath": "staticwebassets\\images\\hero-image2_r.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\images\\hero-image_1.jpg",
+      "PackagePath": "staticwebassets\\images\\hero-image_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
       "Id": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

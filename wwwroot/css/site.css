@@ -104,10 +104,52 @@ input[name='q']::placeholder {
 }
 
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
+/* Media Queries */
+/* Display on tablet devices */  
+
+@media only screen 
+  and (min-width : 768px) 
+  and (max-width : 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+  body {
+    padding-top: 3.75rem;
   }
+
+  .brand-logo {
+    width: 9.4rem;
+  }
+
+  #home-header {
+    height: 40rem;
+}
+
+  .section-heading-2 {
+    font-size: 3rem;
+  }
+}
+
+
+/* Display on large devices */
+@media screen 
+  and (min-width: 1024px) {
+
+    .navbar {
+      font-size: 1.1rem;
+    }
+
+    #home-header {
+      height: 33rem;
+  }
+
+    .section-heading-2 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+
+    .search-mob {
+      display: none;
+    }
 }
 
 /* iPhone 5 only (portrait mode)
@@ -128,7 +170,3 @@ resource: https://coderwall.com/p/mwvbea/media-queries-only-for-the-iphone-5-par
     }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
