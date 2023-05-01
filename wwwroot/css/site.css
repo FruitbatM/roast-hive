@@ -13,7 +13,6 @@ html, body {
 body {
   font-family: 'Roboto', sans-serif;
   width: auto;
-  margin-bottom: 60px;
 }
 
 /* Navbar */
@@ -54,8 +53,22 @@ input[name='q']::placeholder {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* iPhone 5 only (portrait mode)
+resource: https://coderwall.com/p/mwvbea/media-queries-only-for-the-iphone-5-part-i */ 
+
+@media only screen 
+  and (min-width: 320px) 
+  and (max-width: 568px)
+  and (-webkit-device-pixel-ratio: 2) 
+  and (min-aspect-ratio: 40/71) and (orientation:portrait) {
+
+    .brand-logo {
+      width: 6.4rem;
+    }
+
+    .fa-shopping-cart {
+      font-size: 0.9rem !important;
+    }
 }
 
 html {

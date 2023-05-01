@@ -17,7 +17,7 @@
                 <div class="row bg-white">
                     <div class="col-lg-4 my-auto py-lg-0 text-lg-left">
                         <a class="navbar-brand mx-auto" href="#">
-                            <img src="/images/logo.png" alt="Logo" class="brand-logo" loading="lazy">
+                            <img src="~/images/logo.png" alt="Logo" class="brand-logo" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -42,8 +42,6 @@
                     <a class="nav-link text-black" href="#" id="user-options" data-bs-toggle="dropdown" 
                         aria-haspopup="true" aria-expanded="false">
                         <i class="bi bi-person-fill"></i>
-                        <br>
-                        ACCOUNT
                     </a>
                     <div class="dropdown-menu border-0" aria-labelledby="user-options"></div>
                 </li>
@@ -58,6 +56,9 @@
                     </a>
                 </li>
             </ul>
+        </div>
+        <div class="container-fluid d-none d-lg-flex mt-1">
+
         </div>
         <nav class="navbar navbar-expand-lg navbar-light py-lg-0">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,12 +75,11 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mr-2">
-                    <li class="nav-item active dropdown pe-5">
-                        <a class="nav-link dropdown-toggle" 
-                            aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" 
-                            aria-expanded="false">
+                    <li class="nav-item pe-5">
+                        <a class="nav-link active-nav-link" href="#">
                             HOME
                         </a>
+                    </li>
                     <li class="nav-item pe-5">
                         <a class="nav-link dropdown-toggle" 
                             href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -98,15 +98,10 @@
                             SUBSCRIPTION
                         </a>
                     </li>
-                    <li class="nav-item dropdown pe-5">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item pe-5">
+                        <a class="nav-link active-nav-link" href="#">
                             ABOUT US
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">OUR STORY</a></li>
-                            <li><a class="dropdown-item" href="#">OUR TEAM</a></li>
-                        </ul>
                     </li>
                     
                     <li class="nav-item pe-5">
@@ -119,35 +114,12 @@
                     <!-- NAV account links -->
                     <li class="top-nav-links d-lg-none">
                         <ul class="navbar-nav mr-auto pl-0">
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
                             <li>
-                                <a class="dropdown-item nav-link" href="{% url 'add_product' %}">PRODUCT MANAGEMENT</a>
+                                <a class="dropdown-item nav-link" href="#">REGISTER</a>
                             </li>
                             <li>
-                                <a class="dropdown-item nav-link" href="{% url 'add_holiday' %}">HOLIDAY MANAGEMENT</a>
+                                <a class="dropdown-item nav-link" href="#">LOGIN</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item nav-link" href="{% url 'add_blog' %}">ADD NEW BLOG</a>
-                            </li>
-                            <li>
-                                <div class="line d-lg-none"></div>
-                            </li>
-                            {% endif %}
-                            <li>
-                                <a class="dropdown-item nav-link" href="{% url 'profile' %}">MY PROFILE</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item nav-link" href="{% url 'account_logout' %}">LOGOUT</a>
-                            </li>
-                        {% else %}
-                        <li>
-                            <a class="dropdown-item nav-link" href="{% url 'account_signup' %}">REGISTER</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item nav-link" href="{% url 'account_login' %}">LOGIN</a>
-                        </li>
-                        {% endif %}
                         </ul>
                     </li>
                     <li class="search-mob">
@@ -172,7 +144,75 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white">
+        <div class="container-fluid p-4 pb-0">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">ROAST HIVE</h5>
+                    <p>
+                        <small>Pick which specialty roast coffees you want and when you want it. We’ll roast it fresh and deliver it to you on the dates that you choose.</small> 
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0 d-md-none d-lg-block">
+                    <h5 class="text-uppercase">links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                        <a href="#" class="text-white">HOME</a>
+                        </li>
+                        <li>
+                        <a href="#" class="text-white">SHOP</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">SUBSCRIPTION</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">ABOUT US</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0 footer-contact">
+                    <h5 class="text-uppercase">contact</h5>
+                    <p class="footer-email">
+                        <strong>Email:</strong>
+                        <a href="mailto:info@roasthive.com">
+                             info@roasthive.com
+                        </a>
+                    </p>
+                    <p class="footer-phone">
+                        <strong>Tel:</strong>
+                        <a href="tel:+353875555222">
+                            +353 (0) 875555222
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <hr class="mb-4"/>
+            <div class="social-media mb-4 text-center">
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com" target="_blank" rel="noreferrer">
+                    <i class="bi bi-facebook" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.twitter.com" target="_blank" rel="noreferrer">
+                    <i class="bi bi-twitter" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com" target="_blank" rel="noreferrer">
+                    <i class="bi bi-instagram" aria-hidden="true"></i>
+                </a>
+
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.tiktok.com/en/" target="_blank" rel="noreferrer">
+                    <i class="bi bi-tiktok" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com" target="_blank" rel="noreferrer">
+                    <i class="bi bi-youtube" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="" target="_blank" rel="noreferrer">
+                    <i class="bi bi-linkedin" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
         <!-- Output the current year on the website -->
         <div class="container">
             &copy;
@@ -181,6 +221,7 @@
             <a asp-area="" asp-controller="Home" asp-action="Index"></a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
