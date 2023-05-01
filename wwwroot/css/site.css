@@ -46,6 +46,63 @@ input[name='q']::placeholder {
   color: #aab7c4;
 }
 
+/* Hero section */
+#hero-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#home-header {
+    background: url(../images/hero-image_1.jpg) no-repeat center;
+    background-size: cover;
+    height: 39rem;
+}
+
+.main-heading {
+  margin-top: 4rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #000000;
+  text-shadow: 0.07rem 0.06rem #fafafa;
+}
+
+.sub-heading {
+  color: #fafafa;
+  text-shadow: 0.1rem 0.1rem #212324;
+}
+
+.section-heading-1 {
+  margin-top: 6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.section-button {
+  background-color: #439B94;
+  color: #fafafa;
+}
+
+.section-button:hover, .section-button:active {
+  background-color: #439B94;
+  color: #fafafa;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.btn-outline-success {
+  color: #fafafa !important;
+  border-color: #fafafa !important;
+  border-width: 0.1rem;
+}
+
+.btn-outline-success:hover, .btn-outline-success:active, .btn-outline-success:visited {
+  color: #000000;
+  background-color: #439B94;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 
 @media (min-width: 768px) {
   html {
