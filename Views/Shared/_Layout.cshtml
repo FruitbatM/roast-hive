@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RoastHiveMvc.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+
 </head>
 <body>
     <!-- Navigation -->
@@ -17,7 +19,7 @@
                 <div class="row bg-white">
                     <div class="col-lg-4 my-auto py-lg-0 text-lg-left">
                         <a class="navbar-brand mx-auto" href="#">
-                            <img src="~/images/logo.png" alt="Logo" class="brand-logo" loading="lazy">
+                            <img src="~/images/logo_c.png" alt="Logo" class="brand-logo" loading="lazy">
                         </a>
                     </div>
                     <!-- Search -->
@@ -45,10 +47,10 @@
                             </li>
                             <li class="list-inline-item">
                                 <!-- Shopping Cart -->
-                                <a class="text-success-cart font-weight-boldtext-black nav-link" href="#">
+                                <a class="text-success-cart font-weight-bold text-black nav-link" href="#">
                                     <div class="text-center">
                                         <div>
-                                            <i class="bi bi-cup-hot-fill"></i>
+                                            <i class="bi bi-cup-fill"></i>
                                         </div>
                                     </div>
                                 </a>
@@ -59,88 +61,89 @@
             </div>
         </div>
     
-        <div class="container-fluid d-none d-lg-flex mt-1">
-
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light py-lg-0">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="nav-link d-lg-none d-md-flex" href="#">
-                <img src="#" alt="Logo" class="brand-logo" loading="lazy">
-            </a>
-            <!-- Shopping Cart -->
-            <a href="#" class="nav-link d-lg-none d-xl-none cart-link-mob">
-                <div class="text-center">
-                    <div><i class="bi bi-cup-hot-fill"></i></div>
-                </div>
-            </a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mr-2">
-                    <li class="nav-item pe-5">
-                        <a class="nav-link active-nav-link" href="#">
-                            HOME
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row bg-white mb-2">
+                    <nav class="navbar navbar-expand-lg navbar-light py-lg-0">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="nav-link d-lg-none d-md-flex" href="#">
+                            <img src="~/images/logo_c.png" alt="Logo" class="brand-logo" loading="lazy">
                         </a>
-                    </li>
-                    <li class="nav-item pe-5">
-                        <a class="nav-link dropdown-toggle" 
-                            href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
-                            <li><a class="dropdown-item" href="?category=">SINGLE ORIGIN</a></li>
-                            <li><a class="dropdown-item" href="?category=">BLEND</a></li>
-                            <li><a class="dropdown-item" href="?category=">ESPRESSO</a></li>
-                            <li><a class="dropdown-item" href="?category=">DECAF</a></li>
-                            <li><a class="dropdown-item" href="">ALL PRODUCTS</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item pe-5">
-                        <a class="nav-link active-nav-link" href="#">
-                            SUBSCRIPTION
-                        </a>
-                    </li>
-                    <li class="nav-item pe-5">
-                        <a class="nav-link active-nav-link" href="#">
-                            ABOUT US
-                        </a>
-                    </li>
-                    
-                    <li class="nav-item pe-5">
-                        <a class="nav-link active-nav-link" 
-                            href="#">
-                            CONTACT
-                        </a>
-                    </li>
-                    <li><hr class="d-lg-none"></li>
-                    <!-- NAV account links -->
-                    <li class="top-nav-links d-lg-none">
-                        <ul class="navbar-nav mr-auto pl-0">
-                            <li>
-                                <a class="dropdown-item nav-link" href="#">REGISTER</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item nav-link" href="#">LOGIN</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="search-mob">
-                        <form method="GET" action="#" class="search-input-mob">
-                            <div class="input-group border-black">
-                                <input class="form-control" type="text" name="q" placeholder="Search Products" maxlength="50">
-                                <div class="input-group-button">
-                                    <button class="form-control" type="submit" aria-label="submit keyword">
-                                        <i class="bi bi-search"></i>
-                                    </button>
-                                </div>
+                        <!-- Shopping Cart -->
+                        <a href="#" class="nav-link d-lg-none d-xl-none cart-link-mob">
+                            <div class="text-center">
+                                <div><i class="bi bi-cup-fill"></i></div>
                             </div>
-                        </form>
-                    </li>
-                </ul>
+                        </a>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mx-auto mr-2">
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link active-nav-link" href="#">
+                                        HOME
+                                    </a>
+                                </li>
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link dropdown-toggle" 
+                                        href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        SHOP
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
+                                        <li><a class="dropdown-item" href="#">SINGLE ORIGIN</a></li>
+                                        <li><a class="dropdown-item" href="#">BLEND</a></li>
+                                        <li><a class="dropdown-item" href="#">ESPRESSO</a></li>
+                                        <li><a class="dropdown-item" href="#">DECAF</a></li>
+                                        <li><a class="dropdown-item" href="#">ALL PRODUCTS</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link active-nav-link" href="#">
+                                        SUBSCRIPTION
+                                    </a>
+                                </li>
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link active-nav-link" href="#">
+                                        ABOUT US
+                                    </a>
+                                </li>
+                                
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link active-nav-link" 
+                                        href="#">
+                                        CONTACT
+                                    </a>
+                                </li>
+                                <li><hr class="d-lg-none"></li>
+                                <!-- NAV account links -->
+                                <li class="top-nav-links d-lg-none">
+                                    <ul class="navbar-nav mr-auto pl-0">
+                                        <li>
+                                            <a class="dropdown-item nav-link" href="#">REGISTER</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item nav-link" href="#">LOGIN</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="search-mob">
+                                    <form method="GET" action="#" class="search-input-mob">
+                                        <div class="input-group border-black">
+                                            <input class="form-control" type="text" name="q" placeholder="Search Products" maxlength="50">
+                                            <div class="input-group-button">
+                                                <button class="form-control" type="submit" aria-label="submit keyword">
+                                                    <i class="bi bi-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
-        </nav>
-
-
+        </div>
          <div class="header-content">
             <div class="container-fluid" id="hero-content">
                 <div class="row">
