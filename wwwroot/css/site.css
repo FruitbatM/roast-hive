@@ -17,7 +17,7 @@ body {
 
 /* Navbar */
 .brand-logo {
-  width: 7.5rem;
+  width: 6.5rem;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -25,14 +25,21 @@ body {
 }
 
 .nav-link:hover {
-  border-bottom: 0.15rem solid #439B94;
+  border-bottom: 0.15rem solid #7F5539;
   padding-bottom: 0.15rem;
 }
 
+/* Resize top navbar icons  */
+i.bi.bi-person-fill, i.bi.bi-cup-fill {
+  font-size: 1.5em;
+}
+
+/*
 .active-nav-link {
   color: #439B94 !important;
   font-weight: bold;
 }
+*/
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   background-color:#daf7f7;
@@ -62,7 +69,7 @@ input[name='q']::placeholder {
   margin-top: 4rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: #000000;
+  color: #b59191;
   text-shadow: 0.07rem 0.06rem #fafafa;
 }
 
