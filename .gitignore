@@ -2,5 +2,5 @@
 .vscode/
 
 # Directories
-bin/
-obj/
+# bin/
+# obj/
