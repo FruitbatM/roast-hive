@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2LP4HY1gIazh2smZ1qofmxqi7FZEWgOf8G/q0oZd/Co=",
+  "Hash": "ayjj975MAdWosylLjGn3sD6nZBlCdAuhFupTnx1YeLw=",
   "Source": "RoastHiveMvc",
   "BasePath": "_content/RoastHiveMvc",
   "Mode": "Default",
@@ -85,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\images\\6.png",
+      "SourceId": "RoastHiveMvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\",
+      "BasePath": "_content/RoastHiveMvc",
+      "RelativePath": "images/6.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\6.png"
+    },
+    {
       "Identity": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\images\\hero-image_1.jpg",
       "SourceId": "RoastHiveMvc",
       "SourceType": "Discovered",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\hero-image2_r.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\images\\logo_c.png",
+      "SourceId": "RoastHiveMvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\",
+      "BasePath": "_content/RoastHiveMvc",
+      "RelativePath": "images/logo_c.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo_c.png"
     },
     {
       "Identity": "C:\\Users\\marin\\Desktop\\DBS-CA\\RoastHiveMvc\\wwwroot\\images\\logo.png",
