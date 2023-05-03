@@ -1,22 +1,183 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 html {
-  position: relative;
-  min-height: 100%;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  margin-bottom: 60px;
+  font-family: 'Roboto', sans-serif;
+  width: auto;
 }
+
+/* Navbar */
+.brand-logo {
+  width: 6.5rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #000;
+}
+
+.nav-link:hover {
+  border-bottom: 0.15rem solid #7F5539;
+  padding-bottom: 0.15rem;
+}
+
+/* Resize top navbar icons  */
+i.bi.bi-person-fill, i.bi.bi-cup-fill {
+  font-size: 1.5em;
+}
+
+#user-options {
+  margin-right: 2rem;
+}
+
+/*
+.active-nav-link {
+  color: #439B94 !important;
+  font-weight: bold;
+}
+*/
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color:#daf7f7;
+}
+
+.list-inline {
+  padding-left: 6rem;
+}
+
+input[name='q']::placeholder {
+  color: #aab7c4;
+}
+
+/* Hero section */
+#hero-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#home-header {
+    background: url(../images/hero-image_1.jpg) no-repeat center;
+    background-size: cover;
+    height: 39rem;
+}
+
+.main-heading {
+  margin-top: 4rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #b59191;
+  text-shadow: 0.07rem 0.06rem #fafafa;
+}
+
+.sub-heading {
+  color: #fafafa;
+  text-shadow: 0.1rem 0.1rem #212324;
+}
+
+.section-heading-1 {
+  margin-top: 6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.section-button {
+  background-color: #439B94;
+  color: #fafafa;
+}
+
+.section-button:hover, .section-button:active {
+  background-color: #439B94;
+  color: #fafafa;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.btn-outline-success {
+  color: #fafafa !important;
+  border-color: #fafafa !important;
+  border-width: 0.1rem;
+}
+
+.btn-outline-success:hover, .btn-outline-success:active, .btn-outline-success:visited {
+  color: #000000;
+  background-color: #439B94;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+
+/* Media Queries */
+/* Display on tablet devices */  
+
+@media only screen 
+  and (min-width : 768px) 
+  and (max-width : 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+  body {
+    padding-top: 3.75rem;
+  }
+
+  .brand-logo {
+    width: 9.4rem;
+  }
+
+  #home-header {
+    height: 40rem;
+}
+
+  .section-heading-2 {
+    font-size: 3rem;
+  }
+}
+
+
+/* Display on large devices */
+@media screen 
+  and (min-width: 1024px) {
+
+    .navbar {
+      font-size: 1.1rem;
+    }
+
+    #home-header {
+      height: 33rem;
+  }
+
+    .section-heading-2 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+
+    .search-mob {
+      display: none;
+    }
+}
+
+/* iPhone 5 only (portrait mode)
+resource: https://coderwall.com/p/mwvbea/media-queries-only-for-the-iphone-5-part-i */ 
+
+@media only screen 
+  and (min-width: 320px) 
+  and (max-width: 568px)
+  and (-webkit-device-pixel-ratio: 2) 
+  and (min-aspect-ratio: 40/71) and (orientation:portrait) {
+
+    .brand-logo {
+      width: 6.4rem;
+    }
+
+    .fa-shopping-cart {
+      font-size: 0.9rem !important;
+    }
+}
+
