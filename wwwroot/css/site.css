@@ -34,6 +34,10 @@ i.bi.bi-person-fill, i.bi.bi-cup-fill {
   font-size: 1.5em;
 }
 
+#user-options {
+  margin-right: 2rem;
+}
+
 /*
 .active-nav-link {
   color: #439B94 !important;
