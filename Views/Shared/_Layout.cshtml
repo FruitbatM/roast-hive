@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RoastHive</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RoastHiveMvc.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container-fluid d-none d-lg-flex mt-1">
+            <div class="container">
+                <div class="row bg-white">
+                    <div class="col-lg-4 my-auto py-lg-0 text-lg-left">
+                        <a class="navbar-brand mx-auto" href="#">
+                            <img src="~/images/logo_c.png" alt="Logo" class="brand-logo" loading="lazy">
+                        </a>
+                    </div>
+                    <!-- Search -->
+                    <div class="col-lg-4 my-auto py-1 py-lg-0">
+                        <form method="GET" action="#" class="search-input-mob">
+                            <div class="input-group border-black">
+                                <input class="form-control" type="text" name="q" placeholder="Search Products" maxlength="50">
+                                <div class="input-group-button">
+                                    <button class="form-control" type="submit" aria-label="submit keyword">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4 my-auto py-1 py-lg-0">
+                        <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                            <!-- My Acccount -->
+                            <li class="list-inline-item dropdown">
+                                <a class="nav-link text-black" href="#" id="user-options" data-bs-toggle="dropdown" 
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-person-fill"></i>
+                                </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                    <a class="dropdown-item" href="#">REGISTER</a>
+                                    <a class="dropdown-item" href="#">LOGIN</a>
+                                </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <!-- Shopping Cart -->
+                                <a class="text-success-cart font-weight-bold text-black nav-link" href="#">
+                                    <div class="text-center">
+                                        <div>
+                                            <i class="bi bi-cup-fill"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row bg-white mb-2">
+                    <nav class="navbar navbar-expand-lg navbar-light py-lg-0">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="nav-link d-lg-none d-md-flex" href="#">
+                            <img src="~/images/logo_c.png" alt="Logo" class="brand-logo" loading="lazy">
+                        </a>
+                        <!-- Shopping Cart -->
+                        <a href="#" class="nav-link d-lg-none d-xl-none cart-link-mob">
+                            <div class="text-center">
+                                <div><i class="bi bi-cup-fill"></i></div>
+                            </div>
+                        </a>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mx-auto mr-2">
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link active-nav-link" href="#">
+                                        HOME
+                                    </a>
+                                </li>
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link dropdown-toggle" 
+                                        href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        SHOP
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
+                                        <li><a class="dropdown-item" href="#">SINGLE ORIGIN</a></li>
+                                        <li><a class="dropdown-item" href="#">BLEND</a></li>
+                                        <li><a class="dropdown-item" href="#">ESPRESSO</a></li>
+                                        <li><a class="dropdown-item" href="#">DECAF</a></li>
+                                        <li><a class="dropdown-item" href="#">ALL PRODUCTS</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link active-nav-link" href="#">
+                                        SUBSCRIPTION
+                                    </a>
+                                </li>
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link active-nav-link" href="#">
+                                        ABOUT US
+                                    </a>
+                                </li>
+                                
+                                <li class="nav-item pe-5">
+                                    <a class="nav-link active-nav-link" 
+                                        href="#">
+                                        CONTACT
+                                    </a>
+                                </li>
+                                <li><hr class="d-lg-none"></li>
+                                <!-- NAV account links -->
+                                <li class="top-nav-links d-lg-none">
+                                    <ul class="navbar-nav mr-auto pl-0">
+                                        <li>
+                                            <a class="dropdown-item nav-link" href="#">REGISTER</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item nav-link" href="#">LOGIN</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="search-mob">
+                                    <form method="GET" action="#" class="search-input-mob">
+                                        <div class="input-group border-black">
+                                            <input class="form-control" type="text" name="q" placeholder="Search Products" maxlength="50">
+                                            <div class="input-group-button">
+                                                <button class="form-control" type="submit" aria-label="submit keyword">
+                                                    <i class="bi bi-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+         <div class="header-content">
+            <div class="container-fluid" id="hero-content">
+                <div class="row">
+                    <div id="home-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 my-auto ms-3 me-3">
+                                    <h1 class="display-4 main-heading text-uppercase">
+                                        In search for the best sustainable coffee worldwide
+                                    </h1>
+                                    <h3 class="sub-heading">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                        In non eros semper, consequat lectus vel, rutrum augue.
+                                    </h3>
+                                    <div class="my-5">
+                                        <h4>
+                                            <a href="#" class="explore-button btn btn-outline-success btn-lg py-2" 
+                                                aria-label="Explore trail running adventures offer">
+                                                SHOP NOW
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white">
+        <div class="container-fluid p-4 pb-0">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">ROAST HIVE</h5>
+                    <p>
+                        <small>Pick which specialty roast coffees you want and when you want it. We’ll roast it fresh and deliver it to you on the dates that you choose.</small> 
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0 d-md-none d-lg-block">
+                    <h5 class="text-uppercase">links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                        <a href="#" class="text-white">HOME</a>
+                        </li>
+                        <li>
+                        <a href="#" class="text-white">SHOP</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">SUBSCRIPTION</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">ABOUT US</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-white">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0 footer-contact">
+                    <h5 class="text-uppercase">contact</h5>
+                    <p class="footer-email">
+                        <strong>Email:</strong>
+                        <a href="mailto:info@roasthive.com">
+                             info@roasthive.com
+                        </a>
+                    </p>
+                    <p class="footer-phone">
+                        <strong>Tel:</strong>
+                        <a href="tel:+353875555222">
+                            +353 (0) 875555222
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <hr class="mb-4"/>
+            <div class="social-media mb-4 text-center">
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com" target="_blank" rel="noreferrer">
+                    <i class="bi bi-facebook" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.twitter.com" target="_blank" rel="noreferrer">
+                    <i class="bi bi-twitter" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com" target="_blank" rel="noreferrer">
+                    <i class="bi bi-instagram" aria-hidden="true"></i>
+                </a>
+
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.tiktok.com/en/" target="_blank" rel="noreferrer">
+                    <i class="bi bi-tiktok" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com" target="_blank" rel="noreferrer">
+                    <i class="bi bi-youtube" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-outline-light btn-floating m-1" href="" target="_blank" rel="noreferrer">
+                    <i class="bi bi-linkedin" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Output the current year on the website -->
+        <div class="container text-center">
+            &copy;
+            <script>document.write(new Date().getFullYear());</script>
+            RoastHive
+            <a asp-area="" asp-controller="Home" asp-action="Index"></a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
