@@ -30,7 +30,7 @@ body {
 }
 
 /* Resize top navbar icons  */
-i.bi.bi-person-fill, i.bi.bi-cup-fill {
+.nav-icons {
   font-size: 1.5em;
 }
 
@@ -82,8 +82,8 @@ input[name='q']::placeholder {
   text-shadow: 0.1rem 0.1rem #212324;
 }
 
-.section-heading-1 {
-  margin-top: 6rem;
+.section-heading {
+  margin-top: 6rem !important;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -112,6 +112,35 @@ input[name='q']::placeholder {
   -webkit-transform: scale(1.05);
       -ms-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+/* Banner section */
+
+#highlights-banner-section {
+  margin-top: 3.5rem;
+}
+
+.highlights-banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.highlights-banner-block {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding-right: 8rem;
+}
+
+.highlights-banner-icon {
+  color: #4d4d4d;
+  font-size: 3.5rem;
+  margin-right: 2rem;
+}
+
+.highlights-banner-heading {
+font-weight: bold;
 }
 
 
@@ -161,6 +190,7 @@ input[name='q']::placeholder {
     .search-mob {
       display: none;
     }
+
 }
 
 /* iPhone 5 only (portrait mode)
