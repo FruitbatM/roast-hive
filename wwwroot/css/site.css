@@ -153,6 +153,10 @@ font-weight: bold;
 
 }
 
+.section-para {
+  align-items: center !important;
+}
+
 /* Homepage - featured coffee */
 
 .card {
@@ -275,7 +279,6 @@ font-weight: bold;
   width: 8.75rem !important;
   font-weight: 600
 }
-
 
 /* Media Queries */
 /* Display on tablet devices */  
