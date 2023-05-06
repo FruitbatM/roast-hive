@@ -83,7 +83,8 @@ input[name='q']::placeholder {
 }
 
 .section-heading {
-  margin-top: 6rem !important;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -95,9 +96,6 @@ input[name='q']::placeholder {
 .section-button:hover, .section-button:active {
   background-color: #439B94;
   color: #fafafa;
-  -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-          transform: scale(1.05);
 }
 
 .btn-outline-success {
@@ -117,7 +115,7 @@ input[name='q']::placeholder {
 /* Banner section */
 
 #highlights-banner-section {
-  margin-top: 3.5rem;
+  margin: 3.5rem;
 }
 
 .highlights-banner {
@@ -134,7 +132,7 @@ input[name='q']::placeholder {
 }
 
 .highlights-banner-icon {
-  color: #4d4d4d;
+  color: #c28135;
   font-size: 3.5rem;
   margin-right: 2rem;
 }
@@ -143,6 +141,144 @@ input[name='q']::placeholder {
 font-weight: bold;
 }
 
+/* Section background color*/
+
+.bg-coffee {
+  box-shadow: 0 0 0 100vmax #EDE0D4;
+  clip-path: inset(0 -100vmax);
+}
+
+.full-bg {
+  background-color: #EDE0D4;
+
+}
+
+.section-para {
+  align-items: center !important;
+}
+
+/* Homepage - featured coffee */
+
+.card {
+  width: 21.875rem;
+  border: none;
+  height: 21.875rem !important;
+  border-radius: 0.188rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.p-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-price {
+  position: absolute;
+  right: 0.625rem;
+  top: 1.25rem;
+}
+
+.p-image img {
+  width: 12.5rem;
+  transform: rotate(15deg);
+  transition:all 0.5s;
+}
+
+.p-about {
+  position: absolute;
+  width: 10.625rem;
+  font-size: 0.625rem;
+  top: 8.75rem;
+  left: -7.813rem;
+  opacity: 0;
+}
+
+.card:hover .p-about {
+  animation: content 300ms ease-in forwards
+}
+
+@keyframes content {
+  0% {
+      opacity: 0
+  }
+
+  100% {
+      opacity: 1;
+      left: 1.56rem;
+  }
+}
+
+.card:hover .p-image img {
+  animation: onimage 300ms ease-in forwards
+}
+
+.card:hover .p-price {
+  animation: onprice 500ms ease-in forwards
+}
+
+@keyframes onprice {
+  0% {
+      right: 0.625rem;
+      top: 1.25rem
+  }
+
+  50% {
+      right: 3.75rem;
+      top: 1.875rem
+  }
+
+  100% {
+      right: 16.688rem;
+      top: 4.375rem
+  }
+}
+
+@keyframes onimage {
+  0% {
+      width: 15.625
+  }
+
+  50% {
+      width: 12.5;
+      transform: translateY(-1.875rem);
+      transform: translateX(6.25rem)
+  }
+
+  100% {
+      width: 11.25rem;
+      top: 6.25rem;
+      transform: translateY(6.25rem);
+      transform: translateX(6.875rem)
+  }
+}
+
+.buttons {
+  position: absolute;
+  bottom: -9.375rem
+}
+
+.card:hover .buttons {
+  animation: buttons 500ms ease-in forwards
+}
+
+@keyframes buttons {
+  0% {
+      bottom: -6.25rem
+  }
+
+  100% {
+      bottom: 1.25rem
+  }
+}
+
+.btn-card {
+  height: 3.125rem;
+  font-size: 1rem;
+  width: 8.75rem !important;
+  font-weight: 600
+}
 
 /* Media Queries */
 /* Display on tablet devices */  
