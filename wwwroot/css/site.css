@@ -280,6 +280,28 @@ font-weight: bold;
   font-weight: 600
 }
 
+/* About Us page*/
+#about-header {
+  background: url(../images/about-hero.jpg) no-repeat center;
+  background-size: cover;
+  min-height: 76vh;
+}
+
+.about-heading {
+  margin-top: 9.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #fafafa;
+  text-shadow: 0.15rem 0.15rem #000000;
+}
+
+.about-sub-heading {
+  color: #fafafa;
+  text-shadow: 0.1rem 0.1rem #212324;
+  font-family: 'Lato', sans-serif;
+}
+
+
 /* Media Queries */
 /* Display on tablet devices */  
 
