@@ -301,6 +301,24 @@ font-weight: bold;
   font-family: 'Lato', sans-serif;
 }
 
+/* Subscription Page*/
+/* About Us page*/
+#subscription-header {
+  background: url(../images/subscription-hero.jpg) no-repeat center;
+  background-size: cover;
+  min-height: 76vh;
+}
+
+#subscription-subheading {
+  color: #fafafa;
+  padding-top: 5rem;
+  text-shadow: 0.1rem 0.1rem #212324;
+  font-family: 'Lato', sans-serif;
+}
+
+#subscription-p {
+  font-size: 3.5rem;
+}
 
 /* Media Queries */
 /* Display on tablet devices */  
