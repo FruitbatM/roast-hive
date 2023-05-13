@@ -301,8 +301,14 @@ font-weight: bold;
   font-family: 'Lato', sans-serif;
 }
 
+.section-heading-2 {
+  margin-top: 5rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.2rem;
+  color: #439B94;
+}
+
 /* Subscription Page*/
-/* About Us page*/
 #subscription-header {
   background: url(../images/subscription-hero.jpg) no-repeat center;
   background-size: cover;
@@ -318,6 +324,31 @@ font-weight: bold;
 
 #subscription-p {
   font-size: 3.5rem;
+}
+
+/* Contact Page*/
+#contact-header {
+  background: url(../images/contact.jpg) no-repeat center;
+  background-size: cover;
+  min-height: 76vh;
+}
+
+#contact-form-button {
+  background-color: #149285;
+  color: #fafafa;
+}
+
+#contact-form-button:hover,
+#contact-form-button:focus,
+#contact-form-button:active {
+  background-color: #137a72 !important;
+  border-color: #137a72 !important;
+  color: #000;
+  border: 0.12rem solid;
+}
+
+.form-group {
+  padding-bottom: 1rem;
 }
 
 /* Media Queries */
@@ -358,10 +389,10 @@ font-weight: bold;
       height: 33rem;
   }
 
-    .section-heading-2 {
-      font-size: 3.2rem;
-      font-weight: 700;
-    }
+  .section-heading-2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+  }
 
     .search-mob {
       display: none;
