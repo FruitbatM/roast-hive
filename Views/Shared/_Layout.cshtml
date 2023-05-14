@@ -86,32 +86,44 @@
                                         HOME
                                     </a>
                                 </li>
-                                <li class="nav-item pe-5">
-                                    <a class="nav-link dropdown-toggle" 
-                                        href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item active dropdown pe-5">
+                                    <a class="nav-link dropdown-toggle" aria-current="page" href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         SHOP
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
-                                        <li><a class="dropdown-item" href="#">SINGLE ORIGIN</a></li>
-                                        <li><a class="dropdown-item" href="#">BLEND</a></li>
-                                        <li><a class="dropdown-item" href="#">ESPRESSO</a></li>
-                                        <li><a class="dropdown-item" href="#">DECAF</a></li>
-                                        <li><a class="dropdown-item" href="#">ALL PRODUCTS</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">SINGLE ORIGIN</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">BLEND</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">ESPRESSO</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Shop" asp-action="Index">DECAF</a>
+                                        </li>
+                                         <li>
+                                            <a class="dropdown-item" asp-area="">EQUIPMENT</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">ALL PRODUCTS</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-controller="Subscription" asp-action="Index">
+                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Subscription" asp-action="Index">
                                         SUBSCRIPTION
                                     </a>
                                 </li>
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-controller="About" asp-action="Index">
+                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="About" asp-action="Index">
                                         ABOUT US
                                     </a>
                                 </li>
 
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-controller="Contact" asp-action="Index">
+                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Contact" asp-action="Index">
                                         CONTACT
                                     </a>
                                 </li>
@@ -229,9 +241,10 @@
             <a asp-area="" asp-controller="Home" asp-action="Index"></a>
         </div>
     </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <!-- Bootstrap JavaScript, Popper, jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
