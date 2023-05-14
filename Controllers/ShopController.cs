@@ -6,9 +6,9 @@ namespace RoastHiveMvc.Controllers;
 
 public class ShopController : Controller
 {
-    private readonly ILogger<AboutController> _logger;
+    private readonly ILogger<ShopController> _logger;
 
-    public ShopController(ILogger<AboutController> logger)
+    public ShopController(ILogger<ShopController> logger)
     {
         _logger = logger;
     }
