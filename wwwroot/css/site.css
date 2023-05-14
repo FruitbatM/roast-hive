@@ -113,7 +113,6 @@ input[name='q']::placeholder {
 }
 
 /* Banner section */
-
 #highlights-banner-section {
   margin: 3.5rem;
 }
@@ -142,7 +141,6 @@ font-weight: bold;
 }
 
 /* Section background color*/
-
 .bg-coffee {
   box-shadow: 0 0 0 100vmax #EDE0D4;
   clip-path: inset(0 -100vmax);
@@ -158,7 +156,6 @@ font-weight: bold;
 }
 
 /* Homepage - featured coffee */
-
 .card {
   width: 21.875rem;
   border: none;
@@ -280,6 +277,53 @@ font-weight: bold;
   font-weight: 600
 }
 
+/* Shop Page*/
+#shop-header {
+  background: url(../images/shop_hero.png) no-repeat center;
+  background-size: cover;
+  min-height: 76vh;
+}
+
+.products-heading {
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.2rem;
+  color: #7F5539;
+}
+
+/* Product card*/
+.product-card-img {
+  width: 75%;
+  -webkit-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.zoom-effect:hover .product-card-img {
+  -webkit-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+      transform: scale(1.08);
+}
+
+.card-product-title {
+  font-size: 1.3rem;
+  color: #575a7b;
+}
+
+.card-footer {
+  border-top: 0;
+}
+
+.product-divider {
+  background: #7F5539;
+  height: 0.1rem !important;
+  border-radius: 100%;
+  border: 0;
+  margin: 1rem 0;
+  opacity: 0.8;
+}
+
 /* About Us page*/
 #about-header {
   background: url(../images/about-hero.jpg) no-repeat center;
@@ -301,8 +345,14 @@ font-weight: bold;
   font-family: 'Lato', sans-serif;
 }
 
+.section-heading-2 {
+  margin-top: 5rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.2rem;
+  color: #439B94;
+}
+
 /* Subscription Page*/
-/* About Us page*/
 #subscription-header {
   background: url(../images/subscription-hero.jpg) no-repeat center;
   background-size: cover;
@@ -318,6 +368,31 @@ font-weight: bold;
 
 #subscription-p {
   font-size: 3.5rem;
+}
+
+/* Contact Page*/
+#contact-header {
+  background: url(../images/contact.jpg) no-repeat center;
+  background-size: cover;
+  min-height: 76vh;
+}
+
+#contact-form-button {
+  background-color: #149285;
+  color: #fafafa;
+}
+
+#contact-form-button:hover,
+#contact-form-button:focus,
+#contact-form-button:active {
+  background-color: #137a72 !important;
+  border-color: #137a72 !important;
+  color: #000;
+  border: 0.12rem solid;
+}
+
+.form-group {
+  padding-bottom: 1rem;
 }
 
 /* Media Queries */
@@ -358,14 +433,19 @@ font-weight: bold;
       height: 33rem;
   }
 
-    .section-heading-2 {
-      font-size: 3.2rem;
-      font-weight: 700;
-    }
+  .section-heading-2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+  }
 
-    .search-mob {
-      display: none;
-    }
+  .search-mob {
+    display: none;
+  }
+  
+  .products-heading {
+    font-size: 2.3rem;
+    margin-top: 5rem;
+  }
 
 }
 
