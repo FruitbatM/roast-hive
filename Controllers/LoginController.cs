@@ -4,11 +4,11 @@ using RoastHiveMvc.Models;
 
 namespace RoastHiveMvc.Controllers;
 
-public class ShopController : Controller
+public class LoginController : Controller
 {
-    private readonly ILogger<ShopController> _logger;
+    private readonly ILogger<LoginController> _logger;
 
-    public ShopController(ILogger<ShopController> logger)
+    public LoginController(ILogger<LoginController> logger)
     {
         _logger = logger;
     }
