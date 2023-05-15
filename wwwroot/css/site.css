@@ -46,11 +46,11 @@ body {
 */
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-  background-color:#daf7f7;
+  background-color:#EDCFBB;
 }
 
 .list-inline {
-  padding-left: 6rem;
+  padding-left: 8rem !important;
 }
 
 input[name='q']::placeholder {
