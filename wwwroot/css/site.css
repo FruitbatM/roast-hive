@@ -17,7 +17,8 @@ body {
 
 /* Navbar */
 .brand-logo {
-  width: 6.5rem;
+  width: 6rem;
+  padding-right: 1rem;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -30,8 +31,9 @@ body {
 }
 
 /* Resize top navbar icons  */
-.nav-icons {
-  font-size: 1.5em;
+#cart-link-mob {
+  font-size: 1.4em;
+  padding-right: 1rem;
 }
 
 #user-options {
@@ -46,11 +48,15 @@ body {
 */
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-  background-color:#daf7f7;
+  background-color:#EDCFBB;
+}
+
+.dropdown-item {
+  background-color:#EDCFBB;
 }
 
 .list-inline {
-  padding-left: 6rem;
+  padding-left: 8rem !important;
 }
 
 input[name='q']::placeholder {
@@ -110,34 +116,6 @@ input[name='q']::placeholder {
   -webkit-transform: scale(1.05);
       -ms-transform: scale(1.05);
           transform: scale(1.05);
-}
-
-/* Banner section */
-#highlights-banner-section {
-  margin: 3.5rem;
-}
-
-.highlights-banner {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.highlights-banner-block {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  padding-right: 8rem;
-}
-
-.highlights-banner-icon {
-  color: #c28135;
-  font-size: 3.5rem;
-  margin-right: 2rem;
-}
-
-.highlights-banner-heading {
-font-weight: bold;
 }
 
 /* Section background color*/
@@ -411,13 +389,49 @@ font-weight: bold;
     width: 9.4rem;
   }
 
+  #cart-link-mob {
+    font-size: 2em;
+  }
+
   #home-header {
     height: 40rem;
-}
+  }
 
   .section-heading-2 {
     font-size: 3rem;
   }
+
+   /* Banner section */
+   #highlights-banner-section {
+    margin: 3.5rem;
+  }
+
+  .highlights-banner {
+    position: relative;
+    display: flex;
+  }
+
+  .highlights-banner-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 6rem;
+  }
+
+  .highlights-banner-icon {
+    color: #c28135;
+    font-size: 3.5rem;
+    margin-right: 2rem;
+  }
+
+  .highlights-banner-heading {
+  font-weight: bold;
+  }
+
+  .highlights-banner-text {
+    display: none;
+  }
+
 }
 
 
@@ -429,23 +443,55 @@ font-weight: bold;
       font-size: 1.1rem;
     }
 
+    .nav-icons {
+      font-size: 1.5em;
+    }
+
     #home-header {
       height: 33rem;
-  }
+    }
 
-  .section-heading-2 {
-    font-size: 3.2rem;
-    font-weight: 700;
-  }
+    .section-heading-2 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
 
-  .search-mob {
-    display: none;
-  }
+    .search-mob {
+      display: none;
+    }
+
+    /* Banner section */
+    #highlights-banner-section {
+      margin: 3.5rem;
+    }
+
+    .highlights-banner {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .highlights-banner-block {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding-right: 8rem;
+    }
+
+    .highlights-banner-icon {
+      color: #c28135;
+      font-size: 3.5rem;
+      margin-right: 2rem;
+    }
+
+    .highlights-banner-heading {
+    font-weight: bold;
+    }
   
-  .products-heading {
-    font-size: 2.3rem;
-    margin-top: 5rem;
-  }
+    .products-heading {
+      font-size: 2.3rem;
+      margin-top: 5rem;
+    }
 
 }
 
