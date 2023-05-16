@@ -1,14 +1,14 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RoastHiveMvc.Models;
 
 namespace RoastHiveMvc.Controllers;
 
-public class HomeController : Controller
+public class ContactController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<ContactController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    public ContactController(ILogger<ContactController> logger)
     {
         _logger = logger;
     }

@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="row bg-white">
                     <div class="col-lg-4 my-auto py-lg-0 text-lg-left">
-                        <a class="navbar-brand mx-auto" href="#">
+                        <a class="navbar-brand mx-auto" asp-area="" asp-controller="Home" asp-action="Index">
                             <img src="~/images/logo_c.png" alt="Logo" class="brand-logo" loading="lazy">
                         </a>
                     </div>
@@ -36,7 +36,7 @@
                         </form>
                     </div>
                     <div class="col-lg-4 my-auto py-1 py-lg-0">
-                        <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                        <ul class="list-inline list-unstyled text-center text-lg-right my-0 nav-icons">
                             <!-- My Acccount -->
                             <li class="list-inline-item dropdown">
                                 <a class="nav-link text-black" href="#" id="user-options" data-bs-toggle="dropdown" 
@@ -63,7 +63,6 @@
                 </div>
             </div>
         </div>
-    
         <div class="container-fluid">
             <div class="container">
                 <div class="row bg-white mb-2">
@@ -71,11 +70,11 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <a class="nav-link d-lg-none d-md-flex" href="#">
+                        <a class="nav-link d-lg-none d-md-flex" asp-area="" asp-controller="Home" asp-action="Index">
                             <img src="~/images/logo_c.png" alt="Logo" class="brand-logo" loading="lazy">
                         </a>
                         <!-- Shopping Cart -->
-                        <a href="#" class="nav-link d-lg-none d-xl-none cart-link-mob">
+                        <a href="#" class="nav-link d-lg-none d-xl-none" id="cart-link-mob">
                             <div class="text-center">
                                 <div><i class="bi bi-cup-fill"></i></div>
                             </div>
@@ -83,37 +82,48 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto mr-2">
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" href="#">
+                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Home" asp-action="Index">
                                         HOME
                                     </a>
                                 </li>
-                                <li class="nav-item pe-5">
-                                    <a class="nav-link dropdown-toggle" 
-                                        href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item active dropdown pe-5">
+                                    <a class="nav-link dropdown-toggle" aria-current="page" href="#" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         SHOP
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
-                                        <li><a class="dropdown-item" href="#">SINGLE ORIGIN</a></li>
-                                        <li><a class="dropdown-item" href="#">BLEND</a></li>
-                                        <li><a class="dropdown-item" href="#">ESPRESSO</a></li>
-                                        <li><a class="dropdown-item" href="#">DECAF</a></li>
-                                        <li><a class="dropdown-item" href="#">ALL PRODUCTS</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">SINGLE ORIGIN</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">BLEND</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">ESPRESSO</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Shop" asp-action="Index">DECAF</a>
+                                        </li>
+                                         <li>
+                                            <a class="dropdown-item" asp-area="">EQUIPMENT</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">ALL PRODUCTS</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" href="#">
+                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Subscription" asp-action="Index">
                                         SUBSCRIPTION
                                     </a>
                                 </li>
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" href="#">
+                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="About" asp-action="Index">
                                         ABOUT US
                                     </a>
                                 </li>
-                                
+
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" 
-                                        href="#">
+                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Contact" asp-action="Index">
                                         CONTACT
                                     </a>
                                 </li>
@@ -147,40 +157,9 @@
                 </div>
             </div>
         </div>
-         <div class="header-content">
-            <div class="container-fluid" id="hero-content">
-                <div class="row">
-                    <div id="home-header">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 my-auto ms-3 me-3">
-                                    <h1 class="display-4 main-heading text-uppercase">
-                                        In search for the best sustainable coffee worldwide
-                                    </h1>
-                                    <h3 class="sub-heading">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                        In non eros semper, consequat lectus vel, rutrum augue.
-                                    </h3>
-                                    <div class="my-5">
-                                        <h4>
-                                            <a href="#" class="explore-button btn btn-outline-success btn-lg py-2" 
-                                                aria-label="Explore trail running adventures offer">
-                                                SHOP NOW
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container-fluid">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
@@ -199,16 +178,16 @@
                     <h5 class="text-uppercase">links</h5>
                     <ul class="list-unstyled mb-0">
                         <li>
-                        <a href="#" class="text-white">HOME</a>
+                        <a class="text-white" asp-controller="Home">HOME</a>
                         </li>
                         <li>
-                        <a href="#" class="text-white">SHOP</a>
+                        <a class="text-white" asp-controller="Shop" asp-action="Index">SHOP</a>
                         </li>
                         <li>
-                            <a href="#" class="text-white">SUBSCRIPTION</a>
+                            <a class="text-white" asp-controller="Subscription" asp-action="Index">SUBSCRIPTION</a>
                         </li>
                         <li>
-                            <a href="#" class="text-white">ABOUT US</a>
+                            <a class="text-white" asp-controller="About" asp-action="Index">ABOUT US</a>
                         </li>
                         <li>
                             <a href="#" class="text-white">CONTACT</a>
@@ -262,9 +241,10 @@
             <a asp-area="" asp-controller="Home" asp-action="Index"></a>
         </div>
     </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <!-- Bootstrap JavaScript, Popper, jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
