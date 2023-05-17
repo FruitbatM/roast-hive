@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RoastHiveMvc.Models;
 using RoastHiveMvc.Data;
+using RoastHiveMvc.Areas.Identity.Data;
 
 internal class Program
 {
@@ -48,3 +49,4 @@ internal class Program
         app.Run();
     }
 }
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<RoastHiveMvcIdentityDbContext>();
