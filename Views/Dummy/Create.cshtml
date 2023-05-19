@@ -1,0 +1,18 @@
+@model Product
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2>Create Product</h2>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name"/>
+            <span asp-asp-validation-for="Name"></span>
+
+        </div>
+        <button type="submit">Create</button>
+        <a asp-controller="Dummy" asp-action="Index">Back to List of Products</a>
+    </div>
+</form>
