@@ -1,4 +1,4 @@
-using System.Diagnostics;
+/*using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RoastHiveMvc.Models;
 
@@ -25,3 +25,8 @@ public class RegisterPageController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
+*/
+
+/*I commented this out since it looks like it's no longer needed 
+   - see files under Pages/Account folder and _LoginPartial.cshtml
+*/
