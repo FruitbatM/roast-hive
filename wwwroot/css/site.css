@@ -373,6 +373,40 @@ input[name='q']::placeholder {
   padding-bottom: 1rem;
 }
 
+/* Login Page*/
+.login-image {
+  background: url(../images/login-image.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+}
+
+.login-text {
+  color: #7F5539;
+  font-size: 2.3rem;
+}
+
+#card-login {
+  border-radius: 1rem;
+  margin-top: 4rem;
+  height: 29rem !important;
+  position: relative;
+  cursor: pointer;
+}
+
+#login-submit {
+  background-color:#7F5539;
+}
+
+#login-submit:hover,
+#login-submit:focus,
+#login-submit:active {
+  background-color: #ba8460 !important;
+  border-color: #ba8460 !important;
+  color: #000;
+  border: 0.12rem solid;
+}
+
 /* Media Queries */
 /* Display on tablet devices */  
 
