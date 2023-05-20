@@ -1,0 +1,45 @@
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Test";
+}
+<div>
+    <div><h1>Test Shop</h1></div>
+    <div>
+        <a asp-controller="Dummy" asp-action="Create">Create New Product</a>
+    </div>
+</div>
+<br>
+<div>
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Something
+            </th>
+            <th>
+                Something
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                    @obj.Name
+                </td>
+            </tr>
+            <tr>
+                <td width="30%">
+                    @obj.Description
+                </td>
+                <div>
+                    <a asp-controller="Dummy" asp-action="Edit" asp-route-id="@obj.ProdID">Edit</a>
+                    <a asp-controller="Dummy" asp-action="DeletePOST" asp-route-id="@obj.ProdID">Delete</a>
+                </div>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
