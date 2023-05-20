@@ -6,6 +6,7 @@ public class Product {
     [Key]
     public int ProdID {get; set;}
     public string? CatId {get; set;}
+    [Required] //Made required for validation purposes
     public string? Name {get; set;}
     public string? Description {get; set;}
 
