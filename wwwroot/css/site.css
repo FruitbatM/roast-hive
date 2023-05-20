@@ -15,6 +15,10 @@ body {
   width: auto;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 /* Navbar */
 .brand-logo {
   width: 6rem;
@@ -388,7 +392,8 @@ input[name='q']::placeholder {
 
 #card-login {
   border-radius: 1rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
+  margin-left: 2rem;
   height: 29rem !important;
   position: relative;
   cursor: pointer;
@@ -406,6 +411,37 @@ input[name='q']::placeholder {
   color: #000;
   border: 0.12rem solid;
 }
+
+/* Register Page*/
+.register-image {
+  background: url(../images/register-image.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  min-height: 80vh;
+}
+
+#card-register {
+  border-radius: 1rem;
+  margin-top: 3rem;
+  margin-left: 2rem;
+  height: 27.4rem !important;
+  position: relative;
+  cursor: pointer;
+}
+
+#registerSubmit {
+  background-color:#7F5539;
+}
+
+#registerSubmit:hover,
+#registerSubmit:focus,
+#registerSubmit:active {
+  background-color: #ba8460 !important;
+  border-color: #ba8460 !important;
+  color: #000;
+  border: 0.12rem solid;
+}
+
 
 /* Media Queries */
 /* Display on tablet devices */  
