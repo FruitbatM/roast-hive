@@ -5,7 +5,8 @@ using RoastHiveMvc.Data;
 
 
 namespace RoastHiveMvc.Controllers;
-
+[Route("api/[controller]")]
+[ApiController]
 public class DummyController : Controller
 {
     private readonly ProductsDbContext _db;
