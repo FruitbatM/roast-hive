@@ -1,6 +1,6 @@
 @model Product
 
-<form method="post">
+<form method="post" asp-action="Edit">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h2>Edit Product</h2>
@@ -13,6 +13,6 @@
 
         </div>
         <button type="submit">Update</button>
-        <a asp-controller="Dummy" asp-action="Index">Back to List of Products</a>
+        <a asp-controller="ManageProduct" asp-action="Index">Back to List of Products</a>
     </div>
 </form>

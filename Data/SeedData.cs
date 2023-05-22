@@ -8,10 +8,10 @@ public static class SeedData
     {
         using (var context = new ProductsDbContext(serviceProvider.GetRequiredService<DbContextOptions<ProductsDbContext>>()))
        {        
-        /*if (context.Product.Any())
+        if (context.Product.Any())
             {
             return; 
-            }*/
+            }
         context.Product.AddRange(
             new Product {Name = "Ethiopia Yirgacheffe", Description = "Organic Worka Chelbessa. Whole Bean. Taste Notes: Peach, Boysenberry, Elderflower", Size = "340g", UnitPrice = 23.99, Origin = "Ethiopia"},
             new Product {Name = "Colombia Supremo", Description = "Flavourful, medium-bodied coffee with a sweet, nut-like aroma and a smooth taste", Size = "220g", UnitPrice = 10, Origin = "Colombia"},

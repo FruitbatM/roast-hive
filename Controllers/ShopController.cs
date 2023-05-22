@@ -1,27 +1,36 @@
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using RoastHiveMvc.Models;
+using RoastHiveMvc.Data;
 
 namespace RoastHiveMvc.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 public class ShopController : Controller
 {
-    private readonly ILogger<ShopController> _logger;
-
-    public ShopController(ILogger<ShopController> logger)
+    private readonly ProductsDbContext _db;
+    public ShopController(ProductsDbContext db)
     {
-        _logger = logger;
+        _db = db;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+    // GET: Product
 
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+    public async Task<IActionResult> Index()
+        {
+              return _db.Product != null ? 
+                          View(await _db.Product.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Product'  is null.");
+        }
+    
+    /*public async Task<IActionResult> Index()
+        {
+            IAsyncEnumerable<Product> objProductList = (IAsyncEnumerable<Product>)_db.Product;
+            return View(objProductList);
+        }
+    */
 }
