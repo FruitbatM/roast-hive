@@ -530,6 +530,10 @@ input[name='q']::placeholder {
       display: none;
     }
 
+    .list-inline {
+      padding-left: 12.5rem !important;
+    }
+
     /* Banner section */
     #highlights-banner-section {
       margin: 3.5rem;
