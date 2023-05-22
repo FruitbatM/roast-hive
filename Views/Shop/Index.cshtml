@@ -1,3 +1,4 @@
+@model Product
 @{
     ViewData["Title"] = "Shop Products";
 }
@@ -37,13 +38,13 @@
                         class="img-fluid product-card-img">
                 </a>
                 <div class="card-body pb-0 text-uppercase">
-                    <p class="mb-0">{{ product.name }}</p>
+                    <p class="mb-0">@Model.Name</p>
                 </div>
                 <div class="card-footer bg-white">
                     <div class="row">
                         <div class="col">
                             <p class="font-weight-bold">
-                                € {{ product.price }}
+                                € @Model.UnitPrice
                             </p>
                         </div>
                     <hr class="product-divider">
