@@ -5,8 +5,7 @@ using RoastHiveMvc.Data;
 
 
 namespace RoastHiveMvc.Controllers;
-[Route("api/[controller]")]
-[ApiController]
+
 public class DummyController : Controller
 {
     private readonly ProductsDbContext _db;
@@ -23,7 +22,7 @@ public class DummyController : Controller
     //Create GET
     public IActionResult Create()
     {
-       return View();
+        return View();
     }
 
     //Create POST
@@ -32,25 +31,28 @@ public class DummyController : Controller
     public IActionResult Create(Product obj)
     {
         //Validations
-        if(ModelState.IsValid){
+        if (ModelState.IsValid)
+        {
             _db.Product.Add(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-       return View(obj);
+        return View(obj);
     }
 
     //Edit GET
     public IActionResult Edit(int? id)
     {
-       if(id==null || id == 0){
+        if (id == null || id == 0)
+        {
             return NotFound();
         }
         var productFromDb = _db.Product.Find(id);
         //var productFromDbFirst = _db.Product.FirstOrDefault(u => u.ProdID==id);
         //var productFromDbSingle = _db.Product.SingleOrDefault(u => u.ProdID==id);
-        
-        if(productFromDb == null){
+
+        if (productFromDb == null)
+        {
             return NotFound();
         }
 
@@ -61,24 +63,27 @@ public class DummyController : Controller
     [HttpPost]
     public IActionResult Edit(Product obj)
     {
-        if(ModelState.IsValid){
+        if (ModelState.IsValid)
+        {
             _db.Product.Update(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-       return View(obj);
+        return View(obj);
     }
 
 
     //Delete GET
     public IActionResult Delete(int? id)
     {
-       if(id==null || id == 0){
+        if (id == null || id == 0)
+        {
             return NotFound();
         }
         var productFromDb = _db.Product.Find(id);
-        
-        if(productFromDb == null){
+
+        if (productFromDb == null)
+        {
             return NotFound();
         }
 
@@ -89,10 +94,11 @@ public class DummyController : Controller
     [HttpPost]
     public IActionResult DeletePOST(int? id)
     {
-        
+
         var obj = _db.Product.Find(id);
-       
-        if(obj == null){
+
+        if (obj == null)
+        {
             return NotFound();
         }
 
