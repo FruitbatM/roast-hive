@@ -4,9 +4,9 @@
 }
 <div>
     <div><h1>Test Shop</h1></div>
-    <div>
-        <a asp-controller="Dummy" asp-action="Create">Create New Product</a>
-    </div>
+    @* <div>
+        <a asp-controller="Shop" asp-action="GET">Create New Product</a>
+    </div> *@
 </div>
 <br>
 <div>
@@ -31,12 +31,9 @@
                 </td>
             </tr>
             <tr>
-                <td width="30%">
-                    @obj.Description
-                </td>
                 <div>
-                    <a asp-controller="Dummy" asp-action="Edit" asp-route-id="@obj.ProdID">Edit</a>
-                    <a asp-controller="Dummy" asp-action="DeletePOST" asp-route-id="@obj.ProdID">Delete</a>
+                    <a asp-controller="ManageProduct" asp-action="Edit" asp-route-id="@obj.ProdID">Edit</a>
+                    <a asp-controller="ManageProduct" asp-action="Delete" asp-route-id="@obj.ProdID">Delete</a>
                 </div>
             </tr>
         }

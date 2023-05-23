@@ -1,32 +1,28 @@
-/*using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using RoastHiveMvc.Models;
 using RoastHiveMvc.Data;
-
-namespace RoastHiveMvc.Controllers;
+using RoastHiveMvc.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RoastHiveMvc.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    public class ProductController : Controller
+    public class ManageProductController : Controller
     {
         private readonly ProductsDbContext _context;
 
-        public ProductController(ProductsDbContext context)
+        public ManageProductController(ProductsDbContext context)
         {
             _context = context;
         }
 
-        // GET: Product
+        // GET
         public async Task<IActionResult> Index()
         {
               return _context.Product != null ? 
@@ -36,9 +32,9 @@ namespace RoastHiveMvc.Controllers
 
         // GET: Product/ShowSearchForm
 
-        public async Task<IActionResult> ShowSearchForm()
+        /*public async Task<IActionResult> ShowSearchForm()
         {
-            return _context.Product != null ?
+            return _context.Products != null ?
                         View() :
                         Problem("Entity set 'ProductsDbContext.Product'  is null.");
         }
@@ -46,43 +42,23 @@ namespace RoastHiveMvc.Controllers
         
         public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
         {
-            return View("Index", await _context.Product.Where(j => j.Name.Contains
+            return View("Index", await _context.Products.Where(j => j.Name.Contains
             (SearchPhrase)).ToListAsync());
         }
-        
+        */
 
-        // GET: Product/Details/5
-        public async Task<IActionResult> Description (int? id)
-        {
-            if (id == null || _db.Product == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.ProdID == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return View(product);
-        }
-
-        // GET: Product/Create
+        // GET: Create new product
         [Authorize]
         public IActionResult Create()
         {
             return View();
         }
-        [Authorize]
 
-        // POST: Product/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Create new product
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin")] Product product)
+        public async Task<IActionResult> Created([Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -93,9 +69,8 @@ namespace RoastHiveMvc.Controllers
             return View(product);
         }
         
+        // GET: Edit/Update product
         [Authorize]
-
-        // GET: Product/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Product == null)
@@ -111,13 +86,11 @@ namespace RoastHiveMvc.Controllers
             return View(product);
         }
 
+        // POST: Edit/Update product
         [Authorize]
-        // POST: Product/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin")] Product product)
+        public async Task<IActionResult> Edited(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin")] Product product)
         {
             if (id != product.ProdID)
             {
@@ -152,9 +125,9 @@ namespace RoastHiveMvc.Controllers
             throw new NotImplementedException();
         }
 
+        // GET: Delete product
         [Authorize]
 
-        // GET: Product/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Product == null)
@@ -171,10 +144,10 @@ namespace RoastHiveMvc.Controllers
 
             return View(product);
         }
-        [Authorize]
 
-        // POST: Product/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Delete product
+        [Authorize]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -198,5 +171,3 @@ namespace RoastHiveMvc.Controllers
         }
     }
 }
-
-*/
