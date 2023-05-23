@@ -442,6 +442,12 @@ input[name='q']::placeholder {
   border: 0.12rem solid;
 }
 
+/* Account Pages */
+
+.nav-pills .nav-link.active {
+  background-color:#916565 !important;
+}
+
 
 /* Media Queries */
 /* Display on tablet devices */  
