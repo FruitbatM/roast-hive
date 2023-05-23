@@ -6,99 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RoastHiveMvc.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateIdentitySchema : Migration
+    public partial class RoastHiveMVC : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Products",
-                table: "Products");
-
-            migrationBuilder.RenameTable(
-                name: "Products",
-                newName: "Product");
-
-            migrationBuilder.RenameColumn(
-                name: "unitPrice",
-                table: "Product",
-                newName: "UnitPrice");
-
-            migrationBuilder.RenameColumn(
-                name: "size",
-                table: "Product",
-                newName: "Size");
-
-            migrationBuilder.RenameColumn(
-                name: "origin",
-                table: "Product",
-                newName: "Origin");
-
-            migrationBuilder.RenameColumn(
-                name: "name",
-                table: "Product",
-                newName: "Name");
-
-            migrationBuilder.RenameColumn(
-                name: "description",
-                table: "Product",
-                newName: "Description");
-
-            migrationBuilder.RenameColumn(
-                name: "catId",
-                table: "Product",
-                newName: "CatId");
-
-            migrationBuilder.RenameColumn(
-                name: "prodID",
-                table: "Product",
-                newName: "ProdID");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Size",
-                table: "Product",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Origin",
-                table: "Product",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Name",
-                table: "Product",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Description",
-                table: "Product",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "CatId",
-                table: "Product",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Product",
-                table: "Product",
-                column: "ProdID");
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -136,6 +48,24 @@ namespace RoastHiveMvc.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Product",
+                columns: table => new
+                {
+                    ProdID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CatId = table.Column<string>(type: "TEXT", nullable: true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    Size = table.Column<string>(type: "TEXT", nullable: true),
+                    UnitPrice = table.Column<double>(type: "REAL", nullable: false),
+                    Origin = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Product", x => x.ProdID);
                 });
 
             migrationBuilder.CreateTable(
@@ -301,108 +231,13 @@ namespace RoastHiveMvc.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Product");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Product",
-                table: "Product");
-
-            migrationBuilder.RenameTable(
-                name: "Product",
-                newName: "Products");
-
-            migrationBuilder.RenameColumn(
-                name: "UnitPrice",
-                table: "Products",
-                newName: "unitPrice");
-
-            migrationBuilder.RenameColumn(
-                name: "Size",
-                table: "Products",
-                newName: "size");
-
-            migrationBuilder.RenameColumn(
-                name: "Origin",
-                table: "Products",
-                newName: "origin");
-
-            migrationBuilder.RenameColumn(
-                name: "Name",
-                table: "Products",
-                newName: "name");
-
-            migrationBuilder.RenameColumn(
-                name: "Description",
-                table: "Products",
-                newName: "description");
-
-            migrationBuilder.RenameColumn(
-                name: "CatId",
-                table: "Products",
-                newName: "catId");
-
-            migrationBuilder.RenameColumn(
-                name: "ProdID",
-                table: "Products",
-                newName: "prodID");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "size",
-                table: "Products",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "origin",
-                table: "Products",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "name",
-                table: "Products",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "description",
-                table: "Products",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "catId",
-                table: "Products",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Products",
-                table: "Products",
-                column: "prodID");
         }
     }
 }

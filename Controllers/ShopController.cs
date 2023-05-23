@@ -12,8 +12,8 @@ namespace RoastHiveMvc.Controllers;
 [ApiController]
 public class ShopController : Controller
 {
-    private readonly ProductsDbContext _db;
-    public ShopController(ProductsDbContext db)
+    private readonly RoastHiveDbContext _db;
+    public ShopController(RoastHiveDbContext db)
     {
         _db = db;
     }

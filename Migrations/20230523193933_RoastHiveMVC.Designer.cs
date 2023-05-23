@@ -10,9 +10,9 @@ using RoastHiveMvc.Data;
 
 namespace RoastHiveMvc.Migrations
 {
-    [DbContext(typeof(ProductsDbContext))]
-    [Migration("20230520124057_AddedMoreSeedData")]
-    partial class AddedMoreSeedData
+    [DbContext(typeof(RoastHiveDbContext))]
+    [Migration("20230523193933_RoastHiveMVC")]
+    partial class RoastHiveMVC
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
