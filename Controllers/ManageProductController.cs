@@ -23,6 +23,8 @@ namespace RoastHiveMvc.Controllers
         }
 
         // GET
+        
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
               return _context.Product != null ? 
@@ -48,6 +50,7 @@ namespace RoastHiveMvc.Controllers
         */
 
         // GET: Create new product
+        [HttpGet]
         [Authorize]
         public IActionResult Create()
         {
@@ -70,6 +73,7 @@ namespace RoastHiveMvc.Controllers
         }
         
         // GET: Edit/Update product
+        [HttpGet]
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -126,8 +130,8 @@ namespace RoastHiveMvc.Controllers
         }
 
         // GET: Delete product
+        [HttpGet]
         [Authorize]
-
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Product == null)

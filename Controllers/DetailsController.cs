@@ -6,25 +6,32 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using RoastHiveMvc.Models;
 using RoastHiveMvc.Data;
 
 namespace RoastHiveMvc.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
-public class ProductController : Controller
+public class DetailsController : Controller
 {
     private readonly RoastHiveDbContext _context;
 
-    public ProductController(RoastHiveDbContext context)
+    public DetailsController(RoastHiveDbContext context)
     {
         _context = context;
     }
-
+    
+    [HttpGet]
+    public async Task<IActionResult> Index()
+        {
+              return _context.Product != null ? 
+                          View(await _context.Product.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Product'  is null.");
+        } 
     // GET: Product Details
+    [HttpGet]
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null || _context.Product == null)
