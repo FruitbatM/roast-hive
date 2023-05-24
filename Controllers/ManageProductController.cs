@@ -15,9 +15,9 @@ namespace RoastHiveMvc.Controllers
     [ApiController]
     public class ManageProductController : Controller
     {
-        private readonly ProductsDbContext _context;
+        private readonly RoastHiveDbContext _context;
 
-        public ManageProductController(ProductsDbContext context)
+        public ManageProductController(RoastHiveDbContext context)
         {
             _context = context;
         }

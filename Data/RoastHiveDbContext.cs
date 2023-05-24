@@ -4,14 +4,14 @@ using RoastHiveMvc.Models;
 
 namespace RoastHiveMvc.Data
 {
-    public class ProductsDbContext : IdentityDbContext
+    public class RoastHiveDbContext : IdentityDbContext
     {
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
         
     }
-    public ProductsDbContext(DbContextOptions<ProductsDbContext> options) :
+    public RoastHiveDbContext(DbContextOptions<RoastHiveDbContext> options) :
     base(options)
     {}
     public DbSet<Product> Product { get; set; } = null!;

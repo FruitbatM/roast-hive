@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RoastHiveMvc.Data;
 
@@ -10,12 +9,10 @@ using RoastHiveMvc.Data;
 
 namespace RoastHiveMvc.Migrations
 {
-    [DbContext(typeof(ProductsDbContext))]
-    [Migration("20230519152202_TestUpdate")]
-    partial class TestUpdate
+    [DbContext(typeof(RoastHiveDbContext))]
+    partial class RoastHiveDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
