@@ -442,6 +442,12 @@ input[name='q']::placeholder {
   border: 0.12rem solid;
 }
 
+/* Account Pages */
+
+.nav-pills .nav-link.active {
+  background-color:#916565 !important;
+}
+
 
 /* Media Queries */
 /* Display on tablet devices */  
@@ -531,7 +537,7 @@ input[name='q']::placeholder {
     }
 
     .list-inline {
-      padding-left: 12.5rem !important;
+      padding-left: 21rem !important;
     }
 
     /* Banner section */
@@ -586,4 +592,3 @@ resource: https://coderwall.com/p/mwvbea/media-queries-only-for-the-iphone-5-par
       font-size: 0.9rem !important;
     }
 }
-
