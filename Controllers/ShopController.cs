@@ -33,4 +33,18 @@ public class ShopController : Controller
             return View(objProductList);
         }
     */
+
+    /* public async Task<IActionResult> ShowSearchForm()
+        {
+            return _context.Product != null ?
+                        View() :
+                        Problem("Entity set 'ProductsDbContext.Product'  is null.");
+        }
+        // POST: Product/ShowSearchResults
+        
+        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        {
+            return View("Index", await _context.Product.Where(j => j.Name.Contains
+            (SearchPhrase)).ToListAsync());
+        } */
 }
