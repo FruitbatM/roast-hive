@@ -12,34 +12,34 @@ using RoastHiveMvc.Models;
 using RoastHiveMvc.Data;
 
 namespace RoastHiveMvc.Controllers;
-    
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductController : Controller
+
+[Route("api/[controller]")]
+[ApiController]
+public class ProductController : Controller
+{
+    private readonly RoastHiveDbContext _context;
+
+    public ProductController(RoastHiveDbContext context)
     {
-        private readonly RoastHiveDbContext _context;
-
-        public ProductController(RoastHiveDbContext context)
-        {
-            _context = context;
-        }
-
-        // GET: Product Details
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Product == null)
-            {
-                return NotFound(); 
-            }
-
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.ProdID == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return View(product);
-        }
-        
+        _context = context;
     }
+
+    // GET: Product Details
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null || _context.Product == null)
+        {
+            return NotFound();
+        }
+
+        var product = await _context.Product
+            .FirstOrDefaultAsync(m => m.ProdID == id);
+        if (product == null)
+        {
+            return NotFound();
+        }
+
+        return View(product);
+    }
+
+}
