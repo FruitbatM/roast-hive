@@ -21,12 +21,12 @@ public class ShopController : Controller
     // GET: Product
 
     public async Task<IActionResult> Index()
-        {
-              return _db.Product != null ? 
-                          View(await _db.Product.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Product'  is null.");
-        }
-    
+    {
+        return _db.Product != null ?
+                    View(await _db.Product.ToListAsync()) :
+                    Problem("Entity set 'ApplicationDbContext.Product'  is null.");
+    }
+
     /*public async Task<IActionResult> Index()
         {
             IAsyncEnumerable<Product> objProductList = (IAsyncEnumerable<Product>)_db.Product;

@@ -1,0 +1,31 @@
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="text-center products-heading text-uppercase my-5">
+                Product Details
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="product-image zoom-effect my-5">
+                <a href="#" target="_blank" class="m-5">
+                    <img src="~/images/coffee1_r.png" alt="" class="img-fluid product-card-img">
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="product-details-container text-md-start mb-5 mt-md-5">
+                <p class="mb-1 text-uppercase card-product-title">
+                    <strong></strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
