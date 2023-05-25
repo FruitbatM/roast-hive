@@ -23,18 +23,18 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="product-details-container text-md-start mb-5 mt-md-5">
                 <p class="mb-1 text-uppercase card-product-title">
-                    <strong>Product Name</strong>
+                    <strong>@Model.Name</strong>
                 </p>
                 <p class="font-weight-bold mb-0 text-uppercase">
-                    Price: € 
+                    Price: € @Model.UnitPrice
                 </p>
                 <p class="small mt-1 mb-0">
                     <a class="text-muted" href="?category=">
-                        <i class="bi bi-cup-hot-fill"></i><span class="ms-1">product category</span>
+                        <i class="bi bi-cup-hot-fill"></i><span class="ms-1">@Model.CatId</span>
                     </a>
                 </p>
                 <p class="m-2">
-                    Product description
+                    @Model.Description
                 </p>
                 <!-- Product Form -->
                 <form class="form mt-2" action="" method="POST">
@@ -56,7 +56,7 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-black rounded-1" 
-                                            data-item_id="" id="">
+                                            data-item_id="@Model.ProdID" id="@Model.ProdID">
                                             <span class="icon">
                                                 <i class="bi bi-dash"></i>
                                             </span>
@@ -64,8 +64,7 @@
                                     </div>
                                     <input class="form-control qty_input" type="number"
                                         name="quantity" value="1" min="1" max="99"
-                                        data-item_id=""
-                                        id="">
+                                        data-item_id="@Model.ProdID" id="@Model.ProdID">
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-black rounded-1"
                                             data-item_id="" id="">

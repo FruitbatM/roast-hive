@@ -27,7 +27,7 @@ public class ShopController : Controller
                     Problem("Entity set 'ApplicationDbContext.Product'  is null.");
     }
 
-    // GET: Product Details
+    // GET: Shop/Details/1
     [HttpGet]
     public async Task<IActionResult> Details(int? id)
     {
