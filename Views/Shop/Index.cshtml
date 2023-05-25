@@ -4,7 +4,23 @@
     ViewData["Title"] = "Shop Products";
 }
 
-
+<!-- Hero section -->
+<div class="header-content">
+    <div class="container-fluid" id="hero-content">
+        <div class="row text-center">
+            <div id="shop-header">
+                <div class="col-12 my-auto">
+                    <h1 class="display-4 shop-heading text-uppercase">
+                        Shop
+                    </h1>
+                    <h3 class="shop-sub-heading pt-4">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row text-center mb-5">
         @foreach (var item in Model)
@@ -12,7 +28,7 @@
             <!-- Product Card -->
             <div class="col-lg-4 col-md-6 col-sm-6 align-items-stretch mb-2">
                 <div class="card zoom-effect h-100 border-0 mt-2">
-                    <a asp-area="" asp-controller="Details" asp-action="Index" class="m-5" target="_blank" class="text-center mt-3 p-2">
+                    <a asp-area="" asp-controller="Details" asp-action="Index" class="m-5" class="text-center mt-3 p-2">
                         <img src="~/images/coffee1_r.png" alt="" 
                             class="img-fluid product-card-img">
                     </a>
