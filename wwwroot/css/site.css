@@ -266,6 +266,23 @@ input[name='q']::placeholder {
   min-height: 76vh;
 }
 
+.shop-heading {
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #fafafa;
+  text-shadow: 0.15rem 0.15rem #000000;
+}
+
+.shop-sub-heading {
+  margin-bottom: 3rem;
+  color: #fafafa;
+  text-shadow: 0.1rem 0.1rem #212324;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+}
+
 .products-heading {
   margin-top: 3.5rem;
   margin-bottom: 2rem;
@@ -305,6 +322,55 @@ input[name='q']::placeholder {
   margin: 1rem 0;
   opacity: 0.8;
 }
+
+.product-details-container {
+  text-align: center;
+}
+
+.quantity-selector {
+  width: 10rem !important;
+}
+
+.quantity-selector-size {
+  width: 5rem !important;
+}
+
+.product-image {
+  text-align: center;
+}
+
+.product-image img {
+  -webkit-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.zoom-effect:hover .product-image img {
+  -webkit-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+      transform: scale(1.08);
+}
+
+.checkout-button {
+  background-color: #11766e !important;
+  color: #fafafa !important;
+}
+
+.checkout-button:hover, .checkout-button:active {
+  background-color: #13867d !important;
+  color: #fafafa;
+}
+
+.adjust-button {
+  background-color: #656996 !important;
+  color: #fafafa !important;
+}
+
+.adjust-button:hover, .adjust-button:active {
+  background-color: #575a7b !important;
+  color: #fafafa;
+}
+
 
 /* About Us page*/
 #about-header {
@@ -443,7 +509,6 @@ input[name='q']::placeholder {
 }
 
 /* Account Pages */
-
 .nav-pills .nav-link.active {
   background-color:#916565 !important;
 }
@@ -508,6 +573,18 @@ input[name='q']::placeholder {
     display: none;
   }
 
+  /* Shop section*/
+  .quantity-selector {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .quantity-selector-size {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
 }
 
 
@@ -567,12 +644,22 @@ input[name='q']::placeholder {
     .highlights-banner-heading {
     font-weight: bold;
     }
-  
+
+    /* Shop section*/
     .products-heading {
       font-size: 2.3rem;
       margin-top: 5rem;
     }
 
+    .quantity-selector {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  
+    .quantity-selector-size {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
 }
 
 /* iPhone 5 only (portrait mode)
