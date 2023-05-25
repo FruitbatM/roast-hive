@@ -46,24 +46,25 @@ public class ShopController : Controller
         return View(product);
     }
 
+    // Search Products
+    public async Task<IActionResult> Filter(string searchString)
+    {
+        var allProducts = await _db.Product.ToListAsync();
+
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            var filteredResult = allProducts.Where(m => m.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase) || m.Description.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            return View("Index", filteredResult);
+        }
+
+        return View("Index", allProducts);
+    }
+
     /*public async Task<IActionResult> Index()
         {
             IAsyncEnumerable<Product> objProductList = (IAsyncEnumerable<Product>)_db.Product;
             return View(objProductList);
         }
     */
-
-    /* public async Task<IActionResult> ShowSearchForm()
-        {
-            return _context.Product != null ?
-                        View() :
-                        Problem("Entity set 'ProductsDbContext.Product'  is null.");
-        }
-        // POST: Product/ShowSearchResults
-        
-        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
-        {
-            return View("Index", await _context.Product.Where(j => j.Name.Contains
-            (SearchPhrase)).ToListAsync());
-        } */
 }
