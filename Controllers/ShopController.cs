@@ -27,7 +27,7 @@ public class ShopController : Controller
                     Problem("Entity set 'ApplicationDbContext.Product'  is null.");
     }
 
-    /*// GET: Product Details
+    // GET: Product Details
     [HttpGet]
     public async Task<IActionResult> Details(int? id)
     {
@@ -44,7 +44,8 @@ public class ShopController : Controller
         }
 
         return View(product);
-    }*/
+    }
+
     /*public async Task<IActionResult> Index()
         {
             IAsyncEnumerable<Product> objProductList = (IAsyncEnumerable<Product>)_db.Product;
