@@ -139,7 +139,7 @@ input[name='q']::placeholder {
 
 /* Homepage - featured coffee */
 .card {
-  width: 21.875rem;
+  width: 21.874rem;
   border: none;
   height: 21.875rem !important;
   border-radius: 0.188rem;
@@ -209,7 +209,7 @@ input[name='q']::placeholder {
   }
 
   100% {
-      right: 16.688rem;
+      right: 14.5rem;
       top: 4.375rem
   }
 }
