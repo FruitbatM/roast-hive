@@ -1,0 +1,157 @@
+CREATE TABLE [Category] (
+  [description] Varchar(50),
+  PRIMARY KEY ([description])
+);
+
+CREATE TABLE [Products] (
+  [prodId] INT Identity (1,1),
+  [catId] Varchar(50),
+  [name] Varchar(50),
+  [description] Varchar(200),
+  [Size] Varchar(10),
+  [unitPrice] decimal(10,2),
+  [origin] Varchar(15),
+  [image] image,
+  PRIMARY KEY ([prodId]),
+  CONSTRAINT [FK_Products.catId]
+    FOREIGN KEY ([catId])
+      REFERENCES [Category]([description])
+);
+
+CREATE TABLE [userDetails] (
+  [userId] INT,
+  [add1] Char(50),
+  [add2] Char(50),
+  [city] Char(50),
+  [zip] Char(10),
+  [country] Char(10),
+  [phone] Char(10),
+  [email] Char(20),
+  PRIMARY KEY ([userId])
+);
+
+CREATE TABLE [Order] (
+  [orderId] INT Identity (1,5),
+  [userId] INT,
+  [date] DateTime,
+  [deliveryCost] decimal(10,2),
+  [orderTotal] decimal(10,2),
+  [grandTotal] decimal(10,2),
+  [stripeId] int,
+  PRIMARY KEY ([orderId]),
+  CONSTRAINT [FK_Order.userId]
+    FOREIGN KEY ([userId])
+      REFERENCES [userDetails]([userId])
+);
+
+CREATE TABLE [OrderLineItem] (
+  [orderId] INT,
+  [prodId] INT,
+  [qty] INT,
+  [lineItemTotal] INT,
+  CONSTRAINT [FK_OrderLineItem.orderId]
+    FOREIGN KEY ([orderId])
+      REFERENCES [Order]([orderId])
+);
+
+CREATE TABLE [userStatus] (
+  [userId] INT Identity (1,2),
+  [firstName] Varchar(35),
+  [surName] Varchar(35),
+  [gdprConsent] Char(1),
+  [status] Varchar(10),
+  [type] Char(10)
+);
+
+INSERT INTO Category
+VALUES ('Single Origin')
+
+INSERT INTO Category
+VALUES ('Blend')
+
+INSERT INTO Category
+VALUES ('Espresso')
+
+INSERT INTO Category
+VALUES ('Decaf')
+
+INSERT INTO Category
+VALUES ('Not Applicable')
+
+INSERT INTO Products
+VALUES ('Single Origin','Ethiopia Yirgacheffe', 'Organic Worka Chelbessa. Whole Bean. Taste Notes: Peach, Boysenberry, Elderflower', '340g', '23.99', 'Ethiopia', '')
+
+INSERT INTO Products
+VALUES ('Single Origin','Colombia Supremo', 'Flavourful, medium-bodied coffee with a sweet, nut-like aroma and a smooth taste', '220g', '10.00', 'Colombia', '')
+
+INSERT INTO Products
+VALUES ('Single Origin','Costa Rica Tarrazu', 'Light roast, Sweet and balanced, with a creamy body, bright acidity and notes of milk chocolate and citrus', '1lb', '19.99', 'Costa Rica', '')
+
+INSERT INTO Products
+VALUES ('Single Origin','Kenya AA', 'Complex, fruity, light, and very bright cup. Directly sourced. Expertly roasted for optimal quality and taste', '1lb', '25.99', 'Ethiopia', '')
+
+INSERT INTO Products
+VALUES ('Single Origin','Brazili Santos','Soft, smooth and creamy mouthfeel with notes of chocolate, vanilla and a sweet clean caramel finish. Suitable for filter brew method and a mild strength espresso', '500g', '25.00', 'Ethiopia', '')
+
+INSERT INTO Products
+VALUES ('Single Origin','Guatemala Antigua', '100% Arabica, the perfect mix of sweetness and acidity, a hint of cocoa with a spicy aroma.', '500g', '11.99', 'Ethiopia', '')
+
+INSERT INTO Products
+VALUES ('Blend','Mocha Java Blend', 'Medium Roast. Almond, Blueberry and Chocolate Notes', '310g', '20.99', 'Java','')
+
+INSERT INTO Products
+VALUES ('Blend','Breakfast Blend', 'Strong, smooth and rich in taste, is a delicious choice for preparing espresso and cappuccino', '340g', '23.99', 'South America','')
+
+INSERT INTO Products
+VALUES ('Blend','French Roast Blend', 'Don Franciscos Double French Dark Roast Ground Coffee', '10z', '29.99', 'Cuba', '')
+
+INSERT INTO Products
+VALUES ('Blend','Italian roast Blend', 'Union Hand Roasted Coffee - Daily Roast Coffee Beans - Dark Roast', '1kg', '27.5', 'Ethiopia', '')
+
+INSERT INTO Products
+VALUES ('Blend','Colombian Blend', 'Colombian Supremo Coffee"', '16oz', '25.99', 'Colombia', '')
+
+INSERT INTO Products
+VALUES ('Blend','City Blend', 'Santos City Blend. This is a four origin blend roasted medium-dark, giving rich, warm, chocolate flavour notes. Medium acidity.', '250g', '18.00', 'New Zealand', '')
+
+INSERT INTO Products
+VALUES ('Blend','NYC Blend', 'New York City Blend - Unique Coffee Roasters', '1lb', '20.00', 'Costa Rica', '')
+
+INSERT INTO Products
+VALUES ('Espresso','Lavazza Super Crema Espresso', 'Delicate espresso with a long-lasting cream and a pleasantly chocolatey finish', '1kg', '49.99', 'Italy', '')
+
+INSERT INTO Products
+VALUES ('Espresso','Counter Culture Espresso Hologram', 'Medium Roast. Notes of ripe fruit and chocolate', '12oz', '3.78', 'Ethiopia', '')
+
+INSERT INTO Products
+VALUES ('Espresso','Stumptown Hair Bender Espresso', 'Hair Bender relies on coffees from Latin America, Indonesia, and Africa to achieve a complex flavor profile with notes of sweet citrus, dark chocolate, and raisin.', '12oz', '20.00', 'Latin America', '')
+
+INSERT INTO Products
+VALUES ('Espresso','Blue Bottle Bella Donovan Espresso', 'Bella Donovan is made up of organic coffee beans. A natural Ethiopian coffee with jammy berry notes brings a glimmer of fruit to the otherwise chocolate-heavy foundation', '12oz', '15.00', 'Ethopia', '')
+
+INSERT INTO Products
+VALUES ('Decaf','Cinnamon Swirl Decaf', 'This indulgent Cinnamon Swirl blend offers the decadent flavor of cinnamon you love without the caffeine that keeps you awake', '1lb', '23.00', 'Colombia', '')
+
+INSERT INTO Products
+VALUES ('Decaf','Sumatra - Decaf', 'Starbucks Sumatra Decaf. Strikingly bold and full-bodied with rich herbals, rustic spice notes and a muted acidity', '1lb', '25.99', 'Indonesia', '')
+
+INSERT INTO Products
+VALUES ('Decaf','French Roast Decaf', 'Peets Coffee Decaf French Roast. Notes of Smoke, Dark Chocolate, Burnt Sugar', '454g', '15.99', 'Americas', '')
+
+INSERT INTO Products
+VALUES ('Decaf','Swiss Water Process Decaf', 'Swiss Water Process Decaf. Citrus, Chocolate, Juicy tones', '12oz', '19.99', 'Matagalpa', '')
+
+INSERT INTO Products
+VALUES ('Decaf','Caribou Coffee Decaf Caribou Blend', 'Caribou Blend Decaf. Medium Roast. Woodsy, spicy notes are balanced with a touch of sweetness and bright acidity', '1lb', '14.99', 'Indonesia', '')
+
+INSERT INTO Products
+VALUES ('Not Applicable','Specialty Drip Coffee Maker', 'Stainless Steel, 45 cup Coffee Maker, 4 strength settings. built in wifi connect', '', '350.00', '', '')
+
+INSERT INTO Products
+VALUES ('Not Applicable','BELLISSIMO Semi Automatic Espresso Machine', 'Free Standng, 15 Bar, 12V, 2.8 L White Espresso Machine with 16 settings, built in wifi connect', '', '500.00', '', '')
+
+INSERT INTO Products
+VALUES ('Not Applicable','AFFETTO Automatic Espresso Machine', 'Free Standng, 20 Bar, 12V, 1.2 L White Espresso Machine with 5 settings, built in wifi connect', '', '500.00', '', '')
+
+INSERT INTO Products
+VALUES ('Not Applicable','Cold Brew Coffee Maker', 'OXO Brew Compact Metallic Coffee Maker One Size, 700ml, free standing', '', '90.00', '', '')
