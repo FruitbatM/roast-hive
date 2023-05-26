@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RoastHiveMvc.Models;
 using RoastHiveMvc.Data;
+using RoastHiveMvc.ViewModels;
 using System.Linq;
 
 namespace RoastHiveMvc.Controllers;
@@ -27,14 +28,22 @@ public class HomeController : Controller
 
     public IActionResult Index(string category)
     {
-        // Retrieve three products from the specified category
-        var products = _db.Product
+        var viewModel = new ProductVM();
+
+        // Retrieve three coffee products
+        viewModel.CoffeeProducts = _db.Product
             .Where(p => p.CatId == "Espresso")
             .Take(3)
             .ToList();
 
-        // Pass the products to the view
-        return View(products);
+        // Retrieve three equipment products
+        viewModel.EquipmentProducts = _db.Product
+            .Where(p => p.CatId == "Equipment")
+            .Take(3)
+            .ToList();
+
+        // Pass the ViewModel to the view
+        return View(viewModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
