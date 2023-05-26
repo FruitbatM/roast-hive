@@ -15,6 +15,10 @@ body {
   width: auto;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 /* Navbar */
 .brand-logo {
   width: 6rem;
@@ -262,6 +266,23 @@ input[name='q']::placeholder {
   min-height: 76vh;
 }
 
+.shop-heading {
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #fafafa;
+  text-shadow: 0.15rem 0.15rem #000000;
+}
+
+.shop-sub-heading {
+  margin-bottom: 3rem;
+  color: #fafafa;
+  text-shadow: 0.1rem 0.1rem #212324;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+}
+
 .products-heading {
   margin-top: 3.5rem;
   margin-bottom: 2rem;
@@ -301,6 +322,55 @@ input[name='q']::placeholder {
   margin: 1rem 0;
   opacity: 0.8;
 }
+
+.product-details-container {
+  text-align: center;
+}
+
+.quantity-selector {
+  width: 10rem !important;
+}
+
+.quantity-selector-size {
+  width: 5rem !important;
+}
+
+.product-image {
+  text-align: center;
+}
+
+.product-image img {
+  -webkit-transition: 0.4s ease;
+  -o-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.zoom-effect:hover .product-image img {
+  -webkit-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+      transform: scale(1.08);
+}
+
+.checkout-button {
+  background-color: #11766e !important;
+  color: #fafafa !important;
+}
+
+.checkout-button:hover, .checkout-button:active {
+  background-color: #13867d !important;
+  color: #fafafa;
+}
+
+.adjust-button {
+  background-color: #656996 !important;
+  color: #fafafa !important;
+}
+
+.adjust-button:hover, .adjust-button:active {
+  background-color: #575a7b !important;
+  color: #fafafa;
+}
+
 
 /* About Us page*/
 #about-header {
@@ -373,6 +443,77 @@ input[name='q']::placeholder {
   padding-bottom: 1rem;
 }
 
+/* Login Page*/
+.login-image {
+  background: url(../images/login-image.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+}
+
+.login-text {
+  color: #7F5539;
+  font-size: 2.3rem;
+}
+
+#card-login {
+  border-radius: 1rem;
+  margin-top: 3rem;
+  margin-left: 2rem;
+  height: 29rem !important;
+  position: relative;
+  cursor: pointer;
+}
+
+#login-submit {
+  background-color:#7F5539;
+}
+
+#login-submit:hover,
+#login-submit:focus,
+#login-submit:active {
+  background-color: #ba8460 !important;
+  border-color: #ba8460 !important;
+  color: #000;
+  border: 0.12rem solid;
+}
+
+/* Register Page*/
+.register-image {
+  background: url(../images/register-image.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  min-height: 80vh;
+}
+
+#card-register {
+  border-radius: 1rem;
+  margin-top: 3rem;
+  margin-left: 2rem;
+  height: 27.4rem !important;
+  position: relative;
+  cursor: pointer;
+}
+
+#registerSubmit {
+  background-color:#7F5539;
+}
+
+#registerSubmit:hover,
+#registerSubmit:focus,
+#registerSubmit:active {
+  background-color: #ba8460 !important;
+  border-color: #ba8460 !important;
+  color: #000;
+  border: 0.12rem solid;
+}
+
+/* Account Pages */
+.nav-pills .nav-link.active {
+  background-color:#916565 !important;
+}
+
+
 /* Media Queries */
 /* Display on tablet devices */  
 
@@ -432,6 +573,18 @@ input[name='q']::placeholder {
     display: none;
   }
 
+  /* Shop section*/
+  .quantity-selector {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .quantity-selector-size {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
 }
 
 
@@ -458,6 +611,10 @@ input[name='q']::placeholder {
 
     .search-mob {
       display: none;
+    }
+
+    .list-inline {
+      padding-left: 21rem !important;
     }
 
     /* Banner section */
@@ -487,12 +644,22 @@ input[name='q']::placeholder {
     .highlights-banner-heading {
     font-weight: bold;
     }
-  
+
+    /* Shop section*/
     .products-heading {
       font-size: 2.3rem;
       margin-top: 5rem;
     }
 
+    .quantity-selector {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  
+    .quantity-selector-size {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
 }
 
 /* iPhone 5 only (portrait mode)
@@ -512,4 +679,3 @@ resource: https://coderwall.com/p/mwvbea/media-queries-only-for-the-iphone-5-par
       font-size: 0.9rem !important;
     }
 }
-
