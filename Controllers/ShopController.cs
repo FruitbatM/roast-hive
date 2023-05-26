@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using RoastHiveMvc.Models;
 using RoastHiveMvc.Data;
+using System.Collections.Generic;
 
 namespace RoastHiveMvc.Controllers;
 
@@ -19,6 +20,7 @@ public class ShopController : Controller
     }
 
     // GET: Product
+
     [HttpGet]
     public async Task<IActionResult> Index()
     {
