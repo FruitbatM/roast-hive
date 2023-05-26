@@ -238,6 +238,9 @@ namespace RoastHiveMvc.Migrations
                     b.Property<double>("UnitPrice")
                         .HasColumnType("REAL");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("ProdID");
 
                     b.ToTable("Product");
