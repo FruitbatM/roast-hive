@@ -16,5 +16,6 @@ public class Product
     public double UnitPrice { get; set; }
 
     public string? Origin { get; set; }
+    public string? Url { get; set; }
 
 }
