@@ -263,7 +263,7 @@ input[name='q']::placeholder {
 #shop-header {
   background: url(../images/shop_hero.png) no-repeat center;
   background-size: cover;
-  min-height: 76vh;
+  min-height: 60vh;
 }
 
 .shop-heading {

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="~/RoastHiveMvc.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
-
 </head>
 <body>
     <!-- Navigation -->
@@ -94,7 +93,7 @@
                                         </li>
                                         <!-- Equipment category needs to be added in the DB -->
                                          <li>
-                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "" })">EQUIPMENT</a>
+                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "EQUIPMENT" })">EQUIPMENT</a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" asp-area="" asp-controller="Shop" asp-action="Index">ALL PRODUCTS</a>
@@ -157,7 +156,7 @@
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">ROAST HIVE</h5>
                     <p>
-                        <small>Pick which specialty roast coffees you want and when you want it. We’ll roast it fresh and deliver it to you on the dates that you choose.</small> 
+                        <small>Pick which specialty roast coffees you want and when you want it. We'll roast it fresh and deliver it to you on the dates that you choose.</small> 
                     </p>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0 d-md-none d-lg-block">
