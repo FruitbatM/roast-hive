@@ -81,19 +81,20 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
                                         <li>
-                                            <a class="dropdown-item" href="#">SINGLE ORIGIN</a>
+                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "SINGLE ORIGIN" })">SINGLE ORIGIN</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">BLEND</a>
+                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "BLEND" })">BLEND</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">ESPRESSO</a>
+                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "ESPRESSO" })">ESPRESSO</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" asp-area="" asp-controller="" asp-action="Index">DECAF</a>
+                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "DECAF" })">DECAF</a>
                                         </li>
+                                        <!-- Equipment category needs to be added in the DB -->
                                          <li>
-                                            <a class="dropdown-item" asp-area="">EQUIPMENT</a>
+                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "" })">EQUIPMENT</a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" asp-area="" asp-controller="Shop" asp-action="Index">ALL PRODUCTS</a>

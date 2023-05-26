@@ -47,19 +47,42 @@ public class ShopController : Controller
     }
 
     // Search Products
+    [HttpGet]
     public async Task<IActionResult> Filter(string searchString)
     {
         var allProducts = await _db.Product.ToListAsync();
 
         if (!string.IsNullOrEmpty(searchString))
         {
-            var filteredResult = allProducts.Where(m => m.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase) || m.Description.Contains(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+            var filteredResult = allProducts.Where(m =>
+                m.Name?.Contains(searchString, StringComparison.OrdinalIgnoreCase) == true ||
+                m.Description?.Contains(searchString, StringComparison.OrdinalIgnoreCase) == true
+        ).ToList();
 
             return View("Index", filteredResult);
         }
 
         return View("Index", allProducts);
     }
+
+    // Filter products by category
+    [HttpGet]
+    public async Task<IActionResult> FilterByCategory(string category)
+    {
+        var allProducts = await _db.Product.ToListAsync();
+
+        if (!string.IsNullOrEmpty(category))
+        {
+            var filteredResult = allProducts.Where(m =>
+                string.Equals(m.CatId, category, StringComparison.OrdinalIgnoreCase)
+            ).ToList();
+
+            return View("Index", filteredResult);
+        }
+
+        return View("Index", allProducts);
+    }
+
 
     /*public async Task<IActionResult> Index()
         {
