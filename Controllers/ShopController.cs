@@ -48,13 +48,6 @@ public class ShopController : Controller
         return View(product);
     }
 
-    [HttpGet]
-    public IActionResult Index(string category)
-    {
-        return RedirectToAction("Index", "Home", new { category });
-    }
-
-
     // Search Products
     [HttpGet]
     public async Task<IActionResult> Filter(string searchString)
