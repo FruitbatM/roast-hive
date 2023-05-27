@@ -15,6 +15,15 @@ builder.Services.AddDbContext<RoastHiveDbContext>(options =>
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<RoastHiveDbContext>();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+    {
+        options.IdleTimeout = TimeSpan.FromSeconds(20);
+        options.Cookie.HttpOnly = true;
+        options.Cookie.IsEssential = true; 
+    });
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -39,6 +48,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

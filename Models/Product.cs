@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace RoastHiveMvc.Models;
 public class Product
 {
+    internal readonly string Id;
 
     [Key]
     public int ProdID { get; set; }
