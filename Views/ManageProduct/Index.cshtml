@@ -1,42 +1,46 @@
 @model IEnumerable<Product>
 @{
-    ViewData["Title"] = "Test";
+    ViewData["Title"] = "Product Management";
 }
-<div>
-    <div><h1>Test Shop</h1></div>
-    @* <div>
-        <a asp-controller="Shop" asp-action="GET">Create New Product</a>
-    </div> *@
+<div class="container">
+    <div class="row text-center mt-5">
+        <div class="col-12 my-auto text-uppercase section-heading">
+            <h2>Product Management</h2>
+        </div>
+    </div>
 </div>
-<br>
-<div>
-<table class="table table-bordered table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                Something
-            </th>
-            <th>
-                Something
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        @foreach (var obj in Model)
-        {
-            <tr>
-                <td width="50%">
-                    @obj.Name
-                </td>
-            </tr>
-            <tr>
-                <div>
-                    <a asp-controller="ManageProduct" asp-action="Edit" asp-route-id="@obj.ProdID">Edit</a>
-                    <a asp-controller="ManageProduct" asp-action="Delete" asp-route-id="@obj.ProdID">Delete</a>
-                </div>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container">
+    <div class="row my-5">
+        <div class="col-12">
+            <table class="table" aria-describedby="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>@Html.DisplayNameFor(model => model.CatId)</th>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model)
+                    {
+                        <tr class="justify-content-center">
+                            <td class="text-center align-middle">
+                                @obj.CatId
+                            </td>
+                            <td class="text-center align-middle">
+                                @obj.Name
+                            </td>
+                            <td class="text-center align-middle">
+                                @obj.Description
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@obj.ProdID"><i class="bi bi-pencil-square"></i>Edit</a> |
+                                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@obj.ProdID"><i class="bi bi-trash"></i>Delete</a>
+                            </td>
+                        </tr>
+                    }    
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
