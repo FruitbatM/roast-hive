@@ -70,7 +70,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto mr-2">
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
                                         HOME
                                     </a>
                                 </li>
@@ -91,7 +91,6 @@
                                         <li>
                                             <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "DECAF" })">DECAF</a>
                                         </li>
-                                        <!-- Equipment category needs to be added in the DB -->
                                          <li>
                                             <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "EQUIPMENT" })">EQUIPMENT</a>
                                         </li>
@@ -101,18 +100,18 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Subscription" asp-action="Index">
+                                    <a class="nav-link" asp-area="" asp-controller="Subscription" asp-action="Index">
                                         SUBSCRIPTION
                                     </a>
                                 </li>
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="About" asp-action="Index">
+                                    <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">
                                         ABOUT US
                                     </a>
                                 </li>
 
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Contact" asp-action="Index">
+                                    <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">
                                         CONTACT
                                     </a>
                                 </li>
@@ -227,7 +226,7 @@
         </div>
     </footer>
      <!-- Bootstrap JavaScript, Popper, jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -44,7 +44,18 @@ a {
   margin-right: 2rem;
 }
 
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  color: #6c4830 !important;
+}
+
 /*
+.nav-link {
+  font-weight: bold !important;
+  color: #7F5539 !important;
+}
+
+
 .active-nav-link {
   color: #439B94 !important;
   font-weight: bold;

@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// Highlight the navigation link on click 
 
-// Write your JavaScript code.
+$(document).ready(function () {
+    // Get the current URL path
+    const currentPath = window.location.pathname;
+
+    // Add active class to the corresponding navigation link
+    $('.navbar-nav .nav-link').each(function () {
+        const navLinkPath = $(this).attr('href');
+        if (navLinkPath === currentPath) {
+            $(this).addClass('active');
+        }
+    });
+});
