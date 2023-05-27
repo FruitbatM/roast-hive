@@ -24,13 +24,12 @@ namespace RoastHiveMvc.Controllers
         }
 
         // GET
-        
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-              return _context.Product != null ? 
-                          View(await _context.Product.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Product'  is null.");
+            return _context.Product != null ?
+                        View(await _context.Product.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Product'  is null.");
         }
 
         // GET: Product/ShowSearchForm
@@ -72,7 +71,7 @@ namespace RoastHiveMvc.Controllers
             }
             return View(product);
         }
-        
+
         // GET: Edit/Update product
         [HttpGet]
         [Authorize]
@@ -165,14 +164,14 @@ namespace RoastHiveMvc.Controllers
             {
                 _context.Product.Remove(product);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(int id)
         {
-          return (_context.Product?.Any(e => e.ProdID == id)).GetValueOrDefault();
+            return (_context.Product?.Any(e => e.ProdID == id)).GetValueOrDefault();
         }
     }
 }
