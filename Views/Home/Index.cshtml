@@ -112,7 +112,7 @@
     </div>
     <div class="container">
         <div class="row text-center">
-            @foreach (var product in Model.CoffeeProducts)
+            @foreach (var product in Model.CoffeeProducts ?? new List<Product>())
             { 
                 <div class="col-md-4 my-3">
                     <div class="card p-2">
@@ -187,7 +187,7 @@
         </div>
     </div>
     <div class="container d-flex justify-content-center">
-        @foreach (var product in Model.EquipmentProducts)
+        @foreach (var product in Model.EquipmentProducts ?? new List<Product>())
         {
             <div class="col-md-4 my-3">
                 <div class="eq-card card-product-grid card-lg">
