@@ -49,19 +49,6 @@ a {
   color: #6c4830 !important;
 }
 
-/*
-.nav-link {
-  font-weight: bold !important;
-  color: #7F5539 !important;
-}
-
-
-.active-nav-link {
-  color: #439B94 !important;
-  font-weight: bold;
-}
-*/
-
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   background-color:#EDCFBB;
 }
@@ -502,7 +489,6 @@ a.title
   color: #fafafa;
 }
 
-
 /* About Us page*/
 #about-header {
   background: url(../images/about-hero.jpg) no-repeat center;
@@ -644,6 +630,28 @@ a.title
   background-color:#916565 !important;
 }
 
+/* Back to top arrow */ 
+#arrow_2top {
+  position: fixed;
+  bottom: 0.1rem;
+  right: 1rem;
+  z-index: 99; /* Make sure it does not overlap */
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #0ea596;
+  opacity: 0.4;
+  font-size: 2.5rem;
+  cursor: pointer; /* Add a mouse pointer on hover */
+}
+
+#arrow_2top:hover {
+  color:#149285;
+}
+
+.bg-light {
+  background-color: #f3f8f8!important;
+}
 
 /* Media Queries */
 /* Display on tablet devices */  
