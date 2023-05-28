@@ -31,18 +31,18 @@
             <tbody>
                 @foreach (var obj in Model)
                 {
-                        <tr>
-                            <td>@obj.Name</td>
-                            <td>@obj.CatId</td>
-                            <td>@obj.Description</td>
-                            <td>@obj.Origin</td>
-                            <td>@obj.UnitPrice</td>
+                    <tr>
+                        <td>@obj.Name</td>
+                        <td>@obj.CatId</td>
+                        <td>@obj.Description</td>
+                        <td>@obj.Origin</td>
+                        <td>@obj.UnitPrice</td>
 
-                            <td>
-                                <a class="edit" asp-action="Edit" asp-route-id="@obj.ProdID"><i class="bi bi-pen-fill"></i></a>
-                                <a class="delete" asp-action="Delete" asp-route-id="@obj.ProdID"><i class="bi bi-trash3-fill"></i></a>
-                            </td>
-                        </tr>
+                        <td>
+                            <a class="edit" asp-action="Edit" asp-route-id="@obj.ProdID"><i class="bi bi-pen-fill"></i></a>
+                            <a class="delete" asp-action="Delete" asp-route-id="@obj.ProdID"><i class="bi bi-trash3-fill"></i></a>
+                        </td>
+                    </tr>
                 }    
                 </tbody>
             </tbody>
