@@ -133,6 +133,7 @@ namespace RoastHiveMvc.Controllers
 
         // POST: Delete product
         [Authorize]
+        [HttpGet]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
