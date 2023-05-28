@@ -11,8 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace RoastHiveMvc.Controllers
 {
-    [Route("api/[controller]/[action]")]
-    [ApiController]
+    [Route("[controller]/[action]")]
     [Authorize(Roles = "Administrator")]
     public class ManageProductController : Controller
     {
@@ -52,7 +51,7 @@ namespace RoastHiveMvc.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(new Product());
         }
 
         // GET: Edit/Update product
@@ -77,7 +76,7 @@ namespace RoastHiveMvc.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edited(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
         {
             if (id != product.ProdID)
             {
