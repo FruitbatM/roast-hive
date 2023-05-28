@@ -10,7 +10,7 @@
                     <h2>Product Management</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a asp-controller="Product" asp-action="ADD??" class="btn btn-primary float-end text-uppercase align-items-center">
+                    <a asp-controller="ManageProduct" asp-action="Create" class="btn btn-primary float-end text-uppercase align-items-center">
                         <i class="bi bi-plus-circle pe-2"></i>Create New Product
                     </a>
                 </div>
@@ -31,18 +31,18 @@
             <tbody>
                 @foreach (var obj in Model)
                 {
-                    <tr>
-                        <td>@obj.Name</td>
-                        <td>@obj.CatId</td>
-                        <td>@obj.Description</td>
-                        <td>@obj.Origin</td>
-                        <td>@obj.UnitPrice</td>
+                        <tr>
+                            <td>@obj.Name</td>
+                            <td>@obj.CatId</td>
+                            <td>@obj.Description</td>
+                            <td>@obj.Origin</td>
+                            <td>@obj.UnitPrice</td>
 
-                        <td>
-                            <a class="edit" asp-action="Edit" asp-route-id="@obj.ProdID"><i class="bi bi-pen-fill"></i></a>
-                            <a class="delete" asp-action="Delete" asp-route-id="@obj.ProdID"><i class="bi bi-trash3-fill"></i></a>
-                        </td>
-                    </tr>
+                            <td>
+                                <a class="edit" asp-action="Edit" asp-route-id="@obj.ProdID"><i class="bi bi-pen-fill"></i></a>
+                                <a class="delete" asp-action="Delete" asp-route-id="@obj.ProdID"><i class="bi bi-trash3-fill"></i></a>
+                            </td>
+                        </tr>
                 }    
                 </tbody>
             </tbody>

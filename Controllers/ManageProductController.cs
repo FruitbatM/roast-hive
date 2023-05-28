@@ -32,24 +32,7 @@ namespace RoastHiveMvc.Controllers
                         Problem("Entity set 'ApplicationDbContext.Product'  is null.");
         }
 
-        // GET: Product/ShowSearchForm
-
-        /*public async Task<IActionResult> ShowSearchForm()
-        {
-            return _context.Products != null ?
-                        View() :
-                        Problem("Entity set 'ProductsDbContext.Product'  is null.");
-        }
-        // POST: Product/ShowSearchResults
-        
-        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
-        {
-            return View("Index", await _context.Products.Where(j => j.Name.Contains
-            (SearchPhrase)).ToListAsync());
-        }
-        */
-
-        // GET: Create new product
+        // GET: Products/Create
         [HttpGet]
         [Authorize]
         public IActionResult Create()
@@ -61,7 +44,7 @@ namespace RoastHiveMvc.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Created([Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin")] Product product)
+        public async Task<IActionResult> Create([Bind("CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
         {
             if (ModelState.IsValid)
             {
