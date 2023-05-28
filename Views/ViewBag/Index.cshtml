@@ -1,0 +1,23 @@
+@{ 
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h3>Checkout Page</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th> Total Amount To Pay</th>
+        </tr>
+        <tr>
+            <td class="d-lg-table-cell">
+                @ViewBag.total
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
