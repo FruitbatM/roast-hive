@@ -108,7 +108,7 @@ namespace RoastHiveMvc.Controllers
 
         private bool ProductExists(int? id)
         {
-            throw new NotImplementedException();
+            return _context.Product.Any(e => e.ProdID == id);
         }
 
         // GET: Delete product
