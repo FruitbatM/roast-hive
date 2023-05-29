@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="~/RoastHiveMvc.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
-
 </head>
 <body>
     <!-- Navigation -->
@@ -71,7 +70,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto mr-2">
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
                                         HOME
                                     </a>
                                 </li>
@@ -92,9 +91,8 @@
                                         <li>
                                             <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "DECAF" })">DECAF</a>
                                         </li>
-                                        <!-- Equipment category needs to be added in the DB -->
                                          <li>
-                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "" })">EQUIPMENT</a>
+                                            <a class="dropdown-item" href="@Url.Action("FilterByCategory", "Shop", new { category = "EQUIPMENT" })">EQUIPMENT</a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" asp-area="" asp-controller="Shop" asp-action="Index">ALL PRODUCTS</a>
@@ -102,26 +100,27 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Subscription" asp-action="Index">
+                                    <a class="nav-link" asp-area="" asp-controller="Subscription" asp-action="Index">
                                         SUBSCRIPTION
                                     </a>
                                 </li>
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="About" asp-action="Index">
+                                    <a class="nav-link" asp-area="" asp-controller="About" asp-action="Index">
                                         ABOUT US
                                     </a>
                                 </li>
 
                                 <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="Contact" asp-action="Index">
+                                    <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">
                                         CONTACT
                                     </a>
                                 </li>
-                                @* <li class="nav-item pe-5">
-                                    <a class="nav-link active-nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index">
-                                        Manage Shop
-                                    </a>
-                                </li>  *@
+                                @if(User?.Identity?.IsAuthenticated == true && User.IsInRole("Administrator"))
+                                {
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index">MANAGEMENT</a>
+                                    </li>
+                                }
                                 <li><hr class="d-lg-none"></li>
                                 <li class="search-mob">
                                     <form method="GET" action="@Url.Action("Filter", "Shop")" class="search-input-mob">
@@ -149,7 +148,10 @@
             @RenderBody()
         </main>
     </div>
-
+    <!-- Scroll Back to Top Arrow -->
+    <button onclick="topFunction()" id="arrow_2top" title="Go to top">
+        <i class="bi bi-arrow-up-circle-fill fa-lg" aria-hidden="true"></i>
+    </button>
     <!-- Footer -->
     <footer class="text-center text-lg-start text-white">
         <div class="container-fluid p-4 pb-0">
@@ -157,7 +159,7 @@
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">ROAST HIVE</h5>
                     <p>
-                        <small>Pick which specialty roast coffees you want and when you want it. We’ll roast it fresh and deliver it to you on the dates that you choose.</small> 
+                        <small>Pick which specialty roast coffees you want and when you want it. We'll roast it fresh and deliver it to you on the dates that you choose.</small> 
                     </p>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0 d-md-none d-lg-block">
@@ -228,7 +230,7 @@
         </div>
     </footer>
      <!-- Bootstrap JavaScript, Popper, jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.7/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

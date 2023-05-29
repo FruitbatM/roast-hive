@@ -1,4 +1,7 @@
-﻿@{
+﻿@using RoastHiveMvc.ViewModels
+@model ProductVM
+
+@{
     ViewData["Title"] = "Home Page";
 }
 <!-- Hero section -->
@@ -10,15 +13,14 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 my-auto ms-3 me-3">
                             <h1 class="display-4 main-heading text-uppercase">
-                                In search for the best sustainable coffee worldwide
+                                Discover the Finest Coffee Beans from Around the World
                             </h1>
-                            <h3 class="sub-heading">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                In non eros semper, consequat lectus vel, rutrum augue.
+                            <h3 class="sub-heading pt-2">
+                                Awaken Your Senses to Extraordinary Coffee Delights
                             </h3>
                             <div class="my-5">
                                 <h4>
-                                    <a href="#" class="explore-button btn btn-outline-success btn-lg py-2" 
+                                    <a href="#" class="btn btn-outline-success btn-lg py-2" 
                                         aria-label="Explore trail running adventures offer">
                                         SHOP NOW
                                     </a>
@@ -39,7 +41,7 @@
                 <div class="highlights-banner-icon">
                     <i class="bi bi-truck" aria-hidden="true"></i>
                 </div>
-    	        <div class="highlights-banner-para">
+                <div class="highlights-banner-para">
                     <span class="highlights-banner-heading">
                         SIMPLE SHIPPING
                     </span>
@@ -57,7 +59,7 @@
                     <p class="highlights-banner-text">Secure Online Checkout</p>
                 </div>
             </div>
-            
+
             <div class="highlights-banner-block">
                 <div class="highlights-banner-icon">
                     <i class="bi bi-cup-fill" aria-hidden="true"></i>
@@ -72,7 +74,6 @@
         </div>
     </div>
 </section>
-
 <!--  Intro section -->
 <section class="bg-coffee full-bg pb-5">
     <div class="container">
@@ -90,10 +91,10 @@
         <div class="row text-center">
             <div class="text-center col-md-8 offset-md-2 col-sm-6 offset-sm-3">
                 <p class="lead">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam. Fugiat maxime nihil doloremque dolorum ipsa sequi voluptatem necessitatibus itaque maiores.
+                    At RoastHive, we are dedicated to bringing you a coffee experience that transcends the ordinary. With meticulous attention to detail, we source only the highest quality coffee beans from renowned coffee-growing regions worldwide. From the rolling hills of Colombia to the lush plantations of Ethiopia, each bean is handpicked and carefully roasted to unlock its full potential.
                 </p>
                 <p class="lead">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam. Fugiat maxime nihil doloremque dolorum ipsa sequi voluptatem necessitatibus itaque maiores.
+                    Our team of passionate experts ensures that every cup you brew is a moment of pure bliss. We believe that coffee should be more than just a beverage - it should be an experience that awakens your senses, tantalizes your taste buds, and transports you to distant lands with each sip.
                 </p>
             </div>
         </div>
@@ -104,53 +105,55 @@
     <div class="container">
         <div class="row text-center">
             <div class="col mb-4">
-                <h2 class="section-heading fst-italic">Featured coffees</h2>
+                <h2 class="section-heading fst-italic">Explore Our Signature Blends</h2>
             </div>
         </div>
     </div>
-
-    <div class="container d-flex justify-content-center">
-        
-        <div class="col-md-4 my-3">
-            <div class="card p-2">
-                <div class="p-info px-3 py-3">
-                    <div>
-                        <h5 class="mb-0">Single Blend</h5>
-                        <span>Some text</span>
+    <div class="container">
+        <div class="row text-center">
+            @foreach (var product in Model.CoffeeProducts ?? new List<Product>())
+            { 
+                <div class="col-md-4 my-3">
+                    <div class="card p-2">
+                        <div class="p-info px-3 py-3">
+                            <div>
+                                <h5 class="mb-0">@product.CatId</h5>
+                                <span>@product.Origin</span>
+                            </div>
+                        <div class="p-price d-flex flex-row"> 
+                            <span>€</span> 
+                            <h1>@product.UnitPrice</h1> 
+                        </div> 
                     </div>
-                    <div class="p-price d-flex flex-row"> 
-                        <span>€</span> 
-                        <h1>35</h1> 
+                    <div class="text-center p-image"> 
+                        <img src="@product.Url" alt="@product.Name"> 
                     </div> 
-                </div>
-                <div class="text-center p-image"> 
-                    <img src="~/images/coffee1_r.png" alt=""> 
-                </div> 
-                <div class="p-about"> 
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam.
-                    </p> 
-                </div>
-                <div class="buttons d-flex flex-row gap-3 px-3"> 
-                    <button class="btn btn-danger btn-card">View</button> 
-                    <button class="btn btn-outline-danger btn-card">Buy Now</button> 
-                </div>  
+                    <div class="p-about"> 
+                        <p>
+                            @product.Description
+                        </p> 
+                    </div>
+                    <div class="buttons d-flex flex-row gap-3 px-3"> 
+                        <button class="btn btn-danger btn-card">View</button> 
+                        <button class="btn btn-outline-danger btn-card">Buy Now</button> 
+                    </div>  
+                 </div>
             </div>
+            }
         </div>
     </div>
-    
-     <div class="row text-center">
-            <div class="mt-3">
-                <a href="" class="btn btn-warning text-uppercase">All Coffees</a>
-            </div>
+    <div class="row text-center">
+        <div class="mt-3">
+            <a href="" class="btn btn-warning text-uppercase">All Coffees</a>
         </div>
+    </div>
 </section>
 <!--  Subscription section -->
 <section class="bg-coffee full-bg pb-5">
     <div class="container">
         <div class="row text-center">
             <div class="col-12">
-                <h2 class="section-heading fst-italic">Subscribe to something original.</h2>
+                <h2 class="section-heading fst-italic">Never Miss a Beat with Our Coffee Subscription.</h2>
             </div>
         </div>
     </div>
@@ -158,65 +161,70 @@
     <div class="row mt-3 section-para">
         <div class="col-md-6 mx-auto">
             <p class="lead">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam. 
+                Imagine waking up to the aroma of freshly brewed coffee, knowing that a perfectly roasted and curated blend is waiting for you. With our convenient coffee subscription, you'll never have to worry about running out of your beloved beans again. 
             </p>
             <p class="lead">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam.
+                Simply choose the subscription plan that suits your coffee consumption and frequency preferences. Whether you're an avid coffee enthusiast or someone who enjoys a cup every now and then, we have flexible options to cater to your needs.
             </p>
             <p class="lead">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam. Fugiat maxime nihil doloremque dolorum ipsa sequi voluptatem necessitatibus itaque maiores.
+                As a subscriber, you'll have exclusive access to limited edition releases, seasonal favorites, and expertly crafted blends that are not available in our regular collection. Plus, you can customize your subscription to explore different flavor profiles and origins, allowing you to expand your coffee horizons with each shipment.
             </p>
         </div>
         <div class="col-md-6 text-center">
-            <img class="img-fluid subscription-img" src="~/images/subscription-img.png" alt="">
+            <img class="img-fluid subscription-img" src="~/images/subscription-img.png" alt="Two small coffee bags">
         </div>
     </div>
 </div>
 </section>
-<!--  Coffee products section -->
+<!-- Equipment section -->
 <section class="pb-5">
     <div class="container">
         <div class="row text-center">
-            <div class="col mb-4">
-                <h2 class="section-heading fst-italic">Coffee Equipment for Home</h2>
+            <div class="col mb-2">
+                <h2 class="section-heading fst-italic">Unleash Your Inner Barista</h2>
             </div>
         </div>
     </div>
-
     <div class="container d-flex justify-content-center">
-        <div class="col-md-4 my-3">
-            <div class="card p-2">
-                <div class="p-info px-3 py-3">
-                    <div>
-                        <h5 class="mb-0">Espresso Machine</h5>
-                        <span>Some text</span>
+        @foreach (var product in Model.EquipmentProducts ?? new List<Product>())
+        {
+            <div class="col-md-4 my-3">
+                <div class="eq-card card-product-grid card-lg">
+                    <div class="info-wrap">
+                        <a href="#" class="img-wrap">
+                            <img src="@product.Url" alt="">
+                        </a>
+                        <div class="row">
+                            <div class="col-12 text-center"> 
+                                <a href="#" class="title">@product.Name</a> 
+                                <span class="cat">@product.CatId</span> 
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-price d-flex flex-row"> 
-                        <span>€</span> 
-                        <h1>999</h1> 
-                    </div> 
+                    <div class="bottom-wrap-payment">
+                        <div class="info-wrap">
+                            <div class="row text-center">
+                                <div class="col-12"> 
+                                    <a href="#" class="title">€ @product.UnitPrice</a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-wrap"> 
+                        <a href="#" class="btn eq-btn float-start">View</a>
+                        <div class="price-wrap"> 
+                            <a href="#" class="btn eq-btn float-end">Buy</a> 
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center p-image"> 
-                    <img src="~/images/coffee-machine.jpg" alt=""> 
-                </div> 
-                <div class="p-about"> 
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam.
-                    </p> 
-                </div>
-                <div class="buttons d-flex flex-row gap-3 px-3"> 
-                    <button class="btn btn-danger btn-card">View</button> 
-                    <button class="btn btn-outline-danger btn-card">Buy Now</button> 
-                </div>  
             </div>
+        }
+    </div>
+    <div class="row text-center">
+        <div class="mt-3">
+            <a href="" class="btn btn-warning text-uppercase">All Equipment</a>
         </div>
     </div>
-    
-     <div class="row text-center">
-            <div class="mt-3">
-                <a href="" class="btn btn-warning text-uppercase">All Equipment</a>
-            </div>
-        </div>
 </section>
 
 <!-- Impact section -->
@@ -239,10 +247,10 @@
             </div>
             <div class="col-md-6 mx-auto">
                 <p class="lead">
-                    Roast Hive Coffee is committed to making custom coffee, convenient without compromise. We aim to improve not only the lifestyle of our consumers but also the world we all live in. We're passionate about leaving a profound and positive environmental, social, and governance impact. With that said, Roast Hive has chosen to put regenerative farming practices at the forefront of its mission. 
+                    At Roast Hive, we are committed to sustainability and making a positive impact. We work closely with farmers who employ ethical and eco-friendly practices, ensuring that every cup of coffee you enjoy is not only delicious but also supports the livelihoods of coffee-growing communities. Discover our initiatives, such as fair trade partnerships and environmentally responsible packaging, as we strive to create a more sustainable future for coffee lovers worldwide.
                 </p>
                 <p class="lead">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum optio similique sit distinctio cumque culpa aperiam, error magnam quisquam.
+                    Join us on this extraordinary coffee journey and experience the world's finest brews, unparalleled convenience, and a commitment to sustainability. Start your day with a cup of excellence.
                 </p>
             </div>
         </div>

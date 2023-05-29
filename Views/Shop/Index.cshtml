@@ -14,7 +14,7 @@
                         Shop
                     </h1>
                     <h3 class="shop-sub-heading pt-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Explore a World of Coffee Delights in Our Shop. 
                     </h3>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6 align-items-stretch mb-2">
                 <div class="card zoom-effect h-100 border-0 mt-2">
                     <a asp-area="" asp-controller="Shop" asp-action="Details" asp-route-id="@item.ProdID" class="m-5" class="text-center mt-3 p-2">
-                        <img src="~/images/coffee1_r.png" alt="" 
+                        <img src="@item.Url" alt="@item.Name" 
                             class="img-fluid product-card-img">
                     </a>
                     <div class="card-body pb-0 text-uppercase">
@@ -40,6 +40,11 @@
                             <div class="col">
                                 <p class="font-weight-bold">
                                     € @item.UnitPrice
+                                </p>
+                                <p class="small mt-1 mb-0">
+                                    <a class="text-muted" href="?category=">
+                                        <i class="bi bi-cup-hot-fill"></i><span class="ms-1">@item.CatId</span>
+                                    </a>
                                 </p>
                             </div>
                         </div>

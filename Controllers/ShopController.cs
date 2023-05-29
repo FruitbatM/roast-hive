@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using RoastHiveMvc.Models;
 using RoastHiveMvc.Data;
+using System.Collections.Generic;
 
 namespace RoastHiveMvc.Controllers;
 
@@ -18,8 +19,9 @@ public class ShopController : Controller
         _db = db;
     }
 
-    // GET: Product
+    // GET: api/Shop/Index
     [HttpGet]
+    [Route("api/Shop/Index")]
     public async Task<IActionResult> Index()
     {
         return _db.Product != null ?
@@ -27,8 +29,9 @@ public class ShopController : Controller
                     Problem("Entity set 'ApplicationDbContext.Product'  is null.");
     }
 
-    // GET: Shop/Details/1
+    // GET: api/Shop/Details/1
     [HttpGet]
+    [Route("api/Shop/Details/{id}")]
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null || _db.Product == null)

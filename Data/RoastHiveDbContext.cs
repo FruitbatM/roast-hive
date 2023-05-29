@@ -11,7 +11,13 @@ namespace RoastHiveMvc.Data
         base.OnModelCreating(builder);
         
     }
-    public RoastHiveDbContext(DbContextOptions<RoastHiveDbContext> options) :
+
+        internal static IEnumerable<object> ToList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public RoastHiveDbContext(DbContextOptions<RoastHiveDbContext> options) :
     base(options)
     {}
     public DbSet<Product> Product { get; set; } = null!;
