@@ -1,18 +1,60 @@
 @model Product
 
-<form method="post" asp-action="Created">
-    <div class="border p-3 mt-4">
-        <div class="row pb-2">
-            <h2>Create Product</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="mt-5 pb-2">Create Product</h2>
         </div>
-        <div asp-validation-summary="All"></div>
-        <div>
-            <label asp-for="Name"></label>
-            <input asp-for="Name"/>
-            <span asp-asp-validation-for="Name"></span>
-
-        </div>
-        <button type="submit">Create</button>
-        <a asp-controller="ManageProduct" asp-action="Index">Back to List of Products</a>
     </div>
-</form>
+    <div class="card-body p-4">
+        <form method="post" class="row" asp-action="Create">
+            <div class="border p-3">
+                <div asp-validation-summary="All"></div>
+                <div class="form-floating py-2">
+                    <input asp-for="Name" class="form-control border-0 shadow"/>
+                    <label asp-for="Name" class="ms-2"></label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="CatId" class="form-control border-0 shadow"/>
+                    <label asp-for="CatId" class="ms-2"></label>
+                    <span asp-validation-for="CatId" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <textarea asp-for="Description" class="form-control border-0 shadow"></textarea>
+                    <label asp-for="Description" class="ms-2"></label>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Size" class="form-control border-0 shadow"/>
+                    <label asp-for="Size" class="ms-2"></label>
+                    <span asp-validation-for="Size" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="UnitPrice" class="form-control border-0 shadow"/>
+                    <label asp-for="UnitPrice" class="ms-2"></label>
+                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Origin" class="form-control border-0 shadow"/>
+                    <label asp-for="Origin" class="ms-2"></label>
+                    <span asp-validation-for="Origin" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Url" class="form-control border-0 shadow">
+                    <label asp-for="Url" class="ms-2"></label>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-primary form-control">Create</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="ManageProduct" asp-action="Index" class="btn btn-outline-primary border  form-control">
+                            Back to List of Products
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

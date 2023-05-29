@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace RoastHiveMvc.Controllers
 {
-    [Route("api/[controller]/[action]")]
-    [ApiController]
+    [Route("[controller]/[action]")]
     [Authorize(Roles = "Administrator")]
     public class ManageProductController : Controller
     {
@@ -27,24 +26,7 @@ namespace RoastHiveMvc.Controllers
                         Problem("Entity set 'ApplicationDbContext.Product'  is null.");
         }
 
-        // GET: Product/ShowSearchForm
-
-        /*public async Task<IActionResult> ShowSearchForm()
-        {
-            return _context.Products != null ?
-                        View() :
-                        Problem("Entity set 'ProductsDbContext.Product'  is null.");
-        }
-        // POST: Product/ShowSearchResults
-        
-        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
-        {
-            return View("Index", await _context.Products.Where(j => j.Name.Contains
-            (SearchPhrase)).ToListAsync());
-        }
-        */
-
-        // GET: Create new product
+        // GET: Products/Create
         [HttpGet]
         [Authorize]
         public IActionResult Create()
@@ -56,7 +38,7 @@ namespace RoastHiveMvc.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Created([Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin")] Product product)
+        public async Task<IActionResult> Create([Bind("CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +46,7 @@ namespace RoastHiveMvc.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(new Product());
         }
 
         // GET: Edit/Update product
@@ -89,7 +71,7 @@ namespace RoastHiveMvc.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edited(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
         {
             if (id != product.ProdID)
             {
@@ -121,7 +103,7 @@ namespace RoastHiveMvc.Controllers
 
         private bool ProductExists(int? id)
         {
-            throw new NotImplementedException();
+            return _context.Product.Any(e => e.ProdID == id);
         }
 
         // GET: Delete product
@@ -146,6 +128,7 @@ namespace RoastHiveMvc.Controllers
 
         // POST: Delete product
         [Authorize]
+        [HttpGet]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
