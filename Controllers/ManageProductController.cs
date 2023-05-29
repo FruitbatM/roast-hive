@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace RoastHiveMvc.Controllers
 {
     [Route("[controller]/[action]")]
-    [Authorize(Roles = "Administrator")]
+    //[Authorize(Roles = "Administrator")]
     public class ManageProductController : Controller
     {
         private readonly RoastHiveDbContext _context;
@@ -22,13 +22,37 @@ namespace RoastHiveMvc.Controllers
             _context = context;
         }
 
-        // GET
+        // GET including sorting by name functionality
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            return _context.Product != null ?
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            //ViewData["CurrentFilter"] = searchString;
+
+            var products = from p in _context.Product
+                   select p;
+            /* if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Name.Contains(searchString)
+                                    || p.Description.Contains(searchString));
+            } */
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    products = products.OrderByDescending(p => p.Name);
+                    break;
+                default:
+                    products = products.OrderBy(p => p.Name);
+                    break;
+            }
+            
+            return View(await products.AsNoTracking().ToListAsync());
+
+            /* return _context.Product != null ?
                         View(await _context.Product.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Product'  is null.");
+            */
         }
 
         // GET: Products/Create
