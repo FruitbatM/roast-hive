@@ -1,8 +1,6 @@
-namespace RoastHiveMvc.Controllers
+using RoastHiveMvc.Models;
+public class ViewBag 
 {
-    public class ViewBag
-    {
         public int cart { get; set; }
         public int total { get; set; }
-    }
 }

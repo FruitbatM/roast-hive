@@ -1,0 +1,19 @@
+@model Product
+
+<form method="post" asp-action="DeleteConfirmed">
+    <input asp-for="ProdID" hidden/>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2>Delete Product</h2>
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name"/>
+            <span asp-asp-validation-for="Name"></span>
+
+        </div>
+        <button type="submit">Delete</button>
+        <a asp-controller="ManageProduct" asp-action="Index">Back to List of Products</a>
+    </div>
+</form>

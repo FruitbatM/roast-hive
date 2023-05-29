@@ -20,7 +20,12 @@ namespace RoastHiveMvc.Data
         public RoastHiveDbContext(DbContextOptions<RoastHiveDbContext> options) :
     base(options)
     {}
-    public DbSet<Product> Product { get; set; } = null!;
-    //public DbSet<CartItem> ShoppingCartItems { get; set; }
+
+        public RoastHiveDbContext()
+        {
+        }
+
+        public DbSet<Product> Product { get; set; } = null!;
+        public DbSet<CartItem> ShoppingCartItems { get; set; } = null!;
     }
 }
