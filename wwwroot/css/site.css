@@ -551,6 +551,10 @@ a.title
   font-size: 3.5rem;
 }
 
+.subscription-img {
+  padding-bottom: 1.5rem;
+}
+
 /* Contact Page*/
 #contact-header {
   background: url(../images/contact.jpg) no-repeat center;
@@ -706,12 +710,6 @@ a.title
   border-radius: 0.125rem;
   outline: none !important;
   margin-left: 0.625rem;
-}
-
-.table-title .btn i {
-  float: left;
-  font-size: 1.315rem;
-  margin-right: 0.315rem;
 }
 
 .table-title .btn span {

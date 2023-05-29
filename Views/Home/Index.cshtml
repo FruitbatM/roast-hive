@@ -110,10 +110,10 @@
         </div>
     </div>
     <div class="container">
-        <div class="row text-center">
+        <div class="row justify-content-center">
             @foreach (var product in Model.CoffeeProducts ?? new List<Product>())
             { 
-                <div class="col-md-4 my-3">
+                <div class="col-lg-4 col-md-12 my-3 d-flex justify-content-center">
                     <div class="card p-2">
                         <div class="p-info px-3 py-3">
                             <div>
@@ -190,7 +190,7 @@
     <div class="container d-flex justify-content-center">
         @foreach (var product in Model.EquipmentProducts ?? new List<Product>())
         {
-            <div class="col-md-4 my-3">
+            <div class="col-lg-4 col-md-12 my-3 d-flex justify-content-center">
                 <div class="eq-card card-product-grid card-lg">
                     <div class="info-wrap">
                         <a href="#" class="img-wrap">
