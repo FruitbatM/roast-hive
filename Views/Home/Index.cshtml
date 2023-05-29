@@ -20,8 +20,7 @@
                             </h3>
                             <div class="my-5">
                                 <h4>
-                                    <a href="#" class="btn btn-outline-success btn-lg py-2" 
-                                        aria-label="Explore trail running adventures offer">
+                                    <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-success btn-lg py-2" aria-label="Explore trail running adventures offer">
                                         SHOP NOW
                                     </a>
                                 </h4>
@@ -34,41 +33,42 @@
     </div>
 </div>
 <!-- Higlights section -->
-<section id="highlights-banner-section">
-    <div class="highlights-banner-container text-center d-none d-sm-block">
-        <div class="highlights-banner">
-            <div class="highlights-banner-block">
-                <div class="highlights-banner-icon">
-                    <i class="bi bi-truck" aria-hidden="true"></i>
+<section id="highlights-banner-section" class="text-center">
+    <div class="container">
+        <div class="highlights-banner-container text-center d-none d-sm-block">
+            <div class="highlights-banner">
+                <div class="highlights-banner-block">
+                    <div class="highlights-banner-icon">
+                        <i class="bi bi-truck" aria-hidden="true"></i>
+                    </div>
+                    <div class="highlights-banner-para">
+                        <span class="highlights-banner-heading">
+                            SIMPLE SHIPPING
+                        </span>
+                        <p class="highlights-banner-text">Delivered with Care</p>
+                    </div>
                 </div>
-                <div class="highlights-banner-para">
-                    <span class="highlights-banner-heading">
-                        SIMPLE SHIPPING
-                    </span>
-                    <p class="highlights-banner-text">Some additional text</p>
+                <div class="highlights-banner-block">
+                    <div class="highlights-banner-icon">
+                        <i class="bi bi-credit-card-2-back-fill" aria-hidden="true"></i>
+                    </div>
+                    <div class="highlights-banner-para">
+                        <span class="highlights-banner-heading">
+                            PAY ONLINE
+                        </span>
+                        <p class="highlights-banner-text">Secure Online Checkout</p>
+                    </div>
                 </div>
-            </div>
-            <div class="highlights-banner-block">
-                <div class="highlights-banner-icon">
-                    <i class="bi bi-credit-card-2-back-fill" aria-hidden="true"></i>
-                </div>
-                <div class="highlights-banner-para">
-                    <span class="highlights-banner-heading">
-                        PAY ONLINE
-                    </span>
-                    <p class="highlights-banner-text">Secure Online Checkout</p>
-                </div>
-            </div>
-
-            <div class="highlights-banner-block">
-                <div class="highlights-banner-icon">
-                    <i class="bi bi-cup-fill" aria-hidden="true"></i>
-                </div>
-                <div class="highlights-banner-para">
-                    <span class="highlights-banner-heading">
-                        ORGANIC COFFEE
-                    </span>
-                    <p class="highlights-banner-text">Sustainable Harvests</p>
+                <div class="highlights-banner-block">
+                    <div class="highlights-banner-icon">
+                        <i class="bi bi-cup-fill" aria-hidden="true"></i>
+                    </div>
+                    <div class="highlights-banner-para">
+                        <span class="highlights-banner-heading">
+                            ORGANIC COFFEE
+                        </span>
+                        <p class="highlights-banner-text">Sustainable Harvests</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,7 +83,7 @@
                     We scoured the world to find the 
                     <br>
                     best coffees a home. Yours.
-                    </h2>
+                </h2>
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@
                             </div>
                         <div class="p-price d-flex flex-row"> 
                             <span>€</span> 
-                            <h1>@product.UnitPrice</h1> 
+                            <h2>@product.UnitPrice</h2> 
                         </div> 
                     </div>
                     <div class="text-center p-image"> 
@@ -134,7 +134,9 @@
                         </p> 
                     </div>
                     <div class="buttons d-flex flex-row gap-3 px-3"> 
-                        <button class="btn btn-danger btn-card">View</button> 
+                        <a asp-area="" asp-controller="Shop" asp-action="Details" asp-route-id="@product.ProdID" class="btn adjust-button btn-card">
+                            View
+                        </a> 
                         <button class="btn btn-outline-danger btn-card">Buy Now</button> 
                     </div>  
                  </div>
@@ -144,7 +146,7 @@
     </div>
     <div class="row text-center">
         <div class="mt-3">
-            <a href="" class="btn btn-warning text-uppercase">All Coffees</a>
+            <a asp-controller="Shop" asp-action="Index" class="btn btn-warning text-uppercase">SHOP</a>
         </div>
     </div>
 </section>
@@ -192,7 +194,7 @@
                 <div class="eq-card card-product-grid card-lg">
                     <div class="info-wrap">
                         <a href="#" class="img-wrap">
-                            <img src="@product.Url" alt="">
+                            <img src="@product.Url" alt="Coffee machine">
                         </a>
                         <div class="row">
                             <div class="col-12 text-center"> 
@@ -211,9 +213,9 @@
                         </div>
                     </div>
                     <div class="bottom-wrap"> 
-                        <a href="#" class="btn eq-btn float-start">View</a>
+                        <a asp-area="" asp-controller="Shop" asp-action="Details" asp-route-id="@product.ProdID" class="ms-2 btn adjust-button float-start">VIEW</a>
                         <div class="price-wrap"> 
-                            <a href="#" class="btn eq-btn float-end">Buy</a> 
+                            <a href="#" class="me-2 btn checkout-button float-end">BUY</a> 
                         </div>
                     </div>
                 </div>
@@ -222,7 +224,7 @@
     </div>
     <div class="row text-center">
         <div class="mt-3">
-            <a href="" class="btn btn-warning text-uppercase">All Equipment</a>
+            <a href="@Url.Action("FilterByCategory", "Shop", new { category = "EQUIPMENT" })" class="btn btn-warning text-uppercase">Shop equipment</a>
         </div>
     </div>
 </section>
