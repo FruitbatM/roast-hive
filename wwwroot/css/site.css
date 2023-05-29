@@ -551,6 +551,10 @@ a.title
   font-size: 3.5rem;
 }
 
+.subscription-img {
+  padding-bottom: 1.5rem;
+}
+
 /* Contact Page*/
 #contact-header {
   background: url(../images/contact.jpg) no-repeat center;
