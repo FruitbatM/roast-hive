@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using RoastHiveMvc.Models;
 
 namespace RoastHiveMvc.ViewModels // Replace with the actual namespace of your project
