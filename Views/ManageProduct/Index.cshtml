@@ -31,10 +31,14 @@
                     <th>
                     <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Name)</a>
                     </th>
-                    <th>@Html.DisplayNameFor(model => model.CatId)</th>
+                    <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["CategorySortParm"]">@Html.DisplayNameFor(model => model.CatId)</a>
+                    </th>
                     <th>@Html.DisplayNameFor(model => model.Description)</th>
                     <th>@Html.DisplayNameFor(model => model.Origin)</th>
-                    <th>@Html.DisplayNameFor(model => model.UnitPrice)</th>
+                    <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]">@Html.DisplayNameFor(model => model.UnitPrice)</a>
+                    </th>
                     <th>Actions</th>
 
                 </tr>
