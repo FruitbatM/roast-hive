@@ -19,9 +19,8 @@ public class ShopController : Controller
         _db = db;
     }
 
-    // GET: api/Shop/Index
     [HttpGet]
-    [Route("api/Shop/Index")]
+    
     public async Task<IActionResult> Index()
     {
         return _db.Product != null ?
@@ -29,7 +28,7 @@ public class ShopController : Controller
                     Problem("Entity set 'ApplicationDbContext.Product'  is null.");
     }
 
-    // GET: api/Shop/Details/1
+    // Product details
     [HttpGet]
     [Route("api/Shop/Details/{id}")]
     public async Task<IActionResult> Details(int? id)
@@ -87,10 +86,5 @@ public class ShopController : Controller
     }
 
 
-    /*public async Task<IActionResult> Index()
-        {
-            IAsyncEnumerable<Product> objProductList = (IAsyncEnumerable<Product>)_db.Product;
-            return View(objProductList);
-        }
-    */
+
 }

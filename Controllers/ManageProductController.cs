@@ -11,25 +11,28 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace RoastHiveMvc.Controllers
 {
-    [Route("[controller]/[action]")]
-    //[Authorize(Roles = "Administrator")]
+    [Route("api/[controller]/[action]")]
+    [ApiController]
+    [Authorize(Roles = "Administrator")]
     public class ManageProductController : Controller
     {
-        private readonly RoastHiveDbContext _context;
+        private readonly RoastHiveDbContext _db;
 
         public ManageProductController(RoastHiveDbContext context)
         {
-            _context = context;
+            _db = context;
         }
 
-        // GET including sorting by name functionality
+        // GET including sorting functionality
         [HttpGet]
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string? sortOrder)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CategorySortParm"] = sortOrder == "Category" ? "category_desc" : "Category";
+            ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
             //ViewData["CurrentFilter"] = searchString;
 
-            var products = from p in _context.Product
+            var products = from p in _db.Product
                    select p;
             /* if (!String.IsNullOrEmpty(searchString))
             {
@@ -42,17 +45,25 @@ namespace RoastHiveMvc.Controllers
                 case "name_desc":
                     products = products.OrderByDescending(p => p.Name);
                     break;
+                case "Category":
+                    products = products.OrderBy(p => p.CatId);
+                    break;
+                case "category_desc":
+                    products = products.OrderByDescending(p => p.CatId);
+                    break;
+                case "Price":
+                    products = products.OrderBy(p => p.CatId);
+                    break;
+                case "price_desc":
+                    products = products.OrderByDescending(p => p.UnitPrice);
+                    break;
                 default:
-                    products = products.OrderBy(p => p.Name);
+                    products = products.OrderBy(p => p.UnitPrice);
                     break;
             }
             
             return View(await products.AsNoTracking().ToListAsync());
 
-            /* return _context.Product != null ?
-                        View(await _context.Product.ToListAsync()) :
-                        Problem("Entity set 'ApplicationDbContext.Product'  is null.");
-            */
         }
 
         // GET: Products/Create
@@ -71,8 +82,8 @@ namespace RoastHiveMvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                _db.Add(product);
+                await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(new Product());
@@ -83,12 +94,12 @@ namespace RoastHiveMvc.Controllers
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _db.Product == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
+            var product = await _db.Product.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
@@ -111,8 +122,8 @@ namespace RoastHiveMvc.Controllers
             {
                 try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    _db.Update(product);
+                    await _db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -132,7 +143,7 @@ namespace RoastHiveMvc.Controllers
 
         private bool ProductExists(int? id)
         {
-            return _context.Product.Any(e => e.ProdID == id);
+            return _db.Product.Any(e => e.ProdID == id);
         }
 
         // GET: Delete product
@@ -140,12 +151,12 @@ namespace RoastHiveMvc.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _db.Product == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var product = await _db.Product
                 .FirstOrDefaultAsync(m => m.ProdID == id);
             if (product == null)
             {
@@ -162,23 +173,23 @@ namespace RoastHiveMvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Product == null)
+            if (_db.Product == null)
             {
                 return Problem("Entity set 'ProductsDbContext.Product'  is null.");
             }
-            var product = await _context.Product.FindAsync(id);
+            var product = await _db.Product.FindAsync(id);
             if (product != null)
             {
-                _context.Product.Remove(product);
+                _db.Product.Remove(product);
             }
 
-            await _context.SaveChangesAsync();
+            await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(int id)
         {
-            return (_context.Product?.Any(e => e.ProdID == id)).GetValueOrDefault();
+            return (_db.Product?.Any(e => e.ProdID == id)).GetValueOrDefault();
         }
     }
 }
