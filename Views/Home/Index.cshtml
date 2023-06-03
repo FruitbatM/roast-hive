@@ -4,6 +4,21 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+
+@{
+    var toastrMessage = TempData["ToastrMessage"] as string;
+}
+
+<!-- Display toastr message if available -->
+@if (!string.IsNullOrEmpty(toastrMessage))
+{
+    <script>
+        $(document).ready(function() {
+            toastr.success('@toastrMessage');
+        });
+    </script>
+}
+
 <!-- Hero section -->
 <div class="header-content">
     <div class="container-fluid" id="hero-content">
