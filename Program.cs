@@ -26,6 +26,13 @@ builder.Services.AddScoped<EmailService>(provider =>
 {
     var configuration = provider.GetRequiredService<IConfiguration>();
     var apiKey = configuration["SendGrid:ApiKey"];
+
+    if (apiKey == null)
+    {
+        // Handle the case when apiKey is null
+        throw new InvalidOperationException("SendGrid API key is missing.");
+    }
+
     return new EmailService(apiKey);
 });
 

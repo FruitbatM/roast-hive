@@ -8,9 +8,9 @@ namespace RoastHiveMvc.Services
 {
     public class EmailService
     {
-        private readonly string _apiKey;
+        private readonly string? _apiKey;
 
-        public EmailService(string apiKey)
+        public EmailService(string? apiKey)
         {
             _apiKey = apiKey;
         }
