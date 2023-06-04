@@ -8,9 +8,9 @@ namespace RoastHiveMvc.Services
 {
     public class EmailService
     {
-        private readonly string _apiKey;
+        private readonly string? _apiKey;
 
-        public EmailService(string apiKey)
+        public EmailService(string? apiKey)
         {
             _apiKey = apiKey;
         }
@@ -32,7 +32,7 @@ namespace RoastHiveMvc.Services
 
             Thank you for contacting Roast Hive. This is an automated response to confirm that we have received your message and our team is working on providing you with a comprehensive reply.
 
-            We value your time and strive to respond to all inquiries within 24 hours. If you have any further questions or need immediate assistance, please feel free to contact us at [email protected]
+            We value your time and strive to respond to all inquiries within 24 hours. If you have any further questions or need immediate assistance, please feel free to contact us.
 
             Sincerely,
             Roast Hive Team";
