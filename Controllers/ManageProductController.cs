@@ -33,7 +33,7 @@ namespace RoastHiveMvc.Controllers
             //ViewData["CurrentFilter"] = searchString;
 
             var products = from p in _db.Product
-                   select p;
+                           select p;
             /* if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(p => p.Name.Contains(searchString)
@@ -61,16 +61,27 @@ namespace RoastHiveMvc.Controllers
                     products = products.OrderBy(p => p.UnitPrice);
                     break;
             }
-            
+
             return View(await products.AsNoTracking().ToListAsync());
 
         }
 
         // GET: Products/Create
+        // To display category names from the dropdown list, create a list of SelectListItem objects and pass it to the view
+
         [HttpGet]
         [Authorize]
         public IActionResult Create()
         {
+            var categories = _db.Product.Select(p => p.CatId).Distinct().ToList();
+            var selectListItems = categories.Select(category => new SelectListItem
+            {
+                Text = category,
+                Value = category
+            }).ToList();
+
+            ViewBag.Categories = selectListItems;
+
             return View();
         }
 
