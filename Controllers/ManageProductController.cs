@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Authorization;
 namespace RoastHiveMvc.Controllers
 {
     [Route("api/[controller]/[action]")]
-    [ApiController]
     [Authorize(Roles = "Administrator")]
     public class ManageProductController : Controller
     {
