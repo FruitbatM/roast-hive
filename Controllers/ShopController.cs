@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using RoastHiveMvc.Models;
 using RoastHiveMvc.Data;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Session;
+using Newtonsoft.Json;
+using RoastHiveMvc;
 
 namespace RoastHiveMvc.Controllers;
 
@@ -27,6 +30,44 @@ public class ShopController : Controller
         return _db.Product != null ?
                     View(await _db.Product.ToListAsync()) :
                     Problem("Entity set 'ApplicationDbContext.Product'  is null.");
+    }
+
+    private void UpdateCart(Cart cart)
+    {
+        HttpContext.Session.SetAsJson("Cart", cart);
+    }
+
+    private Cart GetShoppingCart(){
+        var cart = HttpContext.Session.GetFromJson<Cart>("Cart");
+
+        if(cart == null){
+            cart = new Cart();
+            HttpContext.Session.SetAsJson("Cart", cart);
+        }
+        if (cart == null)
+        {
+            cart = new Cart();
+            UpdateCart(cart);
+        }
+            return cart;
+        }
+        
+    [HttpGet]
+    public async Task<IActionResult> AddToCart(int ProdID, string Name, int Quantity, double UnitPrice)
+    {
+        var cart = GetShoppingCart();
+
+        var item = new CartItem()
+        {
+            Name      = Name,
+            ProductId = ProdID,
+            Quantity  = Quantity,
+            UnitPrice = UnitPrice
+        };
+        
+        cart.Add(item);
+        UpdateCart(cart);
+        return RedirectToAction("Index");
     }
 
     // GET: api/Shop/Details/1
@@ -85,12 +126,4 @@ public class ShopController : Controller
 
         return View("Index", allProducts);
     }
-
-
-    /*public async Task<IActionResult> Index()
-        {
-            IAsyncEnumerable<Product> objProductList = (IAsyncEnumerable<Product>)_db.Product;
-            return View(objProductList);
-        }
-    */
 }

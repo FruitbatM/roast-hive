@@ -21,7 +21,8 @@ namespace RoastHiveMvc.Data
     base(options)
     {}
     public DbSet<Product> Product { get; set; } = null!;
-        public object Item { get; internal set; }
-        //public DbSet<CartItem> ShoppingCartItems { get; set; }
+        //public object CartItem { get; internal set; }
+        //public DbSet<RoastHiveMvc.Models.Cart> Cart { get; set; } = default!;
+        // public DbSet<CartItem> ShoppingCartItems { get; set; }
     }
 }
