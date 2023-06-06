@@ -47,10 +47,10 @@ function handleEnableDisable(itemId) {
 
 // Ensure proper enabling/disabling of all inputs on page load
 let allQtyInputs = $('.qty_input');
-for(let i = 0; i < allQtyInputs.length; i++){
-    let itemId = $(allQtyInputs[i]).data('item_id');
+allQtyInputs.each(function() {
+    let itemId = $(this).data('item_id');
     handleEnableDisable(itemId);
-}
+});
 
 // Check enable/disable every time the input is changed
 $('.qty_input').change(function() {
