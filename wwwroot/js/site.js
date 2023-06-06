@@ -14,7 +14,7 @@ $(document).ready(function () {
 });
 
 // Back to Top Arrow - code with modification taken from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
-mybutton = document.getElementById('arrow_2top');
+let mybutton = document.getElementById('arrow_2top');
 
 // When the user scrolls down 200px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
