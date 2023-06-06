@@ -31,7 +31,6 @@ public class ShopController : Controller
                     Problem("Entity set 'ApplicationDbContext.Product'  is null.");
     }
 
-<<<<<<< HEAD
     private void UpdateCart(Cart cart)
     {
         HttpContext.Session.SetAsJson("Cart", cart);
@@ -71,9 +70,7 @@ public class ShopController : Controller
     }
 
     // GET: api/Shop/Details/1
-=======
     // Product details
->>>>>>> ae691e7292bb71e339fea681b90d689433d921c3
     [HttpGet]
     [Route("api/Shop/Details/{id}")]
     public async Task<IActionResult> Details(int? id)
@@ -129,10 +126,4 @@ public class ShopController : Controller
 
         return View("Index", allProducts);
     }
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> ae691e7292bb71e339fea681b90d689433d921c3
 }

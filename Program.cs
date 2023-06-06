@@ -21,16 +21,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-<<<<<<< HEAD
 builder.Services.AddDistributedMemoryCache().AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(10));
-var app = builder.Build();
 
-// using (var scope = app.Services.CreateScope())
-// {
-//     var services = scope.ServiceProvider;
-//     SeedData.Initialize(services);
-// }
-=======
 // Add the EmailService
 builder.Services.AddScoped<EmailService>(provider =>
 {
@@ -53,7 +45,6 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     SeedData.Initialize(services);
 }
->>>>>>> ae691e7292bb71e339fea681b90d689433d921c3
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
