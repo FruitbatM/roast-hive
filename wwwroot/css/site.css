@@ -562,17 +562,17 @@ a.title
   min-height: 76vh;
 }
 
-#contact-form-button {
-  background-color: #149285;
-  color: #fafafa;
+.contact-form-button {
+  background-color: #9C6644 !important;
+  color: #fafafa !important;
 }
 
-#contact-form-button:hover,
-#contact-form-button:focus,
-#contact-form-button:active {
-  background-color: #137a72 !important;
-  border-color: #137a72 !important;
-  color: #000;
+.contact-form-button:hover,
+.contact-form-button:focus,
+.contact-form-button:active {
+  background-color: #aa6d47 !important;
+  border-color: #aa6d47 !important;
+  color: #fff;
   border: 0.12rem solid;
 }
 
@@ -863,6 +863,10 @@ table.table td i {
 
     #home-header {
       height: 33rem;
+    }
+
+    .section-heading {
+      font-size: 2.4rem;
     }
 
     .section-heading-2 {
