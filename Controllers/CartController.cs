@@ -35,15 +35,15 @@ namespace RoastHiveMvc.Controllers
             return cart;
         }
 
-    [HttpGet]
-    [Route("api/Cart/{id}")]
-    public async Task<IActionResult> Remove(int id)
-    {
-        var cart = GetShoppingCart();
-        cart.Remove(id);
-        UpdateCart(cart);
-        return View(cart);
-    }
+        [HttpGet]
+        [Route("api/Cart/{id}")]
+        public async Task<IActionResult> Remove(int id)
+        {
+            var cart = GetShoppingCart();
+            await Task.Run(() => cart.Remove(id));
+            UpdateCart(cart);
+            return View(cart);
+        }
 
         public IActionResult Index()
         {
@@ -57,7 +57,7 @@ namespace RoastHiveMvc.Controllers
             return View(
                 new ErrorViewModel
                 {
-                        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 });
         }
     }
