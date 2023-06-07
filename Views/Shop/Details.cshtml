@@ -59,25 +59,25 @@
                             </p>
                             <div class="form-group w-50 quantity-selector">
                                 <div class="input-group">
-                                    @* <div class="input-group-prepend">
+                                    <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-black rounded-1"
                                                 data-item_id="@Model.ProdID" id="@Model.ProdID">
                                             <span class="icon">
                                                 <i class="bi bi-dash"></i>
                                             </span>
                                         </button>
-                                    </div> *@
+                                    </div>
                                     <input class="form-control qty_input" type="number"
                                            name="Quantity" value="1" min="1" max="99"
                                            data-item_id="@Model.ProdID" id="@Model.ProdID">
-                                    @* <div class="input-group-append">
+                                    <div class="input-group-append">
                                         <button class="increment-qty btn btn-black rounded-1"
                                                 data-item_id="" id="">
                                             <span class="icon">
                                                 <i class="bi bi-plus"></i>
                                             </span>
                                         </button>
-                                    </div> *@
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -88,11 +88,11 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-
                             <input asp-for="ProdID" type="hidden">
                             <input asp-for="Name" type="hidden"/>
                             <input asp-for="UnitPrice" type="hidden"/>
-                            <button class="btn checkout-button rounded-1 text-uppercase" type="submit">Add To Cart</button>
+                            <input asp-for="Url" type="hidden"/>
+                            <input type="submit" class="btn checkout-button rounded-1 text-uppercase mt-5" value="Add to Cart">
 
                         </div>
                     </form>
