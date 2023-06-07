@@ -21,6 +21,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDistributedMemoryCache().AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(10));
+
 // Add the EmailService
 builder.Services.AddScoped<EmailService>(provider =>
 {
@@ -55,6 +57,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 
