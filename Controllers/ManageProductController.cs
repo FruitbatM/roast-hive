@@ -24,20 +24,19 @@ namespace RoastHiveMvc.Controllers
 
         // GET including sorting functionality
         [HttpGet]
-        public async Task<IActionResult> Index(string? sortOrder)
+        public async Task<ActionResult<IEnumerable<Product>>> Index(string? sortOrder)
         {
+            if (_db.Product == null)
+          {
+              return NotFound();
+          }
+
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["CategorySortParm"] = sortOrder == "Category" ? "category_desc" : "Category";
             ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
-            //ViewData["CurrentFilter"] = searchString;
 
             var products = from p in _db.Product
                            select p;
-            /* if (!String.IsNullOrEmpty(searchString))
-            {
-                products = products.Where(p => p.Name.Contains(searchString)
-                                    || p.Description.Contains(searchString));
-            } */
 
             switch (sortOrder)
             {
@@ -65,11 +64,9 @@ namespace RoastHiveMvc.Controllers
 
         }
 
-        // GET: Products/Create
         // To display category names from the dropdown list, create a list of SelectListItem objects and pass it to the view
 
         [HttpGet]
-        [Authorize]
         public IActionResult Create()
         {
             var categories = _db.Product.Select(p => p.CatId).Distinct().ToList();
@@ -84,11 +81,10 @@ namespace RoastHiveMvc.Controllers
             return View();
         }
 
-        // POST: Create new product
-        [Authorize]
+        // Create new product
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
+        public async Task<ActionResult<IEnumerable<Product>>> Create([Bind("CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -99,10 +95,37 @@ namespace RoastHiveMvc.Controllers
             return View(new Product());
         }
 
-        // GET: Edit/Update product
+        // Edit/Update product
+        //[HttpPut("{id}")]
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Edit(int? id)
+        /* public async Task<ActionResult<IEnumerable<Product>>> Edit(int id, Product product)
+        {
+            if (id != product.ProdID){
+                return BadRequest();
+            }
+
+            _db.Entry(product).State = EntityState.Modified;
+
+            try
+            {
+                await _db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProductExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        } */
+        public async Task<ActionResult<IEnumerable<Product>>> Edit(int? id)
         {
             if (id == null || _db.Product == null)
             {
@@ -115,13 +138,12 @@ namespace RoastHiveMvc.Controllers
                 return NotFound();
             }
             return View(product);
-        }
+        } 
 
         // POST: Edit/Update product
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
+        public async Task<IActionResult> PostEdit(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
         {
             if (id != product.ProdID)
             {
@@ -151,14 +173,13 @@ namespace RoastHiveMvc.Controllers
             return View(product);
         }
 
-        private bool ProductExists(int? id)
+        /* private bool ProductExists(int? id)
         {
             return _db.Product.Any(e => e.ProdID == id);
-        }
+        } */
 
-        // GET: Delete product
+         // GET: Delete product
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _db.Product == null)
@@ -174,14 +195,10 @@ namespace RoastHiveMvc.Controllers
             }
 
             return View(product);
-        }
-
-        // POST: Delete product
-        [Authorize]
-        [HttpGet]
-        [HttpPost]
+        } 
+        /* [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> PostDelete(int id)
         {
             if (_db.Product == null)
             {
@@ -195,11 +212,47 @@ namespace RoastHiveMvc.Controllers
 
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
+        } */
+        // Delete product
+        
+        /* [HttpDelete("{id}")]
+         public async Task<IActionResult> DeleteProduct(int id)
+        {
+            if (_db.Product == null)
+            {
+                return Problem("Entity set 'ProductsDbContext.Product'  is null.");
+            }
+            var product = await _db.Product.FindAsync(id);
+            if (product != null)
+            {
+                _db.Product.Remove(product);
+            }
 
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }  
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            if (_db.Product == null)
+            {
+                return NotFound();
+            }
+            var product = await _db.Product.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            _db.Product.Remove(product);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        } */
         private bool ProductExists(int id)
         {
             return (_db.Product?.Any(e => e.ProdID == id)).GetValueOrDefault();
-        }
+        } 
     }
 }
