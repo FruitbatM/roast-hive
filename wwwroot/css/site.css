@@ -505,6 +505,20 @@ a.title
   color: #fafafa;
 }
 
+/* Shopping Cart */
+thead th {
+  padding-bottom: 0.5rem !important;
+  text-align: center;
+}
+
+.hrline {
+  border-bottom: 0.1rem solid #439B94;
+}
+
+.cart-image {
+  width: 15%;
+}
+
 /* About Us page*/
 #about-header {
   background: url(../images/about-hero.jpg) no-repeat center;
@@ -675,7 +689,6 @@ a.title
 
 
 /* Product Management*/
-
 .table-wrapper {
   background: #fff;
   padding: 1.25rem 1.563rem;

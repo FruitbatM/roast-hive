@@ -5,16 +5,88 @@
     ViewData["Title"] = "Shopping Cart";
 }
 
-@{ 
-    Layout = "_Layout";
-}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-</head>
-<body>
-    <h3>Shopping Cart</h3>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12 my-auto mx-auto mt-4">
+            <h3 class="section-heading-2 text-uppercase mt-4 mb-5">
+                Shopping Cart
+            </h3>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive rounded d-none d-md-block">
+                <table class="table table-sm table-borderless">
+                    <thead class="font-italic">
+                        <tr class="hrline">
+                            <th scope="col">Product</th>
+                            <th scope="col" class="ps-4" style="width: 25%;">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td class="py-4 pe-4 cart-image text-center">
+                                    <img class="img-fluid rounded" src="@item.Url" alt="@item.Name">
+                            </td>
+                            <td class="py-4 ps-4 text-center">
+                                <p class="my-1">
+                                    <strong>@item.Name</strong>
+                                </p>
+                            </td>
+                            <td class="py-5 pe-1 text-center">
+                                <p class="my-1">
+                                    €@item.UnitPrice
+                                </p>
+                            </td>
+                            <!-- Cart update -->
+                            <td class="py-4 w-25 text-center">
+                                @item.Quantity
+                            </td>
+                            <td class="py-4 text-center">
+                                <p class="my-1">€@(item.UnitPrice * item.Quantity)</p>
+
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td colspan="5" class="pt-5 text-end">
+                            <h6>
+                                <strong>Cart Total: €@Model.Total</strong>
+                            </h6>
+                            <small class="text-muted">*Tax&nbsp;included </small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-end">
+                            <a asp-controller="Shop" asp-action="Index" class="btn adjust-button rounded-1 btn-lg">
+                                <span class="icon">
+                                    <i class="bi bi-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                            <a href="" class="btn checkout-button rounded-1 btn-lg my-2">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="bi bi-shield-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <table cellpadding="10" cellspacing="10" border="2">
         <tr>
             <th>Option </th>
@@ -24,8 +96,8 @@
             <th>Quantity </th>
             <th>Sub Total</th>
         </tr>
-        @foreach (var item in Model.Items)
-        {
+    @foreach (var item in Model.Items)
+    {
         <tr>
             <tr>
                 <td class="d-lg-table-cell"><a asp-controller="cart" asp-action="remove" asp-route-id="@item.ProductId">Remove</a> </td>
@@ -33,19 +105,17 @@
                 <td class="d-lg-table-cell">@item.Name</td>
                 <td class="d-lg-table-cell">@item.UnitPrice</td>
                 <td class="d-lg-table-cell">@item.Quantity</td>
-                <td class="d-lg-table-cell">@(item.UnitPrice * item.Quantity )</td>
+                <td class="d-lg-table-cell">@(item.UnitPrice * item.Quantity)</td>
             </tr>
         </tr>
-        }
+    }
         <tr>
             <td align="right" colspan="6">Cart Total €: </td>
             <td>
-                @Model.Total
+            @Model.Total
             </td>
         </tr>
     </table>
     <br />
     <a asp-controller="Shop" asp-action="Index">Continue Shopping</a>
     <a asp-controller="Shop" asp-action="Index">Go To Checkout</a>
-</body>
-</html>

@@ -23,7 +23,7 @@ public class ShopController : Controller
     }
 
     [HttpGet]
-    
+
     public async Task<IActionResult> Index()
     {
         return _db.Product != null ?
@@ -36,10 +36,12 @@ public class ShopController : Controller
         HttpContext.Session.SetAsJson("Cart", cart);
     }
 
-    private Cart GetShoppingCart(){
+    private Cart GetShoppingCart()
+    {
         var cart = HttpContext.Session.GetFromJson<Cart>("Cart");
 
-        if(cart == null){
+        if (cart == null)
+        {
             cart = new Cart();
             HttpContext.Session.SetAsJson("Cart", cart);
         }
@@ -48,22 +50,23 @@ public class ShopController : Controller
             cart = new Cart();
             UpdateCart(cart);
         }
-            return cart;
-        }
-        
+        return cart;
+    }
+
     [HttpGet]
-    public async Task<IActionResult> AddToCart(int ProdID, string Name, int Quantity, double UnitPrice)
+    public async Task<IActionResult> AddToCart(int ProdID, string Name, int Quantity, double UnitPrice, string Url)
     {
         var cart = GetShoppingCart();
 
         var item = new CartItem()
         {
-            Name      = Name,
+            Name = Name,
             ProductId = ProdID,
-            Quantity  = Quantity,
-            UnitPrice = UnitPrice
+            Quantity = Quantity,
+            UnitPrice = UnitPrice,
+            Url = Url ?? "~/images/mug.png" // Default URL if Url is null
         };
-        
+
         cart.Add(item);
         UpdateCart(cart);
         return RedirectToAction("Index");
