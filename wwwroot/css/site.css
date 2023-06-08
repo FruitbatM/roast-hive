@@ -505,6 +505,25 @@ a.title
   color: #fafafa;
 }
 
+/* Shopping Cart */
+
+#cartTotalAmount {
+  font-size: 1.15rem;
+}
+
+thead th {
+  padding-bottom: 0.5rem !important;
+  text-align: center;
+}
+
+.hrline {
+  border-bottom: 0.1rem solid #7F5539;
+}
+
+.cart-image {
+  width: 15%;
+}
+
 /* About Us page*/
 #about-header {
   background: url(../images/about-hero.jpg) no-repeat center;
@@ -530,7 +549,7 @@ a.title
   margin-top: 5rem;
   font-family: 'Roboto', sans-serif;
   font-size: 2.2rem;
-  color: #439B94;
+  color: #7F5539;
 }
 
 /* Subscription Page*/
@@ -675,7 +694,6 @@ a.title
 
 
 /* Product Management*/
-
 .table-wrapper {
   background: #fff;
   padding: 1.25rem 1.563rem;

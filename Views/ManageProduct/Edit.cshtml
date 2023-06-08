@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="card-body p-4">
-        <form id="editForm" method="post" asp-action="Edit" asp-route-id="@Model.ProdID">
+        <form method="get" id="editForm" asp-action="Edit" asp-route-id="@Model.ProdID">
             <input type="hidden" asp-for="ProdID"/>
             <div class="border p-3">
                 <div asp-validation-summary="All"></div>
