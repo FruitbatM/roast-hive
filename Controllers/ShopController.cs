@@ -24,13 +24,61 @@ public class ShopController : Controller
     }
 
     [HttpGet]
+        public async Task<ActionResult<IEnumerable<Product>>> Index(string? sortOrder)
+        {
+            if (_db.Product == null)
+          {
+              return NotFound();
+          }
 
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CategorySortParm"] = sortOrder == "Category" ? "category_desc" : "Category";
+            ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
+            ViewData["OriginSortParm"] = sortOrder == "Origin" ? "origin_desc" : "Origin";
+
+            var products = from p in _db.Product
+                           select p;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    products = products.OrderByDescending(p => p.Name);
+                    break;
+                case "Category":
+                    products = products.OrderBy(p => p.CatId);
+                    break;
+                case "category_desc":
+                    products = products.OrderByDescending(p => p.CatId);
+                    break;
+                case "Price":
+                    products = products.OrderBy(p => p.CatId);
+                    break;
+                case "price_desc":
+                    products = products.OrderByDescending(p => p.UnitPrice);
+                    break;
+                case "Origin":
+                    products = products.OrderBy(p => p.Origin);
+                    break;   
+                case "origin_desc":
+                    products = products.OrderByDescending(p => p.Origin);
+                    break;
+                default:
+                    products = products.OrderBy(p => p.UnitPrice);
+                    break;
+            }
+
+            return View(await products.AsNoTracking().ToListAsync());
+
+        }
+
+    /* Index without sorting
+    [HttpGet]
     public async Task<IActionResult> Index()
     {
         return _db.Product != null ?
                     View(await _db.Product.ToListAsync()) :
                     Problem("Entity set 'ApplicationDbContext.Product'  is null.");
-    }
+    } */
 
     private void UpdateCart(Cart cart)
     {
