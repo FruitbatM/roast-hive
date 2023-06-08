@@ -506,6 +506,11 @@ a.title
 }
 
 /* Shopping Cart */
+
+#cartTotalAmount {
+  font-size: 1.15rem;
+}
+
 thead th {
   padding-bottom: 0.5rem !important;
   text-align: center;

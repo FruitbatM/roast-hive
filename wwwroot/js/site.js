@@ -13,6 +13,7 @@ $(document).ready(function () {
     });
 });
 
+
 // Back to Top Arrow - code with modification taken from: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 let mybutton = document.getElementById('arrow_2top');
 
@@ -78,4 +79,23 @@ $('.decrement-qty').click(function(e) {
     }
     let itemId = $(this).data('item_id');
     handleEnableDisable(itemId);
+});
+
+
+// Retrieve the total amount and update the top navigation cart placeholder
+function updateCartTotalAmount() {
+  // Make an AJAX request to get the total amount
+  $.ajax({
+    url: '/api/Cart/TotalAmount',
+    type: 'GET',
+    success: function (data) {
+      // Update the cartTotalAmount element with the received data
+      $('#cartTotalAmount').text(data);
+    }
+  });
+}
+
+// Call the function on page load
+$(document).ready(function () {
+  updateCartTotalAmount();
 });

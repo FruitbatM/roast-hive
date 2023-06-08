@@ -1,6 +1,6 @@
 using RoastHiveMvc.Models;
 
-namespace RoastHiveMvc.ViewModels 
+namespace RoastHiveMvc.ViewModels
 {
     public class ProductVM
     {

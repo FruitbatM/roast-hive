@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RoastHiveMvc.Models;
+using System.Globalization;
 using RoastHiveMvc;
 
 namespace RoastHiveMvc.Controllers
@@ -33,6 +34,16 @@ namespace RoastHiveMvc.Controllers
             }
 
             return cart;
+        }
+
+        [HttpGet]
+        [Route("api/Cart/TotalAmount")]
+        public IActionResult TotalAmount()
+        {
+            var cart = GetShoppingCart();
+            double totalAmount = cart.Items.Sum(item => item.Quantity * item.UnitPrice);
+            string formattedAmount = totalAmount.ToString("€" + "0.00", CultureInfo.GetCultureInfo("en-US"));
+            return Content(formattedAmount);
         }
 
         [HttpGet]
