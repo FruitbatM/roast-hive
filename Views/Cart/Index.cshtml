@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col">
             <div class="table-responsive rounded d-none d-md-block">
-                <table class="table table-sm table-borderless">
+                <table class="table table-sm table-borderless" aria-describedby="shopping cart summary">
                     <thead class="font-italic">
                         <tr class="hrline">
                             <th scope="col">Product</th>
@@ -31,29 +31,29 @@
                     </thead>
                     @foreach (var item in Model.Items)
                     {
-                        <tr>
-                            <td class="py-4 pe-4 cart-image text-center">
-                                    <img class="img-fluid rounded" src="@item.Url" alt="@item.Name">
-                            </td>
-                            <td class="py-4 ps-4 text-center">
-                                <p class="my-1">
-                                    <strong>@item.Name</strong>
-                                </p>
-                            </td>
-                            <td class="py-5 pe-1 text-center">
-                                <p class="my-1">
-                                    €@item.UnitPrice
-                                </p>
-                            </td>
-                            <!-- Cart update -->
-                            <td class="py-4 w-25 text-center">
+                                            <tr>
+                                                <td class="py-4 pe-4 cart-image text-center">
+                                                        <img class="img-fluid rounded" src="@item.Url" alt="@item.Name">
+                                                </td>
+                                                <td class="py-4 ps-4 text-center">
+                                                    <p class="my-1">
+                                                        <strong>@item.Name</strong>
+                                                    </p>
+                                                </td>
+                                                <td class="py-5 pe-1 text-center">
+                                                    <p class="my-1">
+                                                        €@item.UnitPrice
+                                                    </p>
+                                                </td>
+                                                <!-- Cart update -->
+                                                <td class="py-4 w-25 text-center">
                                 @item.Quantity
-                            </td>
-                            <td class="py-4 text-center">
-                                <p class="my-1">€@(item.UnitPrice * item.Quantity)</p>
+                                                </td>
+                                                <td class="py-4 text-center">
+                                                    <p class="my-1">€@(item.UnitPrice * item.Quantity)</p>
 
-                            </td>
-                        </tr>
+                                                </td>
+                                            </tr>
                     }
                     <tr>
                         <td colspan="5" class="pt-5 text-end">
@@ -80,7 +80,6 @@
                         </td>
                     </tr>
                 </table>
-
             </div>
         </div>
     </div>
@@ -98,16 +97,16 @@
         </tr>
     @foreach (var item in Model.Items)
     {
-        <tr>
-            <tr>
-                <td class="d-lg-table-cell"><a asp-controller="cart" asp-action="remove" asp-route-id="@item.ProductId">Remove</a> </td>
-                <td class="d-lg-table-cell">@item.ProductId</td>
-                <td class="d-lg-table-cell">@item.Name</td>
-                <td class="d-lg-table-cell">@item.UnitPrice</td>
-                <td class="d-lg-table-cell">@item.Quantity</td>
-                <td class="d-lg-table-cell">@(item.UnitPrice * item.Quantity)</td>
-            </tr>
-        </tr>
+                                        <tr>
+                                            <tr>
+                                                <td class="d-lg-table-cell"><a asp-controller="cart" asp-action="remove" asp-route-id="@item.ProductId">Remove</a> </td>
+                                                <td class="d-lg-table-cell">@item.ProductId</td>
+                                                <td class="d-lg-table-cell">@item.Name</td>
+                                                <td class="d-lg-table-cell">@item.UnitPrice</td>
+                                                <td class="d-lg-table-cell">@item.Quantity</td>
+                                                <td class="d-lg-table-cell">@(item.UnitPrice * item.Quantity)</td>
+                                            </tr>
+                                        </tr>
     }
         <tr>
             <td align="right" colspan="6">Cart Total €: </td>
