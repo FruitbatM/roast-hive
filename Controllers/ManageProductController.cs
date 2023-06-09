@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RoastHiveMvc.Data;
 using RoastHiveMvc.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
 
 namespace RoastHiveMvc.Controllers
 {
@@ -64,8 +61,8 @@ namespace RoastHiveMvc.Controllers
 
         }
 
+        // APIs to create, edit and delete products
         // To display category names from the dropdown list, create a list of SelectListItem objects and pass it to the view
-
         [HttpGet]
         public IActionResult Create()
         {
@@ -81,7 +78,6 @@ namespace RoastHiveMvc.Controllers
             return View();
         }
 
-        // Create new product
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<IEnumerable<Product>>> Create([Bind("CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
@@ -93,38 +89,9 @@ namespace RoastHiveMvc.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(new Product());
-        }
+        } 
 
-        // Edit/Update product
-        //[HttpPut("{id}")]
         [HttpGet]
-        [Authorize]
-        /* public async Task<ActionResult<IEnumerable<Product>>> Edit(int id, Product product)
-        {
-            if (id != product.ProdID){
-                return BadRequest();
-            }
-
-            _db.Entry(product).State = EntityState.Modified;
-
-            try
-            {
-                await _db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        } */
         public async Task<ActionResult<IEnumerable<Product>>> Edit(int? id)
         {
             if (id == null || _db.Product == null)
@@ -140,7 +107,7 @@ namespace RoastHiveMvc.Controllers
             return View(product);
         } 
 
-        // POST: Edit/Update product
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> PostEdit(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
@@ -173,12 +140,7 @@ namespace RoastHiveMvc.Controllers
             return View(product);
         }
 
-        /* private bool ProductExists(int? id)
-        {
-            return _db.Product.Any(e => e.ProdID == id);
-        } */
-
-         // GET: Delete product
+        
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -196,63 +158,49 @@ namespace RoastHiveMvc.Controllers
 
             return View(product);
         } 
-        /* [HttpPost]
+
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> PostDelete(int id)
+        public IActionResult PostDelete(int? id)
         {
-            if (_db.Product == null)
-            {
-                return Problem("Entity set 'ProductsDbContext.Product'  is null.");
-            }
-            var product = await _db.Product.FindAsync(id);
-            if (product != null)
-            {
-                _db.Product.Remove(product);
-            }
+            var product = _db.Product.Find(id);
 
-            await _db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        } */
-        // Delete product
-        
-        /* [HttpDelete("{id}")]
-         public async Task<IActionResult> DeleteProduct(int id)
-        {
-            if (_db.Product == null)
-            {
-                return Problem("Entity set 'ProductsDbContext.Product'  is null.");
-            }
-            var product = await _db.Product.FindAsync(id);
-            if (product != null)
-            {
-                _db.Product.Remove(product);
-            }
-
-            await _db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }  
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(int id)
-        {
-            if (_db.Product == null)
-            {
-                return NotFound();
-            }
-            var product = await _db.Product.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
             }
+            _db.Product.Remove(product);
+            _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        } 
+        
+        // Async DELETE
+        /* [HttpDelete("{id:int}")]
+        public async Task<IActionResult> ProductDelete(int? id)
+        {
+            var product = await _db.Product.FindAsync(id);
 
+            if (product == null)
+            {
+                return NotFound();
+            }
+            
             _db.Product.Remove(product);
             await _db.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
-        } */
+            return RedirectToAction("Index");
+        }  */
         private bool ProductExists(int id)
         {
             return (_db.Product?.Any(e => e.ProdID == id)).GetValueOrDefault();
         } 
+
+        
+        [HttpGet]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }
