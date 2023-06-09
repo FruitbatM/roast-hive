@@ -35,3 +35,34 @@ dotnet build
 dotnet run
 ```
 3. Access the application in your web browser at using the URL provided in the terminal.
+
+## Users and Permissions
+
+Users can register online. However, permissions will need to be modified using SQL queries. Having an admintrative role will allow a user to manage the products online.
+
+To assign a user an adminitrator role:
+
+1. Right click on the database RoastHiveApiMVC.db in Visual Code and choose open. 
+
+2. Locate the AspNetRoles table and right-click it.
+
+3. Select the New Query [Insert] option and insert the following code in the editor:
+```
+INSERT INTO AspNetRoles (Id, Name, NormalizedName, ConcurrencyStamp)
+VALUES ("ID Value", "Administrator", "ADMINISTRATOR", "ConcurrencyStamp Value");
+```
+4. Run query.
+
+5. To assign the admin role, the user account id is first needed. Run the following query:
+```
+select Id from AspNetUsers
+where UserName = '<EMAIL ADDRESS USED!>'
+```
+
+6. Copy the ID and then replace the <USER ID> with the correct value in the query below: 
+```
+INSERT INTO AspNetUserRoles(UserId, RoleId)
+VALUES ("<USER ID>", "72c79f64-d8b1-4ed1-9d22-1e51acc01f36")
+```
+
+
