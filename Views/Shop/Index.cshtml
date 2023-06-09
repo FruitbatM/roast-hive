@@ -20,6 +20,23 @@
             </div>
         </div>
     </div>
+    <!-- Sorting -->
+    <div>
+        <tr>
+            <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Name)</a>
+            </th>
+            <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["CategorySortParm"]">@Html.DisplayNameFor(model => model.CatId)</a>
+            </th>
+            <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["CategorySortParm"]">@Html.DisplayNameFor(model => model.Origin)</a>
+            </th>
+            <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]">@Html.DisplayNameFor(model => model.UnitPrice)</a>
+            </th>
+        </tr>
+    </div>
 </div>
 
 <div class="container">
