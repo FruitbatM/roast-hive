@@ -41,9 +41,10 @@ namespace RoastHiveMvc.Controllers
         public IActionResult TotalAmount()
         {
             var cart = GetShoppingCart();
-            double totalAmount = cart.Items.Sum(item => item.Quantity * item.UnitPrice);
-            decimal decimalAmount = (decimal)totalAmount;
-            string formattedAmount = decimalAmount.ToString("N2", CultureInfo.GetCultureInfo("de-DE"));
+            double v = cart.Items.Sum(item => item.Quantity * item.UnitPrice);
+            double totalAmount = (double)v;
+            double doubleAmount = (double)totalAmount;
+            string formattedAmount = doubleAmount.ToString("N2", CultureInfo.GetCultureInfo("ie-IE"));
             string formattedAmountWithSymbol = "€" + formattedAmount;
             return Content(formattedAmountWithSymbol);
         }

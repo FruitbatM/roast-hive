@@ -173,10 +173,10 @@ namespace RoastHiveMvc.Controllers
             return View(product);
         }
 
-        /* private bool ProductExists(int? id)
+        private bool ProductExists(int? id)
         {
             return _db.Product.Any(e => e.ProdID == id);
-        } */
+        }
 
          // GET: Delete product
         [HttpGet]
