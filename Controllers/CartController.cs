@@ -41,7 +41,8 @@ namespace RoastHiveMvc.Controllers
         public IActionResult TotalAmount()
         {
             var cart = GetShoppingCart();
-            double totalAmount = cart.Items.Sum(item => item.Quantity * item.UnitPrice);
+            double v = cart.Items.Sum(item => item.Quantity * item.UnitPrice);
+            double totalAmount = (double)v;
             double doubleAmount = (double)totalAmount;
             string formattedAmount = doubleAmount.ToString("N2", CultureInfo.GetCultureInfo("ie-IE"));
             string formattedAmountWithSymbol = "€" + formattedAmount;
