@@ -40,6 +40,7 @@ namespace RoastHiveMvc.Controllers
         [Route("api/Cart/TotalAmount")]
         public IActionResult TotalAmount()
         {
+            // changed decimal to double and culture to IE
             var cart = GetShoppingCart();
             double v = cart.Items.Sum(item => item.Quantity * item.UnitPrice);
             double totalAmount = (double)v;
