@@ -8,11 +8,11 @@ namespace RoastHiveMvc.Models
 
         public List<CartItem> Items { get; set; }
 
-        public decimal Total
+        public double Total
         {
             get
             {
-                return (decimal)Items.Sum(item => item.UnitPrice * item.Quantity);
+                return (double)Items.Sum(item => item.UnitPrice * item.Quantity);
             }
         }
 

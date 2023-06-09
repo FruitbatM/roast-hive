@@ -102,9 +102,9 @@
                                                 <td class="d-lg-table-cell"><a asp-controller="cart" asp-action="remove" asp-route-id="@item.ProductId">Remove</a> </td>
                                                 <td class="d-lg-table-cell">@item.ProductId</td>
                                                 <td class="d-lg-table-cell">@item.Name</td>
-                                                <td class="d-lg-table-cell">@item.UnitPrice</td>
+                                                <td class="d-lg-table-cell">€@item.UnitPrice</td>
                                                 <td class="d-lg-table-cell">@item.Quantity</td>
-                                                <td class="d-lg-table-cell">@(item.UnitPrice * item.Quantity)</td>
+                                                <td class="d-lg-table-cell">€@(item.UnitPrice * item.Quantity)</td>
                                             </tr>
                                         </tr>
     }
