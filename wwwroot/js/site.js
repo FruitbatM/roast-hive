@@ -89,9 +89,8 @@ function updateCartTotalAmount() {
     method: 'GET',
     success: function (data) {
       let cartTotal = data;
-      $('#cartTotalAmount').text(cartTotal);
       $('.text-success-cart span').text(cartTotal);
-      updateCartTotal();
+      updateCartTotal(cartTotal);
     },
     error: function () {
       console.log('Error retrieving cart total amount.');

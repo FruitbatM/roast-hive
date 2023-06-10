@@ -44,19 +44,19 @@
                         <ul class="list-inline list-unstyled text-center text-lg-right my-0 nav-icons">
                             <li class="list-inline-item">
                                 <!-- Shopping Cart -->
-                                <a class="text-success-cart font-weight-bold text-black nav-link" asp-area="" asp-controller="Cart" asp-action="Index">
+                                <a class="text-success-cart font-weight-bold text-black nav-link mx-0" asp-area="" asp-controller="Cart" asp-action="Index">
                                     <div class="text-center">
-                                        <div>
+                                        <div id="shopping-cart-icon">
                                             <i class="bi bi-cup-fill"></i>
                                         </div>
                                         <span id="cartTotalAmount">
                                             @if (ViewBag.CartTotal != null)
                                             {
-                                                <text>€@ViewBag.CartTotal</text>
+                                                <text>@ViewBag.CartTotal</text>
                                             }
                                             else
                                             {
-                                                <text>€0.00</text>
+                                                <text>0</text>
                                             }
                                         </span>
                                     </div>
@@ -133,9 +133,9 @@
                                 </li>
                                 @if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Administrator"))
                                 {
-                                                                                <li class="nav-item dropdown">
-                                                                                    <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index" asp-route-id="">MANAGEMENT</a>
-                                                                                </li>
+                                                                                                                            <li class="nav-item dropdown">
+                                                                                                                                <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index" asp-route-id="">MANAGEMENT</a>
+                                                                                                                            </li>
                                 }
                                 <li><hr class="d-lg-none"></li>
                                 <li class="search-mob">
