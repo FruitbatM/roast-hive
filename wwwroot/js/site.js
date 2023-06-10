@@ -34,68 +34,70 @@ function scrollFunction() {
 // Attach the click event handler to the button using JavaScript
 mybutton.onclick = topFunction;
 
-  // Shop details page
-  // Disable +/- buttons outside 1-99 range
-  function handleEnableDisable(itemId) {
-      let currentValue = parseInt($(`#id_qty_${itemId}`).val());
-      let minusDisabled = currentValue < 2;
-      let plusDisabled = currentValue > 98;
+// Shop details page
+// Disable +/- buttons outside 1-99 range
+function handleEnableDisable(itemId) {
+    let currentValue = parseInt($(`#id_qty_${itemId}`).val());
+    let minusDisabled = currentValue < 2;
+    let plusDisabled = currentValue > 98;
 
-      $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-      $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
-  }
+    $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+    $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+}
 
-  // Ensure proper enabling/disabling of all inputs on page load
-  let allQtyInputs = $('.qty_input');
-  allQtyInputs.each(function () {
-      let itemId = $(this).data('item_id');
-      handleEnableDisable(itemId);
+// Ensure proper enabling/disabling of all inputs on page load
+let allQtyInputs = $('.qty_input');
+allQtyInputs.each(function () {
+    let itemId = $(this).data('item_id');
+    handleEnableDisable(itemId);
+});
+
+// Check enable/disable every time the input is changed
+$('.qty_input').change(function () {
+    let itemId = $(this).data('item_id');
+    handleEnableDisable(itemId);
+});
+
+// Increment quantity
+$('.increment-qty').click(function (e) {
+    e.preventDefault();
+    let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+    let currentValue = parseInt($(closestInput).val());
+    $(closestInput).val(currentValue + 1);
+    let itemId = $(this).data('item_id');
+    handleEnableDisable(itemId);
+    updateCartTotalAmount(); // Update cart total amount
+});
+
+// Decrement quantity
+$('.decrement-qty').click(function (e) {
+    e.preventDefault();
+    let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+    let currentValue = parseInt($(closestInput).val());
+    if (currentValue > 1) {
+        $(closestInput).val(currentValue - 1);
+        let itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+        updateCartTotalAmount(); // Update cart total amount
+    }
+});
+
+  
+function updateCartTotalAmount() {
+  $.ajax({
+    url: '/api/Cart/TotalAmount',
+    method: 'GET',
+    success: function (data) {
+      let cartTotal = data;
+      $('#cartTotalAmount').text(cartTotal);
+      $('.text-success-cart span').text(cartTotal);
+      updateCartTotal();
+    },
+    error: function () {
+      console.log('Error retrieving cart total amount.');
+    }
   });
-
-  // Check enable/disable every time the input is changed
-  $('.qty_input').change(function () {
-      let itemId = $(this).data('item_id');
-      handleEnableDisable(itemId);
-  });
-
-  // Increment quantity
-  $('.increment-qty').click(function (e) {
-      e.preventDefault();
-      let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-      let currentValue = parseInt($(closestInput).val());
-      $(closestInput).val(currentValue + 1);
-      let itemId = $(this).data('item_id');
-      handleEnableDisable(itemId);
-      updateCartTotalAmount(); // Update cart total amount
-  });
-
-  // Decrement quantity
-  $('.decrement-qty').click(function (e) {
-      e.preventDefault();
-      let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-      let currentValue = parseInt($(closestInput).val());
-      if (currentValue > 1) {
-          $(closestInput).val(currentValue - 1);
-          let itemId = $(this).data('item_id');
-          handleEnableDisable(itemId);
-          updateCartTotalAmount(); // Update cart total amount
-      }
-  });
-
-  // Function to update the cart total amount
-  function updateCartTotalAmount() {
-    $.ajax({
-      url: '/api/Cart/TotalAmount',
-      method: 'GET',
-      success: function (data) {
-        $('#cartTotalAmount').text(data);
-        $('.text-success-cart span').text(data);
-      },
-      error: function () {
-        console.log('Error retrieving cart total amount.');
-      }
-    });
-  }
+}
 
 // Call the function initially to set the cart total amount
 updateCartTotalAmount();
@@ -108,8 +110,8 @@ $('.quantity-input').change(function () {
 // Update cart total amount when an item is added/removed
 $('.update-link, .remove-item').click(function () {
   updateCartTotalAmount();
+  updateCartTotal();
 });
-
 
 // Update quantity and subtotal on the cart page
 $('.update-link').click(function () {
@@ -138,11 +140,11 @@ $('.remove-item').click(function () {
 function updateCartTotal() {
   let total = 0;
   $('span[id^="subtotal-"]').each(function () {
-    let subtotalText = $(this).text().substring(1); // Remove the currency symbol
-    let subtotalValue = parseFloat(subtotalText);
-    if (!isNaN(subtotalValue)) {
-        total += subtotalValue;
-    }
+      let subtotalText = $(this).text().substring(1); // Remove the currency symbol
+      let subtotalValue = parseFloat(subtotalText);
+      if (!isNaN(subtotalValue)) {
+          total += subtotalValue;
+      }
   });
   $('#cart-total').text('€' + total.toFixed(2));
 }
