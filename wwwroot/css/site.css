@@ -524,6 +524,11 @@ thead th {
   width: 15%;
 }
 
+.update-link,
+.remove-item {
+  cursor: pointer;
+}
+
 /* About Us page*/
 #about-header {
   background: url(../images/about-hero.jpg) no-repeat center;

@@ -13,6 +13,7 @@ namespace RoastHiveMvc.Controllers
     public class ManageProductController : Controller
     {
         private readonly RoastHiveDbContext _db;
+        private const string DefaultImageUrl = "https://res.cloudinary.com/fruitbat/image/upload/v1686403354/Roast%20Hive/default_kzubh0.png";
 
         public ManageProductController(RoastHiveDbContext context)
         {
@@ -24,9 +25,9 @@ namespace RoastHiveMvc.Controllers
         public async Task<ActionResult<IEnumerable<Product>>> Index(string? sortOrder)
         {
             if (_db.Product == null)
-          {
-              return NotFound();
-          }
+            {
+                return NotFound();
+            }
 
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["CategorySortParm"] = sortOrder == "Category" ? "category_desc" : "Category";
@@ -84,12 +85,17 @@ namespace RoastHiveMvc.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (string.IsNullOrEmpty(product.Url))
+                {
+                    product.Url = DefaultImageUrl;
+                }
+
                 _db.Add(product);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(new Product());
-        } 
+        }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> Edit(int? id)
@@ -105,9 +111,9 @@ namespace RoastHiveMvc.Controllers
                 return NotFound();
             }
             return View(product);
-        } 
+        }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> PostEdit(int id, [Bind("ProdID, CatId, Name, Description, Size, UnitPrice, Origin, Url")] Product product)
@@ -140,7 +146,7 @@ namespace RoastHiveMvc.Controllers
             return View(product);
         }
 
-        
+
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -157,7 +163,7 @@ namespace RoastHiveMvc.Controllers
             }
 
             return View(product);
-        } 
+        }
 
 
         [HttpPost]
@@ -173,8 +179,8 @@ namespace RoastHiveMvc.Controllers
             _db.Product.Remove(product);
             _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        } 
-        
+        }
+
         // Async DELETE
         /* [HttpDelete("{id:int}")]
         public async Task<IActionResult> ProductDelete(int? id)
@@ -193,9 +199,9 @@ namespace RoastHiveMvc.Controllers
         private bool ProductExists(int id)
         {
             return (_db.Product?.Any(e => e.ProdID == id)).GetValueOrDefault();
-        } 
+        }
 
-        
+
         [HttpGet]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

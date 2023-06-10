@@ -19,13 +19,6 @@ public class HomeController : Controller
         _db = db;
     }
 
-    /*
-    public IActionResult Index()
-    {
-        return View();
-    }
-    */
-
     public IActionResult Index(string category)
     {
         var viewModel = new ProductVM();
