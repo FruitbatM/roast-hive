@@ -7,4 +7,5 @@ public class CartItem
     public int Quantity { get; set; }
     public double UnitPrice { get; set; }
     public string? Url { get; set; }
+    public decimal Total { get; set; }
 }

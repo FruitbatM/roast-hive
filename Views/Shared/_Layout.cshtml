@@ -49,7 +49,16 @@
                                         <div>
                                             <i class="bi bi-cup-fill"></i>
                                         </div>
-                                        <span id="cartTotalAmount"></span>
+                                        <span id="cartTotalAmount">
+                                            @if (ViewBag.CartTotal != null)
+                                            {
+                                                <text>€@ViewBag.CartTotal</text>
+                                            }
+                                            else
+                                            {
+                                                <text>€0.00</text>
+                                            }
+                                        </span>
                                     </div>
                                 </a>
                             </li>
@@ -124,9 +133,9 @@
                                 </li>
                                 @if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Administrator"))
                                 {
-                                                                                    <li class="nav-item dropdown">
-                                                                                        <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index" asp-route-id="">MANAGEMENT</a>
-                                                                                    </li>
+                                                                                <li class="nav-item dropdown">
+                                                                                    <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index" asp-route-id="">MANAGEMENT</a>
+                                                                                </li>
                                 }
                                 <li><hr class="d-lg-none"></li>
                                 <li class="search-mob">
