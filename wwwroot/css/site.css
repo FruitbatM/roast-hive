@@ -505,6 +505,10 @@ a.title
   color: #fafafa;
 }
 
+#product-name {
+  color: #000;
+}
+
 /* Shopping Cart */
 
 #cartTotalAmount {
