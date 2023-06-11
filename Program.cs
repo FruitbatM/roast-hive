@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 //using RoastHiveMvc.Areas.Identity.Data;
 using RoastHiveMvc.Data;
 using RoastHiveMvc.Services;
+using static System.Net.Mime.MediaTypeNames;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,10 +50,12 @@ using (var scope = app.Services.CreateScope())
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseExceptionHandler("/Error");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+app.UseStatusCodePages(Text.Plain, "Status Code Page: {0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
