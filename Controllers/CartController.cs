@@ -98,7 +98,7 @@ namespace RoastHiveMvc.Controllers
         public IActionResult Error()
         {
             return View(
-                new ErrorViewModel
+                new ErrorModel
                 {
                     RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
                 });

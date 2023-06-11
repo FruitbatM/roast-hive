@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using RoastHiveMvc.Models;
 using System.Threading.Tasks;
 using RoastHiveMvc.Services;
+using System.Diagnostics;
 
 namespace RoastHiveMvc.Controllers
 {
@@ -49,5 +50,12 @@ namespace RoastHiveMvc.Controllers
         {
             return View();
         }
+        
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        
     }
 }
