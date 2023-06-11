@@ -51,7 +51,9 @@
                             class="img-fluid product-card-img">
                     </a>
                     <div class="card-body pb-0 text-uppercase">
-                        <p class="mb-0">@item.Name</p>
+                        <a asp-controller="Shop" asp-action="Details" asp-route-id="@item.ProdID" id="product-name">
+                            <p class="mb-0">@item.Name</p>
+                        </a>
                     </div>
                     <div class="card-footer bg-white">
                         <div class="row">
