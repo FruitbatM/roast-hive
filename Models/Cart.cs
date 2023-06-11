@@ -1,4 +1,6 @@
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RoastHiveMvc.Models
 {
@@ -7,14 +9,6 @@ namespace RoastHiveMvc.Models
         public int CartId { get; set; }
 
         public List<CartItem> Items { get; set; }
-
-        public double Total
-        {
-            get
-            {
-                return (double)Items.Sum(item => item.UnitPrice * item.Quantity);
-            }
-        }
 
         public DateTime DateCreated { get; set; }
 
@@ -30,13 +24,25 @@ namespace RoastHiveMvc.Models
 
         public void Remove(int itemId)
         {
-            // Remove all items that match the product ID from the items currently in the cart.
             Items.RemoveAll(x => x.ProductId == itemId);
         }
 
-        internal dynamic Sum(Func<object, object> value)
+        public void UpdateQuantity(int itemId, int quantity)
         {
-            throw new NotImplementedException();
+            var item = Items.FirstOrDefault(x => x.ProductId == itemId);
+            if (item != null)
+            {
+                item.Quantity = quantity;
+                item.Total = (decimal)(item.UnitPrice * item.Quantity);
+            }
         }
+
+        public decimal CalculateTotal()
+        {
+            double total = Items.Sum(item => item.UnitPrice * item.Quantity);
+            return (decimal)total;
+        }
+        public decimal Total => CalculateTotal();
+
     }
 }

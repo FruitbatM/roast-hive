@@ -2,15 +2,23 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RoastHiveMvc.Models;
 using System.Globalization;
+using Newtonsoft.Json;
 using RoastHiveMvc;
+using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace RoastHiveMvc.Controllers
 {
     public class CartController : Controller
     {
-        private readonly ILogger<ContactController> _logger;
+        public class TotalAmountResponse
+        {
+            public string cartTotal { get; set; }
+        }
 
-        public CartController(ILogger<ContactController> logger)
+        private readonly ILogger<CartController> _logger;
+
+        public CartController(ILogger<CartController> logger)
         {
             _logger = logger;
         }
@@ -42,28 +50,48 @@ namespace RoastHiveMvc.Controllers
         {
             // changed decimal to double and culture to IE
             var cart = GetShoppingCart();
-            double v = cart.Items.Sum(item => item.Quantity * item.UnitPrice);
-            double totalAmount = (double)v;
-            double doubleAmount = (double)totalAmount;
-            string formattedAmount = doubleAmount.ToString("N2", CultureInfo.GetCultureInfo("ie-IE"));
-            string formattedAmountWithSymbol = "€" + formattedAmount;
-            return Content(formattedAmountWithSymbol);
+            int itemCount = cart.Items.Sum(item => item.Quantity);
+            return Content(itemCount.ToString());
         }
 
-        [HttpGet]
-        [Route("api/Cart/{id}")]
-        public async Task<IActionResult> Remove(int id)
+        [HttpPost]
+        public IActionResult UpdateQuantity(int itemId, int quantity)
         {
             var cart = GetShoppingCart();
-            await Task.Run(() => cart.Remove(id));
+            cart.UpdateQuantity(itemId, quantity);
             UpdateCart(cart);
+
+            int itemCount = cart.Items.Sum(item => item.Quantity);
+            string cartTotal = itemCount.ToString();
+
+            return RedirectToAction("Index", new { cartTotal });
+        }
+
+        [HttpPost]
+        public IActionResult Remove(int itemId)
+        {
+            var cart = GetShoppingCart();
+            cart.Remove(itemId);
+            UpdateCart(cart);
+
+            int itemCount = cart.Items.Sum(item => item.Quantity);
+            string cartTotal = itemCount.ToString();
+
+            return RedirectToAction("Index", new { cartTotal });
+        }
+
+        public IActionResult Index(string cartTotal)
+        {
+            var cart = GetShoppingCart();
+            ViewBag.CartTotal = cartTotal ?? "0";
             return View(cart);
         }
 
-        public IActionResult Index()
+        [HttpPost]
+        public IActionResult UpdateCartTotal(string cartTotal)
         {
-            var cart = GetShoppingCart();
-            return View(cart);
+            ViewBag.CartTotal = cartTotal;
+            return Json(new { success = true });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

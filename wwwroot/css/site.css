@@ -21,7 +21,7 @@ a {
 
 /* Navbar */
 .brand-logo {
-  width: 6rem;
+  width: 7.5rem;
   padding-right: 1rem;
 }
 
@@ -38,6 +38,18 @@ a {
 #cart-link-mob {
   font-size: 1.4em;
   padding-right: 1rem;
+}
+
+#shopping-cart-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.315rem;
+}
+
+#cartTotalAmount {
+  font-size: 1.15rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 #user-options {
@@ -505,11 +517,11 @@ a.title
   color: #fafafa;
 }
 
-/* Shopping Cart */
-
-#cartTotalAmount {
-  font-size: 1.15rem;
+#product-name {
+  color: #000;
 }
+
+/* Shopping Cart */
 
 thead th {
   padding-bottom: 0.5rem !important;
@@ -522,6 +534,11 @@ thead th {
 
 .cart-image {
   width: 15%;
+}
+
+.update-link,
+.remove-item {
+  cursor: pointer;
 }
 
 /* About Us page*/
