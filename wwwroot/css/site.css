@@ -598,7 +598,7 @@ a.title
   color: #000;
 }
 
-/* Shopping Cart */
+/* Cart page */
 thead th {
   padding-bottom: 0.5rem !important;
   text-align: center;
@@ -615,6 +615,14 @@ thead th {
 .update-link,
 .remove-item {
   cursor: pointer;
+}
+
+.quantity-input-m {
+  width: 40% !important;
+}
+
+.remove-item {
+  margin-left: 0.8rem !important;
 }
 
 /* About Us page*/
@@ -785,7 +793,6 @@ thead th {
   background-color: #f3f8f8!important;
 }
 
-
 /* Product Management*/
 .table-wrapper {
   background: #fff;
@@ -827,12 +834,6 @@ thead th {
 .table-title .btn span {
   float: left;
   margin-top: 0.125rem;
-}
-
-table.table tr th, table.table tr td {
-  border-color: #e9e9e9;
-  padding: 0.75rem 0.94rem;
-  vertical-align: middle;
 }
 
 table.table tr th:first-child {
@@ -965,6 +966,16 @@ table.table td i {
     text-align: left !important;
   }
 
+  /* Cart page*/
+  #quantity-column {
+    width: 20% !important;
+  }
+
+
+  .remove-item {
+    margin-left: 0.3rem !important;
+  }
+
   /* Account pages */
   .container-account {
     min-height: 55vh;
@@ -972,6 +983,10 @@ table.table td i {
 
   .container-profile {
     min-height: 42vh !important;
+  }
+
+  p > .cart-p {
+    padding: 0 !important;
   }
 }
 
@@ -1067,6 +1082,21 @@ table.table td i {
     .quantity-selector-size {
       margin-left: 0 !important;
       margin-right: 0 !important;
+    }
+
+    /* Cart page */
+    table.table tr th, table.table tr td {
+      border-color: #e9e9e9;
+      padding: 0.75rem 0.94rem;
+      vertical-align: middle;
+    }
+
+    #quantity-column {
+      width: 17% !important;
+    }
+
+    .remove-item {
+      margin-left: 2rem;
     }
 
     /* Account pages*/
