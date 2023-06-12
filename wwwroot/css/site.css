@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 html {
@@ -73,6 +80,22 @@ a {
   padding-left: 8rem !important;
 }
 
+input[name='q']::-webkit-input-placeholder {
+  color: #aab7c4;
+}
+
+input[name='q']::-moz-placeholder {
+  color: #aab7c4;
+}
+
+input[name='q']:-ms-input-placeholder {
+  color: #aab7c4;
+}
+
+input[name='q']::-ms-input-placeholder {
+  color: #aab7c4;
+}
+
 input[name='q']::placeholder {
   color: #aab7c4;
 }
@@ -118,22 +141,6 @@ input[name='q']::placeholder {
   color: #fafafa;
 }
 
-/*
-.shop-button {
-  background-color: #c28135 !important;
-  color: #fafafa !important;
-  border-color: #915716 !important;
-  border-width: 0.1rem !important;
-}
-
-.shop-button:hover, .shop-button:active, .shop-button:visited  {
-  background-color: #35c291 !important;
-  color: #fafafa !important;
-  border-color: #915716 !important;
-  border-width: 0.1rem !important;
-}
-*/
-
 .btn-outline-success {
   color: #fafafa !important;
   border-color: #fafafa !important;
@@ -151,8 +158,10 @@ input[name='q']::placeholder {
 
 /* Section background color*/
 .bg-coffee {
-  box-shadow: 0 0 0 100vmax #EDE0D4;
-  clip-path: inset(0 -100vmax);
+  -webkit-box-shadow: 0 0 0 100vmax #EDE0D4;
+          box-shadow: 0 0 0 100vmax #EDE0D4;
+  -webkit-clip-path: inset(0 -100vmax);
+          clip-path: inset(0 -100vmax);
 }
 
 .full-bg {
@@ -161,7 +170,9 @@ input[name='q']::placeholder {
 }
 
 .section-para {
-  align-items: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
 }
 
 /* Homepage - featured coffee */
@@ -176,8 +187,12 @@ input[name='q']::placeholder {
 }
 
 .p-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .p-price {
@@ -188,7 +203,11 @@ input[name='q']::placeholder {
 
 .p-image img {
   width: 12.5rem;
-  transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+      -ms-transform: rotate(15deg);
+          transform: rotate(15deg);
+  -webkit-transition:all 0.5s;
+  -o-transition:all 0.5s;
   transition:all 0.5s;
 }
 
@@ -202,7 +221,19 @@ input[name='q']::placeholder {
 }
 
 .card:hover .p-about {
-  animation: content 300ms ease-in forwards
+  -webkit-animation: content 300ms ease-in forwards;
+          animation: content 300ms ease-in forwards
+}
+
+@-webkit-keyframes content {
+  0% {
+      opacity: 0
+  }
+
+  100% {
+      opacity: 1;
+      left: 1.56rem;
+  }
 }
 
 @keyframes content {
@@ -217,11 +248,30 @@ input[name='q']::placeholder {
 }
 
 .card:hover .p-image img {
-  animation: onimage 300ms ease-in forwards
+  -webkit-animation: onimage 300ms ease-in forwards;
+          animation: onimage 300ms ease-in forwards
 }
 
 .card:hover .p-price {
-  animation: onprice 500ms ease-in forwards
+  -webkit-animation: onprice 500ms ease-in forwards;
+          animation: onprice 500ms ease-in forwards
+}
+
+@-webkit-keyframes onprice {
+  0% {
+      right: 0.625rem;
+      top: 1.25rem
+  }
+
+  50% {
+      right: 3.75rem;
+      top: 1.875rem
+  }
+
+  100% {
+      right: 15.8rem;
+      top: 4.375rem
+  }
 }
 
 @keyframes onprice {
@@ -241,6 +291,25 @@ input[name='q']::placeholder {
   }
 }
 
+@-webkit-keyframes onimage {
+  0% {
+      width: 15.625
+  }
+
+  50% {
+      width: 12.5;
+              transform: translateY(-1.875rem);
+              transform: translateX(6.25rem)
+  }
+
+  100% {
+      width: 11.25rem;
+      top: 6.25rem;
+              transform: translateY(6.25rem);
+              transform: translateX(6.875rem)
+  }
+}
+
 @keyframes onimage {
   0% {
       width: 15.625
@@ -248,15 +317,15 @@ input[name='q']::placeholder {
 
   50% {
       width: 12.5;
-      transform: translateY(-1.875rem);
-      transform: translateX(6.25rem)
+              transform: translateY(-1.875rem);
+              transform: translateX(6.25rem)
   }
 
   100% {
       width: 11.25rem;
       top: 6.25rem;
-      transform: translateY(6.25rem);
-      transform: translateX(6.875rem)
+              transform: translateY(6.25rem);
+              transform: translateX(6.875rem)
   }
 }
 
@@ -266,7 +335,18 @@ input[name='q']::placeholder {
 }
 
 .card:hover .buttons {
-  animation: buttons 500ms ease-in forwards
+  -webkit-animation: buttons 500ms ease-in forwards;
+          animation: buttons 500ms ease-in forwards
+}
+
+@-webkit-keyframes buttons {
+  0% {
+      bottom: -6.25rem
+  }
+
+  100% {
+      bottom: 1.25rem
+  }
 }
 
 @keyframes buttons {
@@ -295,8 +375,13 @@ input[name='q']::placeholder {
 {
   width: 25rem;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
@@ -308,7 +393,10 @@ input[name='q']::placeholder {
 
 .card-product-grid:hover
 {
-  box-shadow: 0 0.25rem 0.94rem rgba(153, 153, 153, 0.3);
+  -webkit-box-shadow: 0 0.25rem 0.94rem rgba(153, 153, 153, 0.3);
+          box-shadow: 0 0.25rem 0.94rem rgba(153, 153, 153, 0.3);
+  -webkit-transition: .3s;
+  -o-transition: .3s;
   transition: .3s
 }
 
@@ -336,7 +424,8 @@ input[name='q']::placeholder {
   max-width: 100%;
   width: auto;
   display: inline-block;
-  object-fit: cover
+  -o-object-fit: cover;
+     object-fit: cover
 }
 
 .img-wrap
@@ -402,7 +491,6 @@ a.title
     background-color: #3167eb;
     border-color: #3167eb
 }
-
 
 
 /* Shop Page*/
@@ -522,7 +610,6 @@ a.title
 }
 
 /* Shopping Cart */
-
 thead th {
   padding-bottom: 0.5rem !important;
   text-align: center;
@@ -716,7 +803,8 @@ thead th {
   padding: 1.25rem 1.563rem;
   margin: 1.875rem 0;
   border-radius: 0.18rem;
-  box-shadow: 0 0.065rem 0.065rem rgba(0,0,0,.05);
+  -webkit-box-shadow: 0 0.065rem 0.065rem rgba(0,0,0,.05);
+          box-shadow: 0 0.065rem 0.065rem rgba(0,0,0,.05);
 }
 
 .table-title {        
@@ -845,13 +933,19 @@ table.table td i {
 
   .highlights-banner {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 
   .highlights-banner-block {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-right: 6rem;
   }
 
@@ -924,14 +1018,22 @@ table.table td i {
 
     .highlights-banner {
       position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
     }
 
     .highlights-banner-block {
       position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      align-items: flex-end;
+      -webkit-box-align: end;
+          -ms-flex-align: end;
+              align-items: flex-end;
       padding-right: 8rem;
     }
 
@@ -969,7 +1071,7 @@ resource: https://coderwall.com/p/mwvbea/media-queries-only-for-the-iphone-5-par
   and (min-width: 320px) 
   and (max-width: 568px)
   and (-webkit-device-pixel-ratio: 2) 
-  and (min-aspect-ratio: 40/71) and (orientation:portrait) {
+  and (min-aspect-ratio: 40/71) and (orientation: portrait) {
 
     .brand-logo {
       width: 6.4rem;
