@@ -18,6 +18,77 @@
 <div class="container">
     <div class="row">
         <div class="col">
+           
+            <div class="d-block d-md-none">    
+                <div class="row">
+                    <div class="col">
+                        <h6>
+                            <strong>Cart Total: <span id="cart-total">€@Model.Total</span></strong>
+                        </h6>
+                        <small class="text-muted">*Tax&nbsp;included </small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <td colspan="5" class="text-end">
+                            <a asp-controller="Shop" asp-action="Index" class="btn adjust-button rounded-1 btn-lg">
+                                <span class="icon">
+                                    <i class="bi bi-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                            <a href="" class="btn checkout-button rounded-1 btn-lg my-2">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="bi bi-shield-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </div>
+                </div>
+                @foreach (var item in Model.Items)
+                {
+                    <div class="row">
+                        <div class="col-12 w-50 col-sm-6 mx-auto my-2">
+                            <td class="py-5 pe-4 cart-image text-center">
+                                <img class="img-fluid rounded" src="@item.Url" alt="@item.Name">
+                            </td>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 text-center mb-2">
+                        <td class="py-5 ps-4 text-center">
+                            <p class="my-1">
+                                <strong>@item.Name</strong>
+                            </p>
+                        </td>
+                    </div>
+                    <div class="col-12 col-sm-6 text-center order-sm-last">
+                        <p class="my-1">
+                            Price: €<span id="unit-price-@item.ProductId">@item.UnitPrice</span>
+                        </p>
+                        <p class="mt-2">
+                            <strong>Subtotal: </strong>
+                            <span id="subtotal-@item.ProductId">€@(item.UnitPrice * item.Quantity)</span>
+                        </p>
+                    </div>
+                    <div class="col-12 text-center mb-3 pb-2">
+                        <div class="d-flex flex-column align-items-center">
+                            <!-- Quantity -->
+                            <td class="py-5 w-25 text-center" id="quantity-column">
+                                <input type="number" class="form-control quantity-input-m" id="quantity-@item.ProductId" value="@item.Quantity"/>
+                                <div>
+                                    <!-- Update link -->
+                                    <a class="update-link text-info" data-number="@item.ProductId"><small>Update</small></a>
+                                    <!-- Remove link -->
+                                    <a class="remove-item text-danger" data-id="@item.ProductId"><small>Remove</small></a>
+                                </div>
+                            </td>
+                        </div>
+                    </div>
+                    <hr>
+                }
+            </div>
+
             <div class="table-responsive rounded d-none d-md-block">
                 <table class="table table-sm table-borderless" aria-describedby="shopping cart summary">
                     <thead class="font-italic">
@@ -32,10 +103,10 @@
                     @foreach (var item in Model.Items)
                     {
                         <tr>
-                            <td class="py-4 pe-4 cart-image text-center">
+                            <td class="py-5 pe-4 cart-image text-center">
                                     <img class="img-fluid rounded" src="@item.Url" alt="@item.Name">
                             </td>
-                            <td class="py-4 ps-4 text-center">
+                            <td class="py-5 ps-4 text-center">
                                 <p class="my-1">
                                     <strong>@item.Name</strong>
                                 </p>
@@ -46,16 +117,16 @@
                                 </p>
                             </td>
                             <!-- Quantity -->
-                            <td class="py-4 w-25 text-center">
+                            <td class="py-5 w-25 text-center" id="quantity-column">
                                 <input type="number" class="form-control quantity-input" id="quantity-@item.ProductId" value="@item.Quantity"/>
                                 <div>
                                     <!-- Update link -->
                                     <a class="update-link text-info" data-number="@item.ProductId"><small>Update</small></a>
                                     <!-- Remove link -->
-                                    <a class="remove-item text-danger ms-5" data-id="@item.ProductId"><small>Remove</small></a>
+                                    <a class="remove-item text-danger" data-id="@item.ProductId"><small>Remove</small></a>
                                 </div>
                             </td>
-                            <td class="py-4 text-center">
+                            <td class="py-5 text-center">
                                 <span id="subtotal-@item.ProductId">€@(item.UnitPrice * item.Quantity)</span>
                             </td>
                         </tr>
