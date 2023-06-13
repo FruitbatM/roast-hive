@@ -625,6 +625,12 @@ thead th {
   margin-left: 0.8rem !important;
 }
 
+.quantity-selector-size,
+.quantity-selector {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* About Us page*/
 #about-header {
   background: url(../images/about-hero.jpg) no-repeat center;
