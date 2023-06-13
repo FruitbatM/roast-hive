@@ -13,7 +13,7 @@ namespace RoastHiveMvc.Controllers
     {
         public class TotalAmountResponse
         {
-            public string cartTotal { get; set; }
+            public string? cartTotal { get; set; }
         }
 
         private readonly ILogger<CartController> _logger;

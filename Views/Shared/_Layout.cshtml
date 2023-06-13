@@ -49,16 +49,7 @@
                                         <div id="shopping-cart-icon">
                                             <i class="bi bi-cup-fill"></i>
                                         </div>
-                                        <span id="cartTotalAmount">
-                                            @if (ViewBag.CartTotal != null)
-                                            {
-                                                <text>@ViewBag.CartTotal</text>
-                                            }
-                                            else
-                                            {
-                                                <text>0</text>
-                                            }
-                                        </span>
+                                        <span id="cartTotalAmount">0</span>
                                     </div>
                                 </a>
                             </li>
@@ -78,9 +69,10 @@
                             <img src="~/images/logo_c.png" alt="Logo" class="brand-logo" loading="lazy">
                         </a>
                         <!-- Shopping Cart -->
-                        <a href="#" class="nav-link d-lg-none d-xl-none" id="cart-link-mob">
+                        <a class="nav-link d-lg-none d-xl-none" id="cart-link-mob asp-area=" asp-controller="Cart" asp-action="Index">
                             <div class="text-center">
                                 <div><i class="bi bi-cup-fill"></i></div>
+                                <span id="cartTotalAmount">0</span>
                             </div>
                         </a>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -133,9 +125,9 @@
                                 </li>
                                 @if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Administrator"))
                                 {
-                                                                                                                            <li class="nav-item dropdown">
-                                                                                                                                <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index" asp-route-id="">MANAGEMENT</a>
-                                                                                                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index" asp-route-id="">MANAGEMENT</a>
+                                            </li>
                                 }
                                 <li><hr class="d-lg-none"></li>
                                 <li class="search-mob">
