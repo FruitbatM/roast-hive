@@ -123,9 +123,9 @@
                                 </li>
                                 @if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Administrator"))
                                 {
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index" asp-route-id="">MANAGEMENT</a>
-                                        </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" asp-area="" asp-controller="ManageProduct" asp-action="Index" asp-route-id="">MANAGEMENT</a>
+                                    </li>
                                 }
                                 <li><hr class="d-lg-none"></li>
                                 <li class="search-mob">

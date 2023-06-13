@@ -181,21 +181,7 @@ namespace RoastHiveMvc.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // Async DELETE
-        /* [HttpDelete("{id:int}")]
-        public async Task<IActionResult> ProductDelete(int? id)
-        {
-            var product = await _db.Product.FindAsync(id);
-
-            if (product == null)
-            {
-                return NotFound();
-            }
-            
-            _db.Product.Remove(product);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }  */
+        
         private bool ProductExists(int id)
         {
             return (_db.Product?.Any(e => e.ProdID == id)).GetValueOrDefault();
