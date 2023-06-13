@@ -617,14 +617,6 @@ thead th {
   cursor: pointer;
 }
 
-.quantity-input-m {
-  width: 40% !important;
-}
-
-.remove-item {
-  margin-left: 0.8rem !important;
-}
-
 .quantity-selector-size,
 .quantity-selector {
     margin-left: auto;
