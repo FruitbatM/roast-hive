@@ -81,7 +81,6 @@ $('.decrement-qty').click(function (e) {
         updateCartTotalAmount(); // Update cart total amount
     }
 });
-
   
 function updateCartTotalAmount() {
   $.ajax({
@@ -89,7 +88,8 @@ function updateCartTotalAmount() {
     method: 'GET',
     success: function (data) {
       let cartTotal = data;
-      $('#cartTotalAmount').text(cartTotal); // Update cartTotalAmount element
+      $('#cartTotalAmount').text(cartTotal);
+      $('.text-success-cart span').text(cartTotal);
       updateCartTotal();
     },
     error: function () {
@@ -109,6 +109,7 @@ $('.quantity-input').change(function () {
 // Update cart total amount when an item is added/removed
 $('.update-link, .remove-item').click(function () {
   updateCartTotalAmount();
+  updateCartTotal();
 });
 
 // Update quantity and subtotal on the cart page
@@ -116,39 +117,33 @@ $('.update-link').click(function () {
   let itemId = $(this).data('number');
   let quantityInput = $('#quantity-' + itemId);
   let quantity = parseInt(quantityInput.val());
-  
   if (isNaN(quantity) || quantity < 1) {
-    quantityInput.val('1'); // Reset to minimum quantity if input is invalid
-    quantity = 1;
+      quantityInput.val('1'); // Reset to minimum quantity if input is invalid
+      quantity = 1;
   } else if (quantity > 99) {
-    quantityInput.val('99'); // Limit quantity to 99 if it exceeds the maximum
-    quantity = 99;
+      quantityInput.val('99'); // Limit quantity to 99 if it exceeds the maximum
+      quantity = 99;
   }
-  
   let unitPrice = parseFloat($('#unit-price-' + itemId).text());
   let subtotal = quantity * unitPrice;
   $('#subtotal-' + itemId).text('€' + subtotal.toFixed(2));
-  
-  // Update cart total amount and cart total
-  updateCartTotalAmount();
+  updateCartTotal();
 });
 
 $('.remove-item').click(function () {
   let itemId = $(this).data('id');
   $(this).closest('tr').remove();
-  
-  // Update cart total amount and cart total
-  updateCartTotalAmount();
+  updateCartTotal();
 });
 
 function updateCartTotal() {
   let total = 0;
   $('span[id^="subtotal-"]').each(function () {
-    let subtotalText = $(this).text().substring(1); // Remove the currency symbol
-    let subtotalValue = parseFloat(subtotalText);
-    if (!isNaN(subtotalValue)) {
-      total += subtotalValue;
-    }
+      let subtotalText = $(this).text().substring(1); // Remove the currency symbol
+      let subtotalValue = parseFloat(subtotalText);
+      if (!isNaN(subtotalValue)) {
+          total += subtotalValue;
+      }
   });
   $('#cart-total').text('€' + total.toFixed(2));
 }
