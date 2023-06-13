@@ -55,8 +55,8 @@ VALUES ("ID Value", "Administrator", "ADMINISTRATOR", "ConcurrencyStamp Value");
 
 5. To assign the admin role, the user account id is first needed. Run the following query:
 ```
-select Id from AspNetUsers
-where UserName = '<EMAIL ADDRESS USED!>'
+SELECT Id FROM AspNetUsers
+WEHERE UserName = '<EMAIL ADDRESS USED!>'
 ```
 
 6. Copy the ID and then replace the <USER ID> with the correct value in the query below: 
