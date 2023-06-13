@@ -142,7 +142,7 @@ public class ShopController : Controller
         return View(product);
     }
 
-    // Search Products
+    // Search Products by name or description
     [HttpGet]
     public async Task<IActionResult> Filter(string searchString)
     {

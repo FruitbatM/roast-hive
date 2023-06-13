@@ -13,7 +13,7 @@ namespace RoastHiveMvc.Controllers
     {
         public class TotalAmountResponse
         {
-            public string cartTotal { get; set; }
+            public string? cartTotal { get; set; }
         }
 
         private readonly ILogger<CartController> _logger;
@@ -27,7 +27,6 @@ namespace RoastHiveMvc.Controllers
         {
             HttpContext.Session.SetAsJson("Cart", cart);
         }
-
 
         private Cart GetShoppingCart()
         {
@@ -49,8 +48,9 @@ namespace RoastHiveMvc.Controllers
         public IActionResult TotalAmount()
         {
             var cart = GetShoppingCart();
-            int itemCount = cart.Items.Sum(item => item.Quantity);
-            return Content(itemCount.ToString());
+            double totalAmount = cart.Items.Sum(item => item.Quantity * item.UnitPrice);
+            string formattedAmountWithSymbol = "€" + totalAmount.ToString("N2", CultureInfo.GetCultureInfo("ie-IE"));
+            return Content(formattedAmountWithSymbol);
         }
 
         [HttpPost]
@@ -60,10 +60,7 @@ namespace RoastHiveMvc.Controllers
             cart.UpdateQuantity(itemId, quantity);
             UpdateCart(cart);
 
-            int itemCount = cart.Items.Sum(item => item.Quantity);
-            string cartTotal = itemCount.ToString();
-
-            return RedirectToAction("Index", new { cartTotal });
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -73,23 +70,47 @@ namespace RoastHiveMvc.Controllers
             cart.Remove(itemId);
             UpdateCart(cart);
 
-            int itemCount = cart.Items.Sum(item => item.Quantity);
-            string cartTotal = itemCount.ToString();
-
-            return RedirectToAction("Index", new { cartTotal });
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Index(string cartTotal)
+        public IActionResult Index()
         {
             var cart = GetShoppingCart();
-            ViewBag.CartTotal = cartTotal ?? "0";
+
+            // Make an HTTP request to retrieve the cart total amount
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    var response = client.GetAsync("/api/Cart/TotalAmount").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseData = response.Content.ReadAsStringAsync().Result;
+                        var totalAmountResponse = JsonConvert.DeserializeObject<TotalAmountResponse>(responseData);
+                        string formattedAmountWithSymbol = totalAmountResponse?.cartTotal ?? "€0.00";
+                        ViewData["CartTotal"] = formattedAmountWithSymbol;
+                    }
+                    else
+                    {
+                        // Handle the case when the request to TotalAmount endpoint fails
+                        ViewData["CartTotal"] = "€0.00";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle the exception when the request fails
+                    ViewData["CartTotal"] = "€0.00";
+                    _logger.LogError(ex, "Error retrieving cart total amount.");
+                }
+            }
+
             return View(cart);
         }
 
         [HttpPost]
         public IActionResult UpdateCartTotal(string cartTotal)
         {
-            ViewBag.CartTotal = cartTotal;
+            // Handle the updated cart total if necessary
             return Json(new { success = true });
         }
 

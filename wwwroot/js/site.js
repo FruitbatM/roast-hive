@@ -81,7 +81,6 @@ $('.decrement-qty').click(function (e) {
         updateCartTotalAmount(); // Update cart total amount
     }
 });
-
   
 function updateCartTotalAmount() {
   $.ajax({
@@ -89,8 +88,9 @@ function updateCartTotalAmount() {
     method: 'GET',
     success: function (data) {
       let cartTotal = data;
+      $('#cartTotalAmount').text(cartTotal);
       $('.text-success-cart span').text(cartTotal);
-      updateCartTotal(cartTotal);
+      updateCartTotal();
     },
     error: function () {
       console.log('Error retrieving cart total amount.');

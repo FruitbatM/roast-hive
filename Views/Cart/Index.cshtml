@@ -5,7 +5,6 @@
     ViewData["Title"] = "Shopping Cart";
 }
 
-
 <div class="container">
     <div class="row text-center">
         <div class="col-12 my-auto mx-auto mt-4">
@@ -18,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="table-responsive rounded d-none d-md-block">
+            <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless" aria-describedby="shopping cart summary">
                     <thead class="font-italic">
                         <tr class="hrline">
@@ -26,66 +25,85 @@
                             <th scope="col" class="ps-4" style="width: 25%;">Description</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
-                            <th scope="col">Subtotal</th>
+                            <th scope="col" class="d-none d-md-table-cell">Subtotal</th>
                         </tr>
                     </thead>
-                    @foreach (var item in Model.Items)
-                    {
-                        <tr>
-                            <td class="py-4 pe-4 cart-image text-center">
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td class="py-4 pe-4 cart-image text-center">
                                     <img class="img-fluid rounded" src="@item.Url" alt="@item.Name">
-                            </td>
-                            <td class="py-4 ps-4 text-center">
-                                <p class="my-1">
-                                    <strong>@item.Name</strong>
-                                </p>
-                            </td>
-                            <td class="py-5 pe-1 text-center">
-                                <p class="my-1">
-                                    €<span id="unit-price-@item.ProductId">@item.UnitPrice</span>
-                                </p>
-                            </td>
-                            <!-- Quantity -->
-                            <td class="py-4 w-25 text-center">
-                                <input type="number" class="form-control quantity-input" id="quantity-@item.ProductId" value="@item.Quantity"/>
-                                <div>
-                                    <!-- Update link -->
-                                    <a class="update-link text-info" data-number="@item.ProductId"><small>Update</small></a>
-                                    <!-- Remove link -->
-                                    <a class="remove-item text-danger ms-5" data-id="@item.ProductId"><small>Remove</small></a>
-                                </div>
-                            </td>
-                            <td class="py-4 text-center">
-                                <span id="subtotal-@item.ProductId">€@(item.UnitPrice * item.Quantity)</span>
+                                </td>
+                                <td class="py-4 ps-4 text-center">
+                                    <p class="my-1">
+                                        <strong>@item.Name</strong>
+                                    </p>
+                                </td>
+                                <td class="py-5 pe-1 text-center">
+                                    <p class="my-1">
+                                        €<span id="unit-price-@item.ProductId">@item.UnitPrice</span>
+                                    </p>
+                                </td>
+                                <td class="py-4 w-25 text-center">
+                                    <input type="number" class="form-control quantity-input" id="quantity-@item.ProductId" value="@item.Quantity" />
+                                    <div class="d-md-flex justify-content-center align-items-center">
+                                        <div class="d-md-block d-flex flex-column">
+                                            <a class="update-link text-info mt-2 mt-md-0" data-number="@item.ProductId"><small>Update</small></a>
+                                            <a class="remove-item text-danger mt-2 mt-md-0" data-id="@item.ProductId"><small>Remove</small></a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-4 d-none d-md-table-cell text-center"> 
+                                    <span id="subtotal-@item.ProductId">€@(item.UnitPrice * item.Quantity)</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="pt-5 text-end">
+                                <h6>
+                                    <strong>Cart Total: <span id="cart-total">€@Model.Total</span></strong>
+                                </h6>
+                                <small class="text-muted">*Tax included</small>
                             </td>
                         </tr>
-                    }
-                    <tr>
-                        <td colspan="5" class="pt-5 text-end">
-                            <h6>
-                                <strong>Cart Total: <span id="cart-total">€@Model.Total</span></strong>
-                            </h6>
-                            <small class="text-muted">*Tax&nbsp;included </small>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" class="text-end">
-                            <a asp-controller="Shop" asp-action="Index" class="btn adjust-button rounded-1 btn-lg">
-                                <span class="icon">
-                                    <i class="bi bi-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <a href="" class="btn checkout-button rounded-1 btn-lg my-2">
-                                <span class="text-uppercase">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="bi bi-shield-lock"></i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td colspan="4" class="text-end">
+                                <div class="text-center mx-auto">
+                                    <a asp-controller="Shop" asp-action="Index" class="btn adjust-button rounded-1 btn-lg d-md-none">
+                                        <span class="icon">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Keep Shopping</span>
+                                    </a>
+                                    <a href="" class="btn checkout-button rounded-1 btn-lg d-md-none my-2">
+                                        <span class="text-uppercase">Secure Checkout</span>
+                                        <span class="icon">
+                                            <i class="bi bi-shield-lock"></i>
+                                        </span>
+                                    </a>
+                                    <a asp-controller="Shop" asp-action="Index" class="btn adjust-button rounded-1 btn-lg d-none d-md-inline-block">
+                                        <span class="icon">
+                                            <i class="bi bi-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Keep Shopping</span>
+                                    </a>
+                                    <a href="" class="btn checkout-button rounded-1 btn-lg d-none d-md-inline-block my-2">
+                                        <span class="text-uppercase">Secure Checkout</span>
+                                        <span class="icon">
+                                            <i class="bi bi-shield-lock"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
